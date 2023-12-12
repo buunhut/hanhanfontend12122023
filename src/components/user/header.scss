@@ -1,0 +1,584 @@
+header {
+  .container {
+    .contentMenu {
+      .topItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+        p {
+          color: white;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        a {
+          margin-top: 0;
+        }
+
+        .inputItem {
+          width: 100%;
+          position: relative;
+          border-bottom: none;
+          i {
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            color: rgb(195, 195, 195);
+          }
+          input {
+            width: 100%;
+            height: 30px;
+            padding: 0 30px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 10px;
+          }
+        }
+
+        .back {
+          width: 50px;
+          text-align: center;
+          i {
+            color: white;
+          }
+        }
+        .gioHang {
+          width: 60px;
+          // text-align: center;
+          position: relative;
+          cursor: pointer;
+          i {
+            color: white;
+            font-size: 22px;
+          }
+          p.totalSoLuong {
+            position: absolute;
+            top: -5px;
+            left: 7px;
+            padding: 0 3px;
+            background-color: white;
+            color: red;
+            font-size: 12px;
+            font-weight: 400;
+            border-radius: 5px;
+          }
+        }
+        i {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+#gioHang {
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 500;
+  }
+  #gioHangContent {
+    width: 0;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    // right: -100%; /* Initially off-screen */
+    z-index: 501;
+    transition: all 0.1s; /* Use a transition on the 'right' property */
+    overflow-y: scroll;
+    &.show {
+      width: 500px; /* Move in when the 'show' class is applied */
+    }
+    .title {
+      padding: 20px;
+      height: 62px;
+      text-align: center;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // position: absolute;
+      // top: 0;
+      // left: 0;
+      // right: 0;
+      border-bottom: 1px solid rgb(200, 200, 200);
+      i {
+        width: 30px;
+        color: red;
+        cursor: pointer;
+      }
+      .p {
+        width: 100%;
+      }
+      button {
+        width: 60px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    .main {
+      // position: absolute;
+      // top: 62px;
+      // bottom: 60px;
+      // left: 0;
+      // right: 0;
+      padding: 10px;
+      height: calc(100vh - 192px);
+      overflow-y: scroll;
+      background-color: white;
+
+      table {
+        width: 100%;
+        margin: 20px 0;
+        border-collapse: collapse;
+        border-bottom: 1px solid rgb(195, 195, 195);
+        tbody {
+          tr {
+            padding: 20px;
+
+            &:nth-child(even) {
+              background-color: rgba(245, 245, 245, 0.6);
+            }
+            td {
+              padding: 5px;
+            }
+            td.hinhAnh {
+              width: 50px;
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+            td.tenSp {
+              p.ten {
+                font-size: 14px;
+                font-weight: 400;
+                padding: 5px 0;
+                text-transform: capitalize;
+              }
+              .bottomMenu {
+                display: flex;
+                align-items: center;
+                p.donGia {
+                  width: 80px;
+                  font-size: 14px;
+                  font-weight: 400;
+                  color: red;
+                }
+                .tangGiamSoLuong {
+                  // padding: 10px;
+                  height: 30px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  gap: 10px;
+                  i.giam {
+                    width: 18px;
+                    height: 18px;
+                    line-height: 17px;
+                    text-align: center;
+                    color: silver;
+                    background-color: white;
+                    border: 1px solid silver;
+                    border-radius: 50%;
+                    cursor: pointer;
+                  }
+                  i.tang {
+                    width: 19px;
+                    height: 19px;
+                    line-height: 19px;
+                    text-align: center;
+                    color: white;
+                    background-color: rgba(195, 195, 195, 0.6);
+                    border-radius: 50%;
+                    cursor: pointer;
+                  }
+                  p {
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    width: 60px;
+                    background-color: rgb(255, 245, 245);
+                    color: red;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
+                }
+              }
+            }
+            td.thanhTien {
+              p.xoa {
+                font-size: 14px;
+                font-weight: 400;
+                text-align: right;
+                padding: 5px 0 10px;
+                color: silver;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover {
+                  color: red;
+                }
+              }
+              p.thanhTien {
+                font-size: 14px;
+                font-weight: 400;
+                text-align: right;
+                color: red;
+              }
+              p.tichLuy {
+                font-size: 14px;
+                font-weight: 400;
+                text-align: right;
+              }
+            }
+            td.note {
+              padding: 0 5px;
+              background-color: white;
+              text-align: center;
+              i {
+                color: silver;
+                font-size: 13px;
+                font-weight: 400;
+              }
+            }
+          }
+          tr.phiVc {
+            height: 50px;
+            color: royalblue;
+            td.pvc {
+              text-align: center;
+              font-size: 16px;
+            }
+            td.tien {
+              text-align: right;
+              // vertical-align: top;
+              font-size: 14px;
+              font-weight: 400;
+              // color: red;
+            }
+          }
+        }
+      }
+      .khachTuLay {
+        display: flex;
+        justify-content: start;
+        input {
+          width: 18px;
+          height: 18px;
+          margin-right: 7px;
+          border-radius: 50%;
+        }
+        padding: 10px 0;
+      }
+      p.center {
+        text-align: center;
+        padding: 3px;
+        i {
+          font-size: 14px;
+          font-weight: 400;
+          // color: silver;
+        }
+      }
+
+      .extraInfo {
+        padding: 10px;
+        h3 {
+          color: silver;
+          // text-align: center;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        form {
+          margin: 10px 0;
+          padding: 10px;
+          border: 1px solid rgb(195, 195, 195);
+          border-radius: 10px;
+          #tenKhachHang,
+          #diaChi {
+            text-transform: capitalize;
+          }
+
+          p {
+            margin-top: 10px;
+          }
+        }
+      }
+      .hetHang {
+        padding: 10px;
+      }
+    }
+    .viCuaBan {
+      height: 30px;
+      line-height: 30px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      p {
+        width: 300px;
+      }
+      input {
+        height: 15px;
+        width: 15px;
+        margin-right: 8px;
+      }
+    }
+    .bottom {
+      // position: absolute;
+      // left: 0;
+      // right: 0;
+      // bottom: 0;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      border-top: 1px solid rgb(200, 200, 200);
+      div.thanhToan {
+        width: 100%;
+        padding: 0 20px 0 0;
+        .inputItem {
+          border: none;
+
+          p {
+            width: 100%;
+            color: red;
+            font-size: 16px;
+            font-weight: 500;
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+      a {
+        color: white;
+        margin: 0;
+        width: 100%;
+
+        button {
+          margin: 0;
+          width: 100%;
+        }
+      }
+      button {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #gioHang {
+    width: 100%;
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 500;
+    }
+    #gioHangContent {
+      width: 0;
+      background-color: whitesmoke;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      // right: -100%; /* Initially off-screen */
+      z-index: 501;
+      transition: all 0.1s; /* Use a transition on the 'right' property */
+      overflow-y: scroll;
+      &.show {
+        width: 100%; /* Move in when the 'show' class is applied */
+      }
+      .title {
+        padding: 20px;
+        height: 62px;
+        text-align: center;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid rgb(200, 200, 200);
+        i {
+          width: 30px;
+          color: red;
+          cursor: pointer;
+        }
+        .p {
+          width: 100%;
+        }
+        button {
+          width: 60px;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+      .main {
+        position: absolute;
+        top: 62px;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        // padding: 10px;
+        background-color: white;
+        table {
+          width: 100%;
+          margin-top: 30px;
+          border-collapse: collapse;
+          tbody {
+            tr {
+              padding: 20px;
+
+              &:nth-child(even) {
+                background-color: rgba(240, 240, 240, 0.6);
+              }
+              td {
+                padding: 5px;
+              }
+              td.hinhAnh {
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+              }
+              td.tenSp {
+                p.ten {
+                  font-size: 14px;
+                  font-weight: 400;
+                  padding: 5px 0;
+                  text-transform: capitalize;
+                }
+                .bottomMenu {
+                  display: flex;
+                  align-items: center;
+                  p.donGia {
+                    width: 80px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: red;
+                  }
+                  .tangGiamSoLuong {
+                    // padding: 10px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    i.giam {
+                      width: 18px;
+                      height: 18px;
+                      line-height: 17px;
+                      text-align: center;
+                      color: silver;
+                      background-color: white;
+                      border: 1px solid silver;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    }
+                    i.tang {
+                      width: 19px;
+                      height: 19px;
+                      line-height: 19px;
+                      text-align: center;
+                      color: white;
+                      background-color: rgba(195, 195, 195, 0.6);
+                      border-radius: 50%;
+                      cursor: pointer;
+                    }
+                    p {
+                      height: 20px;
+                      line-height: 20px;
+                      text-align: center;
+                      width: 60px;
+                      background-color: rgb(255, 245, 245);
+                      color: red;
+                      border-radius: 20px;
+                      font-size: 14px;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+              td.thanhTien {
+                p.xoa {
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: right;
+                  padding: 5px 0 10px;
+                  color: silver;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                  &:hover {
+                    color: red;
+                  }
+                }
+                p.thanhTien {
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: right;
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-top: 1px solid rgb(200, 200, 200);
+
+        p {
+          width: 100%;
+          color: red;
+          font-size: 16px;
+          font-weight: 500;
+        }
+        a {
+          color: white;
+          margin: 0;
+          width: 100%;
+
+          button {
+            margin: 0;
+          }
+        }
+        button {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

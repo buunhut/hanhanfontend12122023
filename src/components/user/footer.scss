@@ -1,0 +1,90 @@
+footer {
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  .container {
+    .contentMenu {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      a {
+        color: silver;
+        i {
+          font-size: 16px;
+        }
+        p {
+          font-size: 12px;
+          font-weight: 500;
+          color: black;
+        }
+      }
+    }
+  }
+}
+// @media screen and (max-width: 1200px) {
+//   footer {
+//     .container {
+//       .content {
+//         width: 100%;
+//         a {
+//           i {
+//           }
+//           p {
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 992px) {
+//   footer {
+//     .container {
+//       .content {
+//         width: 100%;
+//         a {
+//           i {
+//           }
+//           p {
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 768px) {
+//   footer {
+//     .container {
+//       .content {
+//         width: 100%;
+//         a {
+//           i {
+//           }
+//           p {
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 500px) {
+//   footer {
+//     .container {
+//       .content {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 400px) {
+//   footer {
+//     .container {
+//       .content {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,41 @@
+#nhanVien {
+  table {
+    margin-top: 20px;
+    thead {
+      tr {
+        td.tenNhanVien {
+          width: 200px;
+        }
+        td.soDt {
+          width: 120px;
+        }
+        td.chucVu {
+          width: 100px;
+        }
+        td.mucLuong {
+          width: 100px;
+          text-align: right;
+          padding: 0 10px 0 5px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td.tenNhanVien {
+          width: 200px;
+        }
+        td.soDt {
+          width: 120px;
+        }
+        td.chucVu {
+          width: 100px;
+        }
+        td.mucLuong {
+          width: 100px;
+          text-align: right;
+          padding: 0 10px 0 5px;
+        }
+      }
+    }
+  }
+}

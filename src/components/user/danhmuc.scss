@@ -1,0 +1,65 @@
+#danhMucSanPham {
+  // margin-top: 30px;
+  .container {
+    //   background-color: whitesmoke;
+    //   width: 1000px;
+    //   margin: 30px auto;
+    h3 {
+      color: silver;
+    }
+    .tabLabel {
+      width: 100px;
+      text-align: center;
+      word-wrap: break-word;
+      white-space: initial;
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+      p {
+        width: 100px;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgb(100, 100, 100);
+      }
+      .tenDanhMuc {
+        width: 100px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgb(120, 120, 120);
+        word-wrap: break-word;
+      }
+    }
+    .listSanPham {
+      // background-color: aqua;
+      width: 1160px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      //   position: sticky;
+      //   top: 90px;
+      //   z-index: -1;
+      //   height: calc(100vh - 120px);
+      //   overflow-y: scroll;
+    }
+    .ant-tabs {
+      //   width: 1000px;
+      .ant-tabs-tab {
+        // padding: 0 10px;
+      }
+      .ant-tabs-content-holder {
+        //   background-color: red;
+        //   position: fixed;
+        //   z-index: -1;
+        //   left: 80px;
+        border-left: 0 solid silver;
+        // margin-left: -2px;
+        // width: 1000px;
+      }
+    }
+  }
+}

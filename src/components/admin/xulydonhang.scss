@@ -1,0 +1,108 @@
+#xuLyDonHang {
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  input.date {
+    // text-align: right;
+  }
+  select{
+    color: black;
+  }
+  h3 {
+    color: silver;
+    margin-top: 30px;
+    text-align: center;
+  }
+  table.listOrder {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    thead {
+      position: sticky;
+      top: -10px;
+      tr {
+        td {
+          background-color: royalblue;
+          color: white;
+          padding: 5px 10px;
+          &.tien {
+            text-align: right;
+          }
+        }
+      }
+    }
+    tbody {
+      tr.item {
+        transition: all 0.3s;
+        &:nth-child(even) {
+          background-color: rgb(235, 235, 235);
+        }
+        td {
+          p {
+            padding: 2px 0;
+          }
+          padding: 5px 10px;
+          &.tien {
+            text-align: right;
+            input {
+              padding: 0;
+              text-align: right;
+              width: 100px;
+              background-color: transparent;
+              font-size: 14px;
+            }
+          }
+          &.ten {
+            text-transform: capitalize;
+            input {
+              padding: 0;
+              text-transform: capitalize;
+              width: 100px;
+              background-color: transparent;
+              font-size: 14px;
+            }
+            select {
+              background-color: transparent;
+              padding: 0;
+              color: black;
+              text-transform: capitalize;
+              font-size: 14px;
+            }
+          }
+          i {
+            cursor: pointer;
+          }
+        }
+        // &:hover {
+        //   // background-color: orange;
+        //   // color: white;
+        //   input {
+        //     color: white;
+        //   }
+        //   select {
+        //     color: white !important ;
+        //   }
+        //   p {
+        //     color: white !important;
+        //   }
+        // }
+      }
+      tr.total {
+        background-color: royalblue;
+        color: white;
+        padding: 5px 10px;
+        height: 35px;
+        th {
+          padding: 5px 10px;
+          font-size: 16px;
+          font-weight: 400;
+        }
+        th.tien {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

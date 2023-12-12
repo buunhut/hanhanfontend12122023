@@ -1,0 +1,95 @@
+.partner {
+  position: relative;
+  h2 {
+    text-align: center;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    background-color: royalblue;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      background-color: red;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    thead {
+      tr {
+        td {
+          padding: 5px;
+          background-color: royalblue;
+          color: white;
+          &.center {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: rgba(245, 245, 245);
+          input {
+            background-color: transparent;
+          }
+        }
+        td {
+          padding: 5px;
+          input {
+            padding: 0 3px;
+          }
+          &.maDoiTac {
+            width: 160px;
+            input {
+              text-transform: uppercase;
+            }
+          }
+          &.tenDoiTac {
+            input {
+              text-transform: capitalize;
+            }
+          }
+          &.diaChi {
+            input {
+              text-transform: capitalize;
+            }
+          }
+          &.mst {
+            width: 120px;
+          }
+          &.nguoiLienHe {
+            width: 120px;
+            input {
+              text-transform: capitalize;
+            }
+          }
+          &.soDt {
+            width: 120px;
+          }
+          &.thaoTac {
+            text-align: center;
+            color: rgb(195, 195, 195);
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

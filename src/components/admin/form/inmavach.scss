@@ -1,0 +1,19 @@
+#inMaVach {
+  width: 410px;
+  margin: 0 auto;
+  padding: 5px;
+  h3 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    // text-transform: capitalize;
+  }
+  .barcode-container {
+    display: flex;
+    flex-wrap: wrap;
+    .barcode {
+      width: 200px;
+    }
+  }
+}

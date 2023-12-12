@@ -1,0 +1,319 @@
+button {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+table.sanPham {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  thead {
+    border: 1px solid royalblue;
+    position: sticky;
+    top: -12px;
+    z-index: 5;
+
+    tr {
+      background-color: royalblue;
+      color: white;
+      td {
+        padding: 5px 10px;
+        p {
+          padding: 2px 0;
+        }
+        p.right {
+          text-align: right;
+        }
+        p.left {
+          text-align: left;
+        }
+        p.center {
+          text-align: center;
+        }
+        p.cursor {
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            color: red;
+          }
+        }
+        i {
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      td.gia {
+        width: 100px;
+      }
+      td.danhMuc {
+        width: 280px;
+      }
+      td.dvt {
+        width: 100px;
+      }
+      td.tonKho {
+        width: 100px;
+      }
+      td.thaoTac {
+        width: 100px;
+      }
+      td.center {
+        width: 40px;
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    padding-bottom: 50px;
+    border: 1px solid royalblue;
+    tr {
+      &:nth-child(odd) {
+        background-color: rgb(240, 240, 240);
+        input {
+          background-color: transparent;
+        }
+        select {
+          background-color: transparent;
+        }
+        &.addDVt {
+          background-color: white;
+          td {
+            i {
+              color: royalblue;
+              cursor: pointer;
+              transition: all 0.3s;
+              &:hover {
+                color: red;
+              }
+            }
+          }
+        }
+      }
+      td {
+        padding: 10px;
+        input {
+          height: 30px;
+          width: 100%;
+          border-bottom: 1px solid silver;
+          margin-top: 5px;
+        }
+        input.right {
+          text-align: right;
+        }
+        input.hinh {
+          height: 70px;
+          width: 70px;
+          border: 1px solid silver;
+        }
+        select {
+          height: 30px;
+          width: 100%;
+          padding: 0;
+          margin-top: 5px;
+          border-bottom: 1px solid silver;
+          color: black;
+        }
+        p.right {
+          text-align: right;
+        }
+        .groupItem {
+          align-items: center;
+        }
+      }
+      td.center {
+        text-align: center;
+        vertical-align: middle;
+        width: 40px;
+        i {
+          color: silver;
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      td.hinh {
+        width: 80px;
+        height: 80px;
+        position: relative;
+        vertical-align: middle;
+        .upload {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          flex-direction: row-reverse;
+          // gap: 10px;
+          /* CSS */
+          .custom-file-upload {
+            display: inline-block;
+            height: 80px;
+            width: 80px;
+            text-align: center;
+            line-height: 80px;
+            // border: 1px solid silver;
+            color: silver;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+
+            &:hover {
+              color: red;
+            }
+          }
+          /* Ẩn văn bản mặc định của input type="file" */
+          .custom-file-upload input[type="file"] {
+            display: none;
+          }
+
+          /* Ẩn văn bản "No file chosen" (tùy chỉnh tùy vào trình duyệt) */
+          .custom-file-upload input[type="file"] + label {
+            display: none;
+          }
+          label {
+            i {
+              width: 80px;
+              height: 80px;
+              font-size: 80px;
+              color: rgba(195, 195, 195, 0.3);
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              right: 0;
+              bottom: 0;
+            }
+          }
+        }
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 10px;
+        }
+        i {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          color: silver;
+          cursor: pointer;
+          transition: all 0.3s;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#danhMuc,
+#thuongHieu {
+  width: 800px;
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 500;
+  transform: translate(-50%, -50%);
+  &.show {
+    transform: translate(-50%, -800%);
+  }
+
+  .groupFlex {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+
+    button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+h4 {
+  margin: 50px auto;
+  color: silver;
+  text-align: center;
+}
+table.danhMuc {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  thead {
+    tr {
+      background-color: royalblue;
+      color: white;
+      height: 30px;
+      td.stt {
+        width: 40px;
+        padding: 5px 10px;
+      }
+      td.hinhAnh {
+        width: 80px;
+        text-align: center;
+        padding: 5px 10px;
+      }
+      td.thaoTac {
+        width: 40px;
+        text-align: center;
+        padding: 5px 10px;
+      }
+    }
+  }
+  tbody {
+    overflow-y: hidden;
+    tr {
+      &:nth-child(even) {
+        background-color: rgb(245, 245, 245);
+      }
+      td {
+        position: relative;
+        padding: 5px 10px;
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 10px;
+        }
+        i.delete {
+          position: absolute;
+          top: 3;
+          left: 0;
+          transition: all 0.3s;
+          color: silver;
+          cursor: pointer;
+          &:hover {
+            color: red;
+          }
+        }
+        i {
+          transition: all 0.3s;
+          color: silver;
+          cursor: pointer;
+          &:hover {
+            color: red;
+          }
+        }
+        input {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

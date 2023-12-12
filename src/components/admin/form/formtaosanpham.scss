@@ -1,0 +1,14 @@
+.groupItem {
+  display: flex;
+  gap: 5px;
+  #giaNhap,
+  #giaBan,
+  #giaGiam,
+  #quyDoi {
+    text-align: left;
+  }
+}
+button {
+  margin-top: 5px;
+}
+

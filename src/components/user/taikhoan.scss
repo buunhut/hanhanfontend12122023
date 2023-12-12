@@ -1,0 +1,87 @@
+#taiKhoan {
+  // background-color: red;
+  width: 100%;
+  .tittle {
+    display: flex;
+    align-items: center;
+    p {
+      margin: 10px 0;
+      width: 50%;
+    }
+    h3 {
+      width: 50%;
+      text-align: right;
+    }
+  }
+  span {
+    color: silver;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+  }
+  table {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 3px auto 30px;
+    thead {
+      background-color: red;
+      tr {
+        td.stt {
+          width: 50px;
+          text-align: right;
+          padding: 0 10px 0 5px;
+        }
+        td.ngay {
+          width: 100px;
+        }
+        td.right {
+          text-align: right;
+        }
+        td.huy {
+          text-align: center;
+          width: 30px;
+          padding: 0 5px 0 10px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td.stt {
+          width: 50px;
+          text-align: right;
+          padding: 0 10px 0 5px;
+        }
+        td.ngay {
+          width: 100px;
+        }
+
+        td.right {
+          text-align: right;
+        }
+        td.huy {
+          text-align: center;
+          width: 30px;
+          padding: 0 5px 0 10px;
+          i {
+            color: silver;
+            transition: all 0.3s;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+        td {
+          p.congTichLuy {
+            color: black;
+          }
+          p.truTichLuy {
+            color: silver;
+          }
+        }
+      }
+    }
+  }
+  button {
+    width: 100%;
+  }
+}

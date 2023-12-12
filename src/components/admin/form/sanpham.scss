@@ -1,0 +1,182 @@
+.ant-tabs-tabpane {
+  padding: 0 0 0 10px !important;
+}
+#upload {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 10px;
+  /* CSS */
+  .custom-file-upload {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    // border: 1px solid silver;
+    color: silver;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+  /* Ẩn văn bản mặc định của input type="file" */
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+
+  /* Ẩn văn bản "No file chosen" (tùy chỉnh tùy vào trình duyệt) */
+  .custom-file-upload input[type="file"] + label {
+    display: none;
+  }
+  label {
+    i {
+      width: 60px;
+      height: 60px;
+      font-size: 60px;
+      color: rgba(195, 195, 195, 0.3);
+    }
+  }
+  .hinhAnh {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    i.xoa {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 16px;
+      color: rgba(195, 195, 195);
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+h4 {
+  color: silver;
+  text-align: center;
+  line-height: 38px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  thead {
+    background-color: royalblue;
+    color: white;
+    tr {
+      td.hinhAnh {
+        width: 70px;
+        text-align: center;
+      }
+      td.maSp {
+        width: 180px;
+      }
+      td {
+        padding: 5px;
+      }
+      td.giaTien {
+        width: 100px;
+        text-align: right;
+      }
+      td.quyDoi {
+        width: 60px;
+        text-align: right;
+      }
+      td.dvt {
+        width: 80px;
+      }
+      td.order {
+        width: 50px;
+      }
+      td.tonKho {
+        width: 60px;
+        text-align: right;
+      }
+      td.center {
+        width: 30px;
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: rgb(245, 245, 245);
+      }
+      td {
+        padding: 5px;
+        input {
+          background-color: transparent;
+          padding: 0;
+        }
+        .hinhAnh {
+          position: relative;
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+          }
+          i.delete {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            color: silver;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+        i {
+          cursor: pointer;
+        }
+      }
+      td.maSp {
+        width: 180px;
+      }
+
+      td.add {
+        width: 30px;
+        text-align: center;
+        background-color: white;
+      }
+      td.giaTien {
+        width: 100px;
+        text-align: right;
+      }
+      td.quyDoi {
+        width: 60px;
+        text-align: right;
+      }
+      td.dvt {
+        width: 80px;
+      }
+      td.order {
+        width: 50px;
+      }
+      td.tonKho {
+        width: 60px;
+        text-align: right;
+      }
+      td.center {
+        width: 30px;
+        text-align: center;
+      }
+    }
+  }
+}

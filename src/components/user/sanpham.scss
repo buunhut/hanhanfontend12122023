@@ -1,0 +1,21 @@
+.container {
+  .danhMuc {
+    margin-top: 10px;
+  }
+  .content {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    // margin-bottom: 20px;
+    p.tenDanhMuc {
+      padding: 20px 0 10px 0;
+      font-size: 22px;
+      font-weight: 600;
+      color: red;
+      text-transform: uppercase;
+    }
+  }
+}

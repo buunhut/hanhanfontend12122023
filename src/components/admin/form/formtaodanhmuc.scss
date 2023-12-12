@@ -1,0 +1,221 @@
+#upload {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 10px;
+  /* CSS */
+  .custom-file-upload {
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    line-height: 80px;
+    // border: 1px solid silver;
+    color: silver;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+  /* Ẩn văn bản mặc định của input type="file" */
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+
+  /* Ẩn văn bản "No file chosen" (tùy chỉnh tùy vào trình duyệt) */
+  .custom-file-upload input[type="file"] + label {
+    display: none;
+  }
+  label {
+    i {
+      width: 80px;
+      height: 80px;
+      font-size: 80px;
+      color: rgba(195, 195, 195, 0.3);
+    }
+  }
+  .hinhAnh {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    i.xoa {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 16px;
+      color: rgba(195, 195, 195);
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+p.danhMucDaTao {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: white;
+  background-color: rgba(195, 195, 195, 0.6);
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+#listDanhMuc {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 6px;
+  overflow: scroll;
+  width: 394px;
+  height: 200px;
+  margin: 5px auto;
+  div {
+    width: 74px;
+    position: relative;
+    img {
+      width: 74px;
+      height: 74px;
+      border-radius: 10px;
+      border: 1px solid rgba(195, 195, 195, 0.3);
+    }
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 14px;
+      height: 28px;
+      overflow: hidden;
+    }
+    i.xoa {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(192, 192, 192, 0.6);
+      // background: rgba(0, 0, 0, 0.2);
+      padding: 3px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: red;
+      }
+    }
+    i.edit {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(192, 192, 192, 0.6);
+      // background: rgba(0, 0, 0, 0.2);
+      padding: 3px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+#listThuongHieu {
+  overflow: scroll;
+  width: 394px;
+  height: 300px;
+  margin: 0 auto 5px;
+  p.danhMuc {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    background-color: rgba(195, 195, 195, 0.6);
+    padding: 0 10px;
+    margin-bottom: 10px;
+    i {
+      margin-right: 5px;
+    }
+  }
+  .thuongHieuContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+    width: 100%;
+
+    div {
+      width: 74px;
+      position: relative;
+      img {
+        width: 74px;
+        height: 74px;
+        border-radius: 10px;
+        border: 1px solid rgba(195, 195, 195, 0.3);
+      }
+      p {
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 14px;
+        height: 28px;
+        overflow: hidden;
+      }
+      i.xoa {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        font-size: 16px;
+        font-weight: 500;
+        color: silver;
+        // background: rgba(0, 0, 0, 0.2);
+        padding: 3px;
+        border-radius: 50%;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+      i.edit {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        font-size: 16px;
+        font-weight: 500;
+        color: silver;
+        // background: rgba(0, 0, 0, 0.2);
+        padding: 3px;
+        border-radius: 50%;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+.ant-popover-content {
+  button.ant-btn {
+    width: 60px;
+    &:hover {
+      border: none;
+      color: white;
+    }
+  }
+}
