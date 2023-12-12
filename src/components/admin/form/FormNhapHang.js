@@ -246,16 +246,16 @@ const FormNhapHang = () => {
                             placeholder="Chọn nhà phân phối"
                             onChange={handleChangeNpp}
                             filterOption={(input, option) =>
-                                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                option.children.indexOf(input) >= 0
                             }
                         >
                             {sortedListNpp?.map((item) => (
                                 <Select.Option
                                     key={item.dtId}
                                     value={item.dtId}
-                                    label={item.maDoiTac.toUpperCase()}
+                                    label={item.maDoiTac}
                                 >
-                                    {item.maDoiTac.toUpperCase()}
+                                    {item.maDoiTac}
                                 </Select.Option>
                             ))}
                         </Select>
