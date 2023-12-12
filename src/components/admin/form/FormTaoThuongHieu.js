@@ -467,7 +467,7 @@ const FormTaoThuongHieu = () => {
                             {itemDanhMuc.brandNames.map((itemThuongHieu, index) => (
                                 <div key={index}>
                                     <img src={`${URL}/${itemThuongHieu.hinhThuongHieu}`} alt="" />
-                                    <p>{itemThuongHieu.tenThuongHieu.toUpperCase()}</p>
+                                    <p>{itemThuongHieu.tenThuongHieu}</p>
                                     <Popconfirm
                                         title="Bạn có chắc muốn xoá thương hiệu?"
                                         onConfirm={() => handleXoaThuongHieu(itemThuongHieu)}

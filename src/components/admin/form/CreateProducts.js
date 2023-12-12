@@ -120,7 +120,7 @@ const CreateProducts = () => {
         }));
         const data = {
             dmId,
-            tenDanhMuc: value.trim().toLowerCase(),
+            tenDanhMuc: value.trim(),
         };
         const updateDanhMuc = await danhMucApi.apiUpdateDanhMuc(headers, data);
         const { statusCode } = updateDanhMuc.data;
@@ -230,7 +230,7 @@ const CreateProducts = () => {
         }));
         const data = {
             thId,
-            tenThuongHieu: value.trim().toLowerCase(),
+            tenThuongHieu: value.trim(),
         };
         const updateThuongHieu = await thuongHieuApi.apiUpdateThuongHieu(
             headers,
@@ -591,7 +591,7 @@ const CreateProducts = () => {
                     }}
                 >
                     <div>
-                        <b>{item.tenDanhMuc?.toUpperCase()}</b>
+                        <b>{item.tenDanhMuc}</b>
                     </div>
                 </div>
             ),

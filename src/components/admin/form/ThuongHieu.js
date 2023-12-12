@@ -30,7 +30,7 @@ const ThuongHieu = ({ thuongHieu }) => {
             items={thuongHieu?.map((item) => {
                 return {
                     label: <div>
-                        <p style={{ textTransform: 'uppercase' }}>{item.tenThuongHieu}</p>
+                        <p>{item.tenThuongHieu}</p>
                     </div>,
                     key: `${item.thId}`,
                     children: <SanPham sanPham={item.sanPham} thId={thId} />

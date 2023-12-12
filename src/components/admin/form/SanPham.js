@@ -418,7 +418,7 @@ const SanPham = ({ sanPham }) => {
                                                             name="tenSp"
                                                             value={tenSp[spId] !== undefined ? tenSp[spId] : sp.tenSp === null ? '' : sp.tenSp}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            style={{ textAlign: 'left', textTransform: 'capitalize' }}
+                                                            // style={{ textAlign: 'left', textTransform: 'capitalize' }}
                                                             placeholder="Tên sản phẩm"
                                                         />
                                                     </div>
@@ -429,7 +429,7 @@ const SanPham = ({ sanPham }) => {
                                                             name="dvt"
                                                             value={dvt[spId] !== undefined ? dvt[spId] : sp.dvt === null ? '' : sp.dvt}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            style={{ textAlign: 'left', textTransform: 'capitalize' }}
+                                                            // style={{ textAlign: 'left', textTransform: 'capitalize' }}
                                                             placeholder="Đvt"
                                                         />
                                                     </div>

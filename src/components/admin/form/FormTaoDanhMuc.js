@@ -305,7 +305,7 @@ const FormTaoDanhMuc = () => {
                         return (
                             <div key={index}>
                                 <img src={`${URL}/${item.hinhDanhMuc}`} alt="" />
-                                <p>{item.tenDanhMuc.toUpperCase()}</p>
+                                <p>{item.tenDanhMuc}</p>
                                 <Popconfirm
                                     title="Bạn có chắc muốn xoá danh mục?"
                                     onConfirm={() => handleXoaDanhMuc(item)}
