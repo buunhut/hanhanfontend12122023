@@ -1,0 +1,22 @@
+#timKiem {
+  header {
+    height: 62px;
+    background-color: red;
+    // margin-top: -5px;
+    // padding: 2px 0 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .content {
+    // min-height: calc(100vh - 112px);
+    padding: 62px 0 80px;
+  }
+  .footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+  }
+}

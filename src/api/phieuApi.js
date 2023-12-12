@@ -62,7 +62,16 @@ export const phieuApi = {
             headers,
             data
         })
+    },
+    apiSortPhieu: (headers, data) => {
+        return axios({
+            method: 'post',
+            url: `${URL}/phieu/sort-phieu/`,
+            headers,
+            data
+        })
     }
+
 
 
 

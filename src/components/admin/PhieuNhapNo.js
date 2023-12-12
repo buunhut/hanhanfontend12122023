@@ -8,6 +8,8 @@ import { capitalizeFirstLetter } from '../../service/functions';
 import { phieuApi } from '../../api/phieuApi';
 import { message } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { updateListNpp } from '../../redux/doiTacSlice';
+import { doiTacApi } from '../../api/doiTacApi';
 
 const PhieuNhapNo = () => {
     const { user } = useSelector((state) => state.dangNhap);
@@ -15,6 +17,9 @@ const PhieuNhapNo = () => {
     const headers = {
         token,
     };
+
+    const [locNo, setLocNo] = useState(false)
+
 
     const dispath = useDispatch();
 
@@ -39,9 +44,26 @@ const PhieuNhapNo = () => {
     let { listChiTietNhap } = useSelector((state) => state.chiTietNhap);
 
     const phieuNhapNo = []
+    // const listNpp = []
     listChiTietNhap?.forEach((item) => {
         const { pId, ngay, dtId, maDoiTac, soPhieu, soTien, thanhToan, conNo, ghiChu } = item
-        if (conNo > 0) {
+        if (locNo) {
+            if (conNo > 0) {
+                const phieuNo = {
+                    pId,
+                    ngay,
+                    dtId,
+                    maDoiTac,
+                    soPhieu,
+                    soTien,
+                    thanhToan,
+                    conNo,
+                    ghiChu
+                }
+                phieuNhapNo.push(phieuNo)
+            }
+
+        } else {
             const phieuNo = {
                 pId,
                 ngay,
@@ -54,22 +76,53 @@ const PhieuNhapNo = () => {
                 ghiChu
             }
             phieuNhapNo.push(phieuNo)
+
         }
+        // listNpp.push({ dtId, maDoiTac })
     })
+
+
+    // const listNppLoc = Array.from(
+    //     new Set(listNpp.map((item) => JSON.stringify(item)))
+    // ).map((item) => JSON.parse(item));
+
+    // console.log(listNppLoc);
+
     // console.log(phieuNhapNo)
     const tongSoTien = phieuNhapNo.reduce((total, item) => total + item.soTien, 0)
     const tongThanhToan = phieuNhapNo.reduce((total, item) => total + item.thanhToan, 0)
 
     const [tra, setTra] = useState(0)
     // console.log(tra)
+    const callNpp = () => {
+        doiTacApi.apiGetNpp(headers)
+            .then((res) => {
+                dispath(updateListNpp(res.data.content));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
     useEffect(() => {
         recallChiTietNhap()
+        callNpp()
     }, [])
 
+    const { listNpp } = useSelector((state) => state.doiTac);
+
+
     //tìm kiếm
+    const handleLocNo = (event) => {
+        const { value } = event.target
+        if (value === 'conNo') {
+            setLocNo(true)
+        } else {
+            setLocNo(false)
+        }
+    }
     const [keyword, setKeyword] = useState('')
-    console.log(keyword)
+    // console.log(keyword)
     const handleTimKiem = (event) => {
         const { value } = event.target
         if (value !== '') {
@@ -138,17 +191,110 @@ const PhieuNhapNo = () => {
     }
 
 
+    const [sortPhieu, setSortPhieu] = useState({
+        from: '',
+        to: '',
+        dtId: '',
+        locNo: ''
+    })
+
+    const onChangeInput = (event) => {
+        const { name, value } = event.target
+        let data = {}
+        if (name === 'dtId') {
+            setSortPhieu((prevState) => ({
+                ...prevState,
+                [name]: Number(value)
+            }))
+            data = {
+                ...sortPhieu,
+                [name]: Number(value)
+            }
+            if (value === '') {
+                setSortPhieu((prevState) => ({
+                    ...prevState,
+                    dtId: ''
+                }))
+            }
+        } else {
+            setSortPhieu((prevState) => ({
+                ...prevState,
+                [name]: value
+            }))
+            data = {
+                ...sortPhieu,
+                [name]: value
+            }
+
+        }
+        phieuApi.apiSortPhieu(headers, data).then((res) => {
+            dispath(updateListChiTietNhap(res.data.content))
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+
 
     return (
         <div id='phieuNhapNo'>
-            <h2>Phiếu nhập nợ</h2>
+            <h2>Phiếu nhập</h2>
 
             <>
-                <div className="inputItem">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder='Tìm kiếm...'
-                        onChange={handleTimKiem}
-                    />
+                <div className="groupItem">
+
+                    <div className="inputItem"
+                        onChange={onChangeInput}
+                    >
+                        <input type="date" name='from'
+                        // onChange={handleTimKiem}
+                        />
+                    </div>
+                    <div className="inputItem">
+                        <input type="date" name='to'
+                            onChange={onChangeInput}
+                        />
+                    </div>
+                    <div className="inputItem">
+                        <select name="dtId" id="dtId" value={sortPhieu.dtId} onChange={onChangeInput}>
+                            <option value="">Tất cả</option>
+                            {listNpp?.map((item, index) => (
+                                <option key={index} value={item.dtId}>
+                                    {item.maDoiTac}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    {/* <div className="inputItem">
+                        <select name="soPhieu" id="soPhieu">
+                            <option value="">Số phiếu</option>
+                            {
+                                listChiTietNhap?.map((item, index) => {
+                                    return (
+                                        <option key={index} value={item.soPhieu}>{item.soPhieu?.toUpperCase()}</option>
+                                    )
+
+                                })
+                            }
+                        </select>
+                    </div>
+ */}
+                    <div className="inputItem">
+                        <select name="locNo" id="locNo"
+                            // onChange={handleLocNo}
+                            onChange={onChangeInput}
+                        >
+                            <option value="">Tất cả</option>
+                            <option value="conNo">Phiếu nợ</option>
+                        </select>
+                    </div>
+
+                    {/* <div className="inputItem">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder='Tìm kiếm...'
+                            onChange={handleTimKiem}
+                        />
+                    </div> */}
                 </div>
                 {
                     phieuNhapNo.length > 0 ? (
@@ -217,7 +363,7 @@ const PhieuNhapNo = () => {
                 }
             </>
 
-        </div>
+        </div >
     )
 }
 
