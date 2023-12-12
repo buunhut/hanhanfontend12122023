@@ -136,7 +136,7 @@ const NhaPhanPhoi = () => {
 
     const handleBlurInput = (event) => {
         const { name, value } = event.target
-        console.log(editDoiTac)
+        // console.log(editDoiTac)
         if (value !== '') {
             doiTacApi.apiCapNhatNpp(headers, editDoiTac).then((res) => {
                 const { statusCode } = res.data
@@ -246,7 +246,7 @@ const NhaPhanPhoi = () => {
                                                         value={
                                                             maDoiTac[dtId] !== undefined ? maDoiTac[dtId]
                                                                 : item.maDoiTac === null ? ''
-                                                                    : item.maDoiTac?.toUpperCase()
+                                                                    : item.maDoiTac
                                                         }
                                                         onChange={(event) => handleChangeInput(event, item)}
                                                         onBlur={handleBlurInput}

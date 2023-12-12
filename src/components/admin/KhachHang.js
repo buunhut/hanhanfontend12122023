@@ -25,7 +25,7 @@ const KhachHang = () => {
     }, [])
 
     const { listKh } = useSelector((state) => state.doiTac)
-    console.log(listKh)
+    // console.log(listKh)
 
     const [keyword, setKeyword] = useState('')
     const handleSearch = (event) => {
@@ -245,7 +245,7 @@ const KhachHang = () => {
                                                         value={
                                                             maDoiTac[dtId] !== undefined ? maDoiTac[dtId]
                                                                 : item.maDoiTac === null ? ''
-                                                                    : item.maDoiTac?.toUpperCase()
+                                                                    : item.maDoiTac
                                                         }
                                                         onChange={(event) => handleChangeInput(event, item)}
                                                         onBlur={handleBlurInput}

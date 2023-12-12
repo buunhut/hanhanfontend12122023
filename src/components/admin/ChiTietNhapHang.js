@@ -29,7 +29,7 @@ const ChiTietNhapHang = () => {
     }
 
     let { listChiTietNhap } = useSelector((state) => state.chiTietNhap);
-    console.log(listChiTietNhap)
+    // console.log(listChiTietNhap)
 
     useEffect(() => {
         recallChiTietNhap()
