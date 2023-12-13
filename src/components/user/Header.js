@@ -454,7 +454,7 @@ const Header = () => {
 
                                                 <td className="tien"
                                                     style={{ color: phiVc > 0 ? 'red' : 'royalblue' }}
-                                                >{phiVc <= 0 ? 'Miễn phí' : phiVc.toLocaleString()}
+                                                >{phiVc <= 0 ? 0 : phiVc.toLocaleString()}
                                                 </td>
                                             </tr>
                                             <tr>
