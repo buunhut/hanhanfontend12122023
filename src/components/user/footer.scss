@@ -23,6 +23,12 @@ footer {
           color: black;
         }
       }
+      .active {
+        color: red;
+        p {
+          color: red;
+        }
+      }
     }
   }
 }

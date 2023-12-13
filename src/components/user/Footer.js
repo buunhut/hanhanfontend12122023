@@ -7,31 +7,31 @@ const Footer = () => {
         <footer>
             <div className="container">
                 <div className="contentMenu">
-                    <NavLink to='/'>
+                    <NavLink to='/' activeclassname="active">
                         <i className="fa-solid fa-house"></i>
                         <p>
                             Trang chủ
                         </p>
                     </NavLink>
-                    <NavLink to='/danh-muc'>
+                    <NavLink to='/danh-muc' activeclassname="active">
                         <i className="fa-solid fa-layer-group"></i>
                         <p>
                             Danh mục
                         </p>
                     </NavLink>
-                    <NavLink to='/thuong-hieu'>
+                    <NavLink to='/thuong-hieu' activeclassname="active">
                         <i className="fa-solid fa-bag-shopping"></i>
                         <p>
                             Thương hiệu
                         </p>
                     </NavLink>
-                    <NavLink to='/thong-bao'>
+                    <NavLink to='/thong-bao' activeclassname="active">
                         <i className="fa-solid fa-bell"></i>
                         <p>
                             Thông báo
                         </p>
                     </NavLink>
-                    <NavLink to='/tai-khoan'>
+                    <NavLink to='/tai-khoan' activeclassname="active">
                         <i className="fa-solid fa-user"></i>
                         <p>
                             Tài khoản
