@@ -460,7 +460,6 @@ const Header = () => {
                                             <tr>
                                                 <td colSpan={2} className="note">
                                                     <p>Số tiền tích luỹ</p>
-                                                    <p><i>Tiền tích luỹ sẽ được cộng vào ví khi đơn hàng được giao thành công</i></p>
                                                 </td>
                                                 <td className="thanhTien note">
                                                     <p className="tichLuy">
