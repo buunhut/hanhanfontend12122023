@@ -38,7 +38,7 @@ const DanhMuc = () => {
                                             style={{ width: '50px', height: '50px', borderRadius: '50%' }}
                                         />
                                         <p>
-                                            {tenDanhMuc?.toUpperCase()}
+                                            {tenDanhMuc}
                                         </p>
                                     </div>
                                 ),

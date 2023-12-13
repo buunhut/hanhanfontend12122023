@@ -34,7 +34,7 @@ const ThuongHieu = () => {
                                             style={{ width: '50px', height: '50px', borderRadius: '50%' }}
                                         />
                                         <p>
-                                            {tenThuongHieu?.toUpperCase()}
+                                            {tenThuongHieu}
                                         </p>
                                     </div>
                                 ),

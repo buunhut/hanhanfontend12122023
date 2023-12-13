@@ -1,18 +1,10 @@
 #danhMucSanPham {
-  // margin-top: 30px;
   .container {
-    //   background-color: whitesmoke;
-    //   width: 1000px;
-    //   margin: 30px auto;
-    h3 {
-      color: silver;
-    }
     .tabLabel {
       width: 100px;
       text-align: center;
       word-wrap: break-word;
       white-space: initial;
-
       img {
         width: 100px;
         height: 100px;
@@ -35,7 +27,8 @@
     }
     .ant-tabs-nav {
       .ant-tabs-tab {
-        margin: 0 0 0 10px;
+        margin: 0 0 0 6px;
+        padding: 3px 0;
       }
     }
     .ant-tabs-content-holder {
@@ -52,19 +45,6 @@
         flex-wrap: wrap;
       }
     }
-    // .listSanPham {
-    //   // background-color: aqua;
-    //   width: 1160px;
-    //   display: flex;
-    //   align-items: center;
-    //   gap: 10px;
-    //   flex-wrap: wrap;
-    //   //   position: sticky;
-    //   //   top: 90px;
-    //   //   z-index: -1;
-    //   //   height: calc(100vh - 120px);
-    //   //   overflow-y: scroll;
-    // }
   }
 }
 @media screen and (max-width: 1200px) {
