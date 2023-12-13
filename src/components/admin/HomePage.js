@@ -37,7 +37,7 @@ const HomePage = () => {
                     <NavLink to={'san-pham'} activeclassname="active"><i className="fa-solid fa-kitchen-set"></i><span>Sản phẩm</span></NavLink>
                     <NavLink to={'nhap-hang'} activeclassname="active"><i className="fa-solid fa-truck"></i><span>Nhập hàng</span></NavLink>
                     <NavLink to={'chi-tiet-nhap'} activeclassname="active"><i className="fa-solid fa-truck"></i><span>Chi tiết nhập</span></NavLink>
-                    <NavLink to={'phieu-nhap-no'} activeclassname="active"><i className="fa-solid fa-truck"></i><span>Phiếu nhập nợ</span></NavLink>
+                    <NavLink to={'phieu-nhap'} activeclassname="active"><i className="fa-solid fa-truck"></i><span>Phiếu nhập</span></NavLink>
                     <NavLink to={'xuat-hang'} activeclassname="active"><i className="fa-solid fa-hand-holding-dollar"></i><span>Xuất hàng</span></NavLink>
                     <NavLink to={'chi-tiet-xuat'} activeclassname="active"><i className="fa-solid fa-hand-holding-dollar"></i><span>Chi tiết xuất</span></NavLink>
                     <NavLink to={'phieu-xuat-no'} activeclassname="active"><i className="fa-solid fa-hand-holding-dollar"></i><span>Phiếu xuất nợ</span></NavLink>

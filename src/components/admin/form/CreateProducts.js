@@ -724,10 +724,10 @@ const CreateProducts = () => {
                                                     type="text"
                                                     value={
                                                         danhMuc[dmId] !== undefined
-                                                            ? danhMuc[dmId].toUpperCase()
+                                                            ? danhMuc[dmId]
                                                             : tenDanhMuc === null
                                                                 ? ""
-                                                                : tenDanhMuc.toUpperCase()
+                                                                : tenDanhMuc
                                                     }
                                                     onChange={(event) =>
                                                         handleChangeDanhMucInput(event, item)
@@ -833,10 +833,10 @@ const CreateProducts = () => {
                                                     type="text"
                                                     value={
                                                         thuongHieu[thId] !== undefined
-                                                            ? thuongHieu[thId].toUpperCase()
+                                                            ? thuongHieu[thId]
                                                             : tenThuongHieu === null
                                                                 ? ""
-                                                                : tenThuongHieu.toUpperCase()
+                                                                : tenThuongHieu
                                                     }
                                                     onChange={(event) =>
                                                         handleChangeThuongHieuInput(event, item)

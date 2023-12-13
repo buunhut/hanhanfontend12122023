@@ -42,7 +42,7 @@ function App() {
             <Route path='san-pham' element={<CreateProducts />}></Route>
             <Route path='nhap-hang' element={<NhapHang />}></Route>
             <Route path='chi-tiet-nhap' element={<ChiTietNhapHang />}></Route>
-            <Route path='phieu-nhap-no' element={<PhieuNhapNo />}></Route>
+            <Route path='phieu-nhap' element={<PhieuNhapNo />}></Route>
             <Route path='xuat-hang' element={<XuatHang />}></Route>
             <Route path='chi-tiet-xuat' element={<ChiTietXuatHang />}></Route>
             <Route path='phieu-xuat-no' element={<PhieuXuatNo />}></Route>
