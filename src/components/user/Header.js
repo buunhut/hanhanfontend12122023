@@ -275,7 +275,7 @@ const Header = () => {
                 sId: thongTinDatHang.sId,
                 phiVc,
                 traVi: traBangVi,
-                diemTichLuy,
+                diemTichLuy: Math.floor(diemTichLuy),
                 tienHang: totalTienHang,
                 ghiChu: thongTinDatHang.ghiChu,
                 trangThai: thongTinDatHang.trangThai,
@@ -463,7 +463,7 @@ const Header = () => {
                                                 </td>
                                                 <td className="thanhTien note">
                                                     <p className="tichLuy">
-                                                        {diemTichLuy.toLocaleString()}
+                                                        {Math.floor(diemTichLuy).toLocaleString()}
                                                     </p>
                                                 </td>
                                             </tr>

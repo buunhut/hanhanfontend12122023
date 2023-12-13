@@ -7,34 +7,32 @@ const SanPhamByDanhMuc = ({ listSanPham }) => {
     let { gioHang } = useSelector((state) => state.gioHang);
 
     return (
-        <div>
-            <div className="listSanPham">
+        <>
 
-                {
-                    listSanPham?.map((sanPhamItem, index) => {
-                        let { kId, soLuong } = sanPhamItem;
+            {
+                listSanPham?.map((sanPhamItem, index) => {
+                    let { kId, soLuong } = sanPhamItem;
 
-                        gioHang.forEach((gioHangItem) => {
-                            if (gioHangItem.kId === kId) {
-                                soLuong -= gioHangItem.soLuong * gioHangItem.quyDoi;
-                            }
-                        });
+                    gioHang.forEach((gioHangItem) => {
+                        if (gioHangItem.kId === kId) {
+                            soLuong -= gioHangItem.soLuong * gioHangItem.quyDoi;
+                        }
+                    });
 
-                        let updatedSanPhamItem = {
-                            ...sanPhamItem,
-                            soLuong,
-                        };
+                    let updatedSanPhamItem = {
+                        ...sanPhamItem,
+                        soLuong,
+                    };
 
-                        // const sortedSanPham = [...sanPham].sort((a, b) => a.quyDoi - b.quyDoi);
-                        return (
-                            <SanPhamItemDoc sanPham={updatedSanPhamItem} key={index} />
+                    // const sortedSanPham = [...sanPham].sort((a, b) => a.quyDoi - b.quyDoi);
+                    return (
+                        <SanPhamItemDoc sanPham={updatedSanPhamItem} key={index} />
 
-                        );
-                    })
-                }
-            </div>
+                    );
+                })
+            }
+        </>
 
-        </div>
 
     )
 }

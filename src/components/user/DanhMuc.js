@@ -23,7 +23,7 @@ const DanhMuc = () => {
     return (
         <div id="danhMucSanPham">
             <div className='container'>
-                <h3>Danh mục</h3>
+                {/* <h3>Danh mục</h3> */}
                 <Tabs
                     tabPosition='top'
                     items={

@@ -19,7 +19,7 @@ const ThuongHieu = () => {
     return (
         <div id="danhMucSanPham">
             <div className='container'>
-                <h3>Thương hiệu</h3>
+                {/* <h3>Thương hiệu</h3> */}
                 <Tabs
                     tabPosition='top'
                     items={
