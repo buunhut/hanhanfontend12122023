@@ -537,26 +537,28 @@ const Header = () => {
                                 </tbody>
                             </table>
                         </div>
+                        {
+                            tongDiemTichLuy > 0 ? (
+                                <div className="viCuaBan" >
+                                    <p>
+                                        Ví của bạn: {tongDiemTichLuy.toLocaleString()}đ
+                                    </p>
+                                    <input type="checkbox" name="traBangVi"
+
+                                        onClick={(event) => handleTraBangVi(event)}
+                                    />
+                                    <span> Trừ ví</span>
+                                </div>
+
+                            ) : null
+                        }
                     </div>
 
-                    {
-                        tongDiemTichLuy > 0 ? (
-                            <div className="viCuaBan" >
-                                <p>
-                                    Ví của bạn: {tongDiemTichLuy.toLocaleString()}đ
-                                </p>
-                                <input type="checkbox" name="traBangVi"
-
-                                    onClick={(event) => handleTraBangVi(event)}
-                                />
-                                <span> Trừ ví</span>
-                            </div>
-
-                        ) : null
-                    }
 
 
                     <div className="bottom">
+
+
                         {totalTienHang > 0 ? (
                             <>
                                 <div className="thanhToan">
