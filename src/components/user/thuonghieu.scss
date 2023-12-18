@@ -6,6 +6,7 @@
       grid-template-rows: repeat(3, 1fr); /* Set three rows */
       grid-gap: 5px; /* Adjust the gap between rows */
       overflow-x: auto; /* Enable horizontal scrolling */
+      -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
       padding-bottom: 10px;
 
       //   display: flex;
