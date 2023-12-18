@@ -8,7 +8,7 @@
       overflow-x: auto; /* Enable horizontal scrolling */
       //   overflow-y: hidden; /* Hide vertical overflow */
       //   max-height: auto; /* Set the maximum height */
-    //   width: 100%;
+      //   width: 100%;
       padding-bottom: 10px;
 
       .ant-tabs-tab {
@@ -50,7 +50,7 @@
       //     border-bottom: none !important;
       //   }
       .ant-tabs-tab {
-        margin: 0 ;
+        margin: 0;
         padding: 3px 0;
       }
       .ant-tabs-nav-operations {
@@ -148,15 +148,31 @@
   #thuongHieuSanPham {
     .container {
       width: 100%;
+      .ant-tabs-nav-list {
+        display: grid;
+        grid-template-columns: repeat(16, 1fr); /* Set four columns */
+        grid-template-rows: repeat(3, 1fr); /* Set three rows */
+        grid-gap: 5px; /* Adjust the gap between rows */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        //   overflow-y: hidden; /* Hide vertical overflow */
+        //   max-height: auto; /* Set the maximum height */
+        width: 100%;
+        padding-bottom: 10px;
+
+        .ant-tabs-tab {
+          margin: 0; /* Adjust the margin as needed */
+        }
+
+        .ant-tabs-ink-bar-animated {
+          display: none;
+        }
+      }
       .ant-tabs-content-holder {
         width: 380px;
         margin: 0 auto;
-
         .ant-tabs-tabpane-active {
           padding: 0 !important;
-
           margin: 0 auto;
-
           width: 380px;
           display: flex;
           gap: 10px;
