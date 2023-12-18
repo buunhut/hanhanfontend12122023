@@ -1,20 +1,20 @@
 #thuongHieuSanPham {
   .container {
     .ant-tabs-nav-list {
-      //   display: grid;
-      //   grid-template-columns: repeat(16, 1fr); /* Set four columns */
-      //   grid-template-rows: repeat(3, 1fr); /* Set three rows */
-      //   grid-gap: 5px; /* Adjust the gap between rows */
-      //   overflow-x: auto; /* Enable horizontal scrolling */
+      display: grid;
+      grid-template-columns: repeat(16, 1fr); /* Set four columns */
+      grid-template-rows: repeat(3, 1fr); /* Set three rows */
+      grid-gap: 5px; /* Adjust the gap between rows */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      padding-bottom: 10px;
 
-      display: flex;
-      flex-wrap: wrap;
-      max-height: 180px;
-      overflow: auto;
+      //   display: flex;
+      //   flex-wrap: wrap;
+      //   max-height: 180px;
+      //   overflow: auto;
       //   overflow-y: hidden; /* Hide vertical overflow */
       //   max-height: auto; /* Set the maximum height */
       //   width: 100%;
-      padding-bottom: 10px;
 
       .ant-tabs-tab {
         margin: 8px; /* Adjust the margin as needed */
