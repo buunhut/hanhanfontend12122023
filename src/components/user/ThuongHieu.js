@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { usersApi } from '../../api/usersApi'
 import { updateListSanPhamByThuongHieu } from '../../redux/danhMucSlice'
 import SanPhamByThuongHieu from './SanPhamByThuongHieu'
-import { Tabs } from 'antd'
+import { Carousel, Col, Row, Tabs } from 'antd'
 import { URL } from '../../service/functions'
+import './thuonghieu.scss'
 
 const ThuongHieu = () => {
     const { listSanPhamByThuongHieu } = useSelector((state) => state.danhMuc)
@@ -16,15 +17,16 @@ const ThuongHieu = () => {
         })
     }, [])
 
+
     return (
-        <div id="danhMucSanPham">
+        <div id="thuongHieuSanPham">
             <div className='container'>
-                {/* <h3>Thương hiệu</h3> */}
                 <Tabs
                     tabPosition='top'
+
                     items={
                         listSanPhamByThuongHieu?.map((item, index) => {
-                            const { tenThuongHieu, hinhAnh, sanPham } = item
+                            const { hinhAnh, sanPham } = item
                             return {
                                 label: (
                                     <div className='tabLabel'>
@@ -33,9 +35,6 @@ const ThuongHieu = () => {
                                             alt=""
                                             style={{ width: '50px', height: '50px', borderRadius: '50%' }}
                                         />
-                                        <p>
-                                            {tenThuongHieu}
-                                        </p>
                                     </div>
                                 ),
                                 key: index,
@@ -45,7 +44,9 @@ const ThuongHieu = () => {
                     }
                 />
             </div>
-        </div>)
+        </div>
+    );
+
 }
 
 export default ThuongHieu
