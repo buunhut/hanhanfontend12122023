@@ -1,106 +1,111 @@
 #thuongHieuSanPham {
   .container {
-    .ant-tabs {
-      .ant-tabs-nav {
-        .ant-tabs-ink-bar {
-          display: none;
-        }
-        // background-color: red;
-        overflow-x: scroll;
-        .ant-tabs-tab {
-          margin: 0;
-          padding: 0;
-          width: 60px;
-          // border: 1px solid silver;
-          .ant-tabs-tab-btn {
-            .tabLabel {
-              width: 60px;
-              text-align: center;
-              //   word-wrap: break-word;
-              //   white-space: initial;
-              img {
-                width: 60px;
-                border-radius: 50%;
-                object-fit: fill;
-              }
-              p {
-                width: 100px;
-                font-size: 12px;
-                font-weight: bold;
-                color: rgb(100, 100, 100);
-              }
-              // .tenDanhMuc {
-              //   width: 100px;
-              //   text-align: center;
-              //   font-size: 12px;
-              //   font-weight: bold;
-              //   color: rgb(120, 120, 120);
-              //   word-wrap: break-word;
-              // }
-            }
-          }
-        }
-        .ant-tabs-nav-operations {
-          display: none;
-        }
+    .ant-tabs-ink-bar {
+      display: none;
+    }
+    .ant-tabs-nav-operations {
+      display: none;
+    }
 
-        .ant-tabs-nav-wrap {
-          overflow: scroll;
-          .ant-tabs-nav-list {
-            // display: grid;
-            // grid-template-columns: repeat(32, 1fr); /* Set four columns */
-            // grid-template-rows: repeat(3, 1fr); /* Set three rows */
-            // grid-gap: 5px; /* Adjust the gap between rows */
-            // overflow-x: scroll; /* Enable horizontal scrolling */
-            // // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
-            // padding-bottom: 10px;
+    // .ant-tabs {
+    //   .ant-tabs-nav {
+    //     .ant-tabs-ink-bar {
+    //       display: none;
+    //     }
+    //     // background-color: red;
+    //     overflow-x: scroll;
+    //     .ant-tabs-tab {
+    //       margin: 0;
+    //       padding: 0;
+    //       width: 60px;
+    //       // border: 1px solid silver;
+    //       .ant-tabs-tab-btn {
+    //         .tabLabel {
+    //           width: 60px;
+    //           text-align: center;
+    //           //   word-wrap: break-word;
+    //           //   white-space: initial;
+    //           img {
+    //             width: 60px;
+    //             border-radius: 50%;
+    //             object-fit: fill;
+    //           }
+    //           p {
+    //             width: 100px;
+    //             font-size: 12px;
+    //             font-weight: bold;
+    //             color: rgb(100, 100, 100);
+    //           }
+    //           // .tenDanhMuc {
+    //           //   width: 100px;
+    //           //   text-align: center;
+    //           //   font-size: 12px;
+    //           //   font-weight: bold;
+    //           //   color: rgb(120, 120, 120);
+    //           //   word-wrap: break-word;
+    //           // }
+    //         }
+    //       }
+    //     }
+    //     .ant-tabs-nav-operations {
+    //       display: none;
+    //     }
 
-            display: flex;
-            // flex-wrap: wrap;
-            // max-height: 180px;
-            // max-width: 1160px;
-            overflow: auto;
-            //   overflow-y: hidden; /* Hide vertical overflow */
-            //   max-height: auto; /* Set the maximum height */
-            //   width: 100%;
+    //     .ant-tabs-nav-wrap {
+    //       .ant-tabs-nav-list {
+    //         // display: grid;
+    //         // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+    //         // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+    //         // grid-gap: 5px; /* Adjust the gap between rows */
+    //         // overflow-x: scroll; /* Enable horizontal scrolling */
+    //         // // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+    //         // padding-bottom: 10px;
 
-            &::-webkit-scrollbar {
-              // height: 12px;
-              display: none;
-            }
+    //         // display: flex;
+    //         // flex-wrap: wrap;
+    //         // max-height: 180px;
+    //         // max-width: 1160px;
+    //         //   overflow-y: hidden; /* Hide vertical overflow */
+    //         //   max-height: auto; /* Set the maximum height */
+    //         //   width: 100%;
 
-            .ant-tabs-tab {
-              margin: 8px; /* Adjust the margin as needed */
-            }
+    //         // &::-webkit-scrollbar {
+    //         //   // height: 12px;
+    //         //   display: none;
+    //         // }
 
-            .ant-tabs-ink-bar-animated {
-              display: none;
-            }
-          }
-        }
-      }
+    //         .ant-tabs-tab {
+    //           margin: 8px; /* Adjust the margin as needed */
+    //         }
 
-      .ant-tabs-content-holder {
-        width: 1160px;
+    //         .ant-tabs-ink-bar-animated {
+    //           display: none;
+    //         }
+    //       }
+    //     }
+    //   }
+
+    .ant-tabs-content-holder {
+      width: 1160px;
+      margin: 0 auto;
+      border-left: 0 solid silver;
+      .ant-tabs-tabpane-active {
+        padding: 0 !important;
         margin: 0 auto;
-        border-left: 0 solid silver;
-        .ant-tabs-tabpane-active {
-          padding: 0 !important;
-          margin: 0 auto;
-          width: 1160px;
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
+        width: 1160px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
       }
     }
-    .ant-tabs-mobile {
-      overflow: scroll;
-      &::-webkit-scrollbar {
-        // height: 12px;
-        display: none;
-      }
-    }
+    // }
+    // .ant-tabs-mobile {
+    //   overflow: scroll;
+    //   &::-webkit-scrollbar {
+    //     // height: 12px;
+    //     display: none;
+    //   }
+    // }
   }
 }
 @media screen and (max-width: 1200px) {
@@ -173,7 +178,7 @@
 @media screen and (max-width: 500px) {
   #thuongHieuSanPham {
     .container {
-      // width: 414px;
+      width: 414px;
       // // .ant-tabs-nav-list {
       // //   // display: grid;
       // //   // grid-template-columns: repeat(16, 1fr); /* Set four columns */
@@ -193,124 +198,124 @@
       // //     display: none;
       // //   }
       // // }
-      // .ant-tabs-content-holder {
-      //   width: 380px;
-      //   margin: 0 auto;
-      //   .ant-tabs-tabpane-active {
-      //     padding: 0 !important;
+      .ant-tabs-content-holder {
+        width: 380px;
+        margin: 0 auto;
+        .ant-tabs-tabpane-active {
+          padding: 0 !important;
+          margin: 0 auto;
+          width: 380px;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+      }
+      // width: 414px;
+      // .ant-tabs {
+      //   .ant-tabs-nav {
+      //     .ant-tabs-ink-bar {
+      //       display: none;
+      //     }
+      //     // background-color: red;
+      //     overflow-x: scroll;
+      //     .ant-tabs-tab {
+      //       margin: 0;
+      //       padding: 0;
+      //       width: 60px;
+      //       // border: 1px solid silver;
+      //       .ant-tabs-tab-btn {
+      //         .tabLabel {
+      //           width: 60px;
+      //           text-align: center;
+      //           //   word-wrap: break-word;
+      //           //   white-space: initial;
+      //           img {
+      //             width: 60px;
+      //             border-radius: 50%;
+      //             object-fit: fill;
+      //           }
+      //           p {
+      //             width: 100px;
+      //             font-size: 12px;
+      //             font-weight: bold;
+      //             color: rgb(100, 100, 100);
+      //           }
+      //           .tenDanhMuc {
+      //             width: 100px;
+      //             text-align: center;
+      //             font-size: 12px;
+      //             font-weight: bold;
+      //             color: rgb(120, 120, 120);
+      //             word-wrap: break-word;
+      //           }
+      //         }
+      //       }
+      //     }
+      //     .ant-tabs-nav-operations {
+      //       display: none;
+      //     }
+
+      //     .ant-tabs-nav-wrap {
+      //       // overflow: auto;
+      //       .ant-tabs-nav-list {
+      //         // display: grid;
+      //         // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+      //         // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+      //         // grid-gap: 5px; /* Adjust the gap between rows */
+      //         // overflow-x: scroll; /* Enable horizontal scrolling */
+      //         // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+      //         padding-bottom: 10px;
+
+      //         display: flex;
+      //         // flex-wrap: wrap;
+      //         // max-height: 180px;
+      //         // max-width: 100%;
+      //         overflow: auto;
+      //         //   overflow-y: hidden; /* Hide vertical overflow */
+      //         //   max-height: auto; /* Set the maximum height */
+      //         //   width: 100%;
+
+      //         &::-webkit-scrollbar {
+      //           // height: 12px;
+      //           display: none;
+      //         }
+
+      //         .ant-tabs-tab {
+      //           margin: 8px; /* Adjust the margin as needed */
+      //         }
+
+      //         .ant-tabs-ink-bar-animated {
+      //           display: none;
+      //         }
+      //       }
+      //     }
+      //   }
+
+      //   .ant-tabs-content-holder {
+      //     width: 414px;
       //     margin: 0 auto;
-      //     width: 380px;
+      //     border-left: 0 solid silver;
       //     display: flex;
-      //     gap: 10px;
       //     flex-wrap: wrap;
+      //     padding: 0 10px;
+      //     .ant-tabs-tabpane-active {
+      //       padding: 0 !important;
+      //       margin: 0 auto;
+      //       width: 380px;
+      //       display: flex;
+      //       gap: 10px;
+      //       flex-wrap: wrap;
+      //       padding: 0;
+      //     }
       //   }
       // }
-      width: 414px;
-      .ant-tabs {
-        .ant-tabs-nav {
-          .ant-tabs-ink-bar {
-            display: none;
-          }
-          // background-color: red;
-          overflow-x: scroll;
-          .ant-tabs-tab {
-            margin: 0;
-            padding: 0;
-            width: 60px;
-            // border: 1px solid silver;
-            .ant-tabs-tab-btn {
-              .tabLabel {
-                width: 60px;
-                text-align: center;
-                //   word-wrap: break-word;
-                //   white-space: initial;
-                img {
-                  width: 60px;
-                  border-radius: 50%;
-                  object-fit: fill;
-                }
-                p {
-                  width: 100px;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: rgb(100, 100, 100);
-                }
-                .tenDanhMuc {
-                  width: 100px;
-                  text-align: center;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: rgb(120, 120, 120);
-                  word-wrap: break-word;
-                }
-              }
-            }
-          }
-          .ant-tabs-nav-operations {
-            display: none;
-          }
-
-          .ant-tabs-nav-wrap {
-            // overflow: auto;
-            .ant-tabs-nav-list {
-              // display: grid;
-              // grid-template-columns: repeat(32, 1fr); /* Set four columns */
-              // grid-template-rows: repeat(3, 1fr); /* Set three rows */
-              // grid-gap: 5px; /* Adjust the gap between rows */
-              // overflow-x: scroll; /* Enable horizontal scrolling */
-              // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
-              padding-bottom: 10px;
-
-              display: flex;
-              // flex-wrap: wrap;
-              // max-height: 180px;
-              // max-width: 100%;
-              overflow: auto;
-              //   overflow-y: hidden; /* Hide vertical overflow */
-              //   max-height: auto; /* Set the maximum height */
-              //   width: 100%;
-
-              &::-webkit-scrollbar {
-                // height: 12px;
-                display: none;
-              }
-
-              .ant-tabs-tab {
-                margin: 8px; /* Adjust the margin as needed */
-              }
-
-              .ant-tabs-ink-bar-animated {
-                display: none;
-              }
-            }
-          }
-        }
-
-        .ant-tabs-content-holder {
-          width: 414px;
-          margin: 0 auto;
-          border-left: 0 solid silver;
-          display: flex;
-          flex-wrap: wrap;
-          padding: 0 10px;
-          .ant-tabs-tabpane-active {
-            padding: 0 !important;
-            margin: 0 auto;
-            width: 380px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 0;
-          }
-        }
-      }
-      .ant-tabs-mobile {
-        overflow: scroll;
-        &::-webkit-scrollbar {
-          // height: 12px;
-          display: none;
-        }
-      }
+      // .ant-tabs-mobile {
+      //   overflow: scroll;
+      //   &::-webkit-scrollbar {
+      //     // height: 12px;
+      //     display: none;
+      //   }
+      // }
     }
   }
 }
@@ -320,81 +325,81 @@
       width: 100%;
       .ant-tabs {
         width: 100%;
-        .ant-tabs-nav {
-          .ant-tabs-ink-bar {
-            display: none;
-          }
-          // background-color: red;
-          overflow-x: scroll;
-          .ant-tabs-tab {
-            margin: 0;
-            padding: 0;
-            width: 60px;
-            // border: 1px solid silver;
-            .ant-tabs-tab-btn {
-              .tabLabel {
-                width: 60px;
-                text-align: center;
-                //   word-wrap: break-word;
-                //   white-space: initial;
-                img {
-                  width: 60px;
-                  border-radius: 50%;
-                  object-fit: fill;
-                }
-                p {
-                  width: 100px;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: rgb(100, 100, 100);
-                }
-                .tenDanhMuc {
-                  width: 100px;
-                  text-align: center;
-                  font-size: 12px;
-                  font-weight: bold;
-                  color: rgb(120, 120, 120);
-                  word-wrap: break-word;
-                }
-              }
-            }
-          }
-          .ant-tabs-nav-operations {
-            display: none;
-          }
+        // .ant-tabs-nav {
+        //   .ant-tabs-ink-bar {
+        //     display: none;
+        //   }
+        //   // background-color: red;
+        //   overflow-x: scroll;
+        //   .ant-tabs-tab {
+        //     margin: 0;
+        //     padding: 0;
+        //     width: 60px;
+        //     // border: 1px solid silver;
+        //     .ant-tabs-tab-btn {
+        //       .tabLabel {
+        //         width: 60px;
+        //         text-align: center;
+        //         //   word-wrap: break-word;
+        //         //   white-space: initial;
+        //         img {
+        //           width: 60px;
+        //           border-radius: 50%;
+        //           object-fit: fill;
+        //         }
+        //         p {
+        //           width: 100px;
+        //           font-size: 12px;
+        //           font-weight: bold;
+        //           color: rgb(100, 100, 100);
+        //         }
+        //         .tenDanhMuc {
+        //           width: 100px;
+        //           text-align: center;
+        //           font-size: 12px;
+        //           font-weight: bold;
+        //           color: rgb(120, 120, 120);
+        //           word-wrap: break-word;
+        //         }
+        //       }
+        //     }
+        //   }
+        //   .ant-tabs-nav-operations {
+        //     display: none;
+        //   }
 
-          .ant-tabs-nav-wrap {
-            // overflow: auto;
-            .ant-tabs-nav-list {
-              // display: grid;
-              // grid-template-columns: repeat(32, 1fr); /* Set four columns */
-              // grid-template-rows: repeat(3, 1fr); /* Set three rows */
-              // grid-gap: 5px; /* Adjust the gap between rows */
-              // overflow-x: scroll; /* Enable horizontal scrolling */
-              // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
-              padding-bottom: 10px;
+        //   .ant-tabs-nav-wrap {
+        //     // overflow: auto;
+        //     .ant-tabs-nav-list {
+        //       // display: grid;
+        //       // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+        //       // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+        //       // grid-gap: 5px; /* Adjust the gap between rows */
+        //       // overflow-x: scroll; /* Enable horizontal scrolling */
+        //       // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+        //       padding-bottom: 10px;
 
-              display: flex;
-              flex-wrap: wrap;
-              // max-height: 180px;
-              // max-width: 100%;
-              overflow: auto;
+        //       display: flex;
+        //       flex-wrap: wrap;
+        //       // max-height: 180px;
+        //       // max-width: 100%;
+        //       overflow: auto;
 
-              &::-webkit-scrollbar {
-                // height: 12px;
-                display: none;
-              }
+        //       &::-webkit-scrollbar {
+        //         // height: 12px;
+        //         display: none;
+        //       }
 
-              .ant-tabs-tab {
-                margin: 8px; /* Adjust the margin as needed */
-              }
+        //       .ant-tabs-tab {
+        //         margin: 8px; /* Adjust the margin as needed */
+        //       }
 
-              .ant-tabs-ink-bar-animated {
-                display: none;
-              }
-            }
-          }
-        }
+        //       .ant-tabs-ink-bar-animated {
+        //         display: none;
+        //       }
+        //     }
+        //   }
+        // }
 
         .ant-tabs-content-holder {
           // background-color: red;
