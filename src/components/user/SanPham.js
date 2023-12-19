@@ -18,12 +18,6 @@ const SanPham = () => {
     let { listSanPham } = useSelector((state) => state.sanPham)
     // console.log(listSanPham)
 
-
-
-
-
-
-
     // const [listSanPham, setListSanPham] = useState([])
     useEffect(() => {
         usersApi.apiGetTatCaSanPham().then((res) => {

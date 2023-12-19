@@ -9,6 +9,12 @@ export const usersApi = {
             url: `${URL}/users/get-tat-ca-san-pham`,
         })
     },
+    apiTimKiemSanPham: (keyword) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/users/tim-kiem-san-pham/${keyword}`,
+        })
+    },
     apiGetSanPhamByDanhMuc: () => {
         return axios({
             method: 'get',

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     sId: 1,
     listSanPham: [],
+    listSanPhamTimKiem: [],
     sanPhamByShop: [],
     dmId: 0,
     thId: 0
@@ -31,6 +32,12 @@ export const sanPhamSlice = createSlice({
                 listSanPham: action.payload
             }
         },
+        updateSanPhamTimKiem: (state, action) => {
+            return {
+                ...state,
+                listSanPhamTimKiem: action.payload
+            }
+        },
         updateSanPhamByShop: (state, action) => {
             return {
                 ...state,
@@ -52,5 +59,5 @@ export const sanPhamSlice = createSlice({
 
     }
 })
-export const { timKiem, updateSanPham, updateSanPhamByShop, updateDmId, updateThId } = sanPhamSlice.actions;
+export const { timKiem, updateSanPham, updateSanPhamTimKiem, updateSanPhamByShop, updateDmId, updateThId } = sanPhamSlice.actions;
 export default sanPhamSlice.reducer

@@ -10,17 +10,11 @@ const SanPhamItemDoc = ({ sanPham }) => {
 
     const { gioHang } = useSelector((state) => state.gioHang);
 
-    // console.log(sanPham)
-
     let { spId, kId, tenSp, giaBan, giaGiam, quyDoi, tonQuyDoi, hinhAnh, maxOrder } = sanPham
     let gifs = false
     let phanTram = Number(100 - (giaGiam / giaBan) * 100).toFixed(2)
 
     const inCart = gioHang.find((gioHangItem) => gioHangItem.spId === spId)
-
-
-
-
     const dispath = useDispatch()
     const handleThemVaoGio = (sanPham) => {
         let { kId, spId, tenSp, dvt, giaBan, giaGiam, phiVc, quyDoi, hinhAnh, sId, maxOrder } = sanPham
@@ -74,9 +68,6 @@ const SanPhamItemDoc = ({ sanPham }) => {
             }
         }
     }
-
-
-
     return (
         <div key={0} className='sanPhamDoc' >
             <div className="hinhAnh">
