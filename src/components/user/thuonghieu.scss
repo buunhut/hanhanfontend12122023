@@ -2,6 +2,9 @@
   .container {
     .ant-tabs {
       .ant-tabs-nav {
+        .ant-tabs-ink-bar {
+          display: none;
+        }
         // background-color: red;
         overflow-x: scroll;
         .ant-tabs-tab {
@@ -75,22 +78,26 @@
           }
         }
       }
-      .ant-tabs-ink-bar {
-        display: none;
+
+      .ant-tabs-content-holder {
+        width: 1160px;
+        margin: 0 auto;
+        border-left: 0 solid silver;
+        .ant-tabs-tabpane-active {
+          padding: 0 !important;
+          margin: 0 auto;
+          width: 1160px;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
       }
     }
-
-    .ant-tabs-content-holder {
-      width: 1160px;
-      margin: 0 auto;
-      border-left: 0 solid silver;
-      .ant-tabs-tabpane-active {
-        padding: 0 !important;
-        margin: 0 auto;
-        width: 1160px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+    .ant-tabs-mobile {
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        // height: 12px;
+        display: none;
       }
     }
   }
