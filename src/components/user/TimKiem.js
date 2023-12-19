@@ -69,6 +69,7 @@ const TimKiem = () => {
                                     type="text"
                                     id="timKiem"
                                     placeholder="Bạn muốn tìm gì hôm nay"
+                                    autoFocus
                                     value={keyword}
                                     onChange={handleTimKiem}
                                 // onClick={handleClickTimKiem}

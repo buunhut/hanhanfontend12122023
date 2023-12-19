@@ -2,9 +2,8 @@
   .container {
     .ant-tabs {
       .ant-tabs-nav {
-        //   &::before {
-        //     border-bottom: none !important;
-        //   }
+        // background-color: red;
+        overflow-x: scroll;
         .ant-tabs-tab {
           margin: 0;
           padding: 0;
@@ -43,20 +42,20 @@
         }
 
         .ant-tabs-nav-wrap {
-          overflow: auto;
+          // overflow: auto;
           .ant-tabs-nav-list {
             display: grid;
             grid-template-columns: repeat(32, 1fr); /* Set four columns */
             grid-template-rows: repeat(3, 1fr); /* Set three rows */
             grid-gap: 5px; /* Adjust the gap between rows */
-            overflow-x: auto; /* Enable horizontal scrolling */
-            -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+            overflow-x: scroll; /* Enable horizontal scrolling */
+            // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
             padding-bottom: 10px;
 
             //   display: flex;
             //   flex-wrap: wrap;
             // max-height: 180px;
-            overflow: auto;
+            // overflow: auto;
             //   overflow-y: hidden; /* Hide vertical overflow */
             //   max-height: auto; /* Set the maximum height */
             //   width: 100%;
@@ -76,6 +75,9 @@
           }
         }
       }
+      .ant-tabs-ink-bar {
+        display: none;
+      }
     }
 
     .ant-tabs-content-holder {
@@ -89,11 +91,6 @@
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
-      }
-    }
-    .ant-tabs {
-      .ant-tabs-ink-bar {
-        display: none;
       }
     }
   }
