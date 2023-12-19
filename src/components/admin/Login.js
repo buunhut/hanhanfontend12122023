@@ -128,7 +128,7 @@ const Login = () => {
                         </div>
                         <p className="alert">{alert.matKhau}</p>
 
-                        <button type="button" onClick={handleDangNhap}>
+                        <button type="button" onClick={handleDangNhap} style={{ width: '100%' }}>
                             Login
                         </button>
                     </form>

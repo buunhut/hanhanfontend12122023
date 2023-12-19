@@ -288,18 +288,77 @@ const SanPham = ({ sanPham }) => {
         }
     };
 
-    const handleBlurInput = () => {
-        // setGiaBan({})
-        // setGiaNhap({})
-        // setGiaGiam({})
-        // setPhiVc({})
-        // callTatCaSanPham()
-    }
+
 
     //in mã vạch
     const handleInMaVach = (spId, maSp, tenSp) => {
         window.open(`/in-ma-vach/${spId}/${maSp}/${tenSp}`, "_blank");
     };
+
+    const handleClickInput = (event, spId) => {
+        const { name, value } = event.target;
+        // console.log(name)
+        if (name === 'maxOrder') {
+            setMaxOrder((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        } else if (name === 'phiVc') {
+            setPhiVc((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        } else if (name === 'giaGiam') {
+            setGiaGiam((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        } else if (name === 'giaBan') {
+            setGiaBan((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        } else if (name === 'giaNhap') {
+            setGiaNhap((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        } else if (name === 'quyDoi') {
+            setQuyDoi((prevState) => ({
+                ...prevState,
+                [spId]: ''
+
+            }))
+        }
+    }
+
+    const handleBlurInput = (event) => {
+        const { name, value } = event.target;
+        if (name === 'maxOrder') {
+            setMaxOrder({})
+        } else if (name === 'phiVc') {
+            setPhiVc({})
+
+        } else if (name === 'giaGiam') {
+            setGiaGiam({})
+
+        } else if (name === 'giaBan') {
+            setGiaBan({})
+
+        } else if (name === 'giaNhap') {
+            setGiaNhap({})
+
+        } else if (name === 'quyDoi') {
+            setQuyDoi({})
+
+        }
+    }
+
 
 
 
@@ -356,7 +415,7 @@ const SanPham = ({ sanPham }) => {
                                         const isFirstOrDifferentKId = index === 0 || kId !== array[index - 1].kId;
                                         return (
                                             // <p key={index}>{item.tenSp}</p>
-                                            <tr key={index}>
+                                            <tr key={index} className="groupContent">
                                                 {isFirstOrDifferentKId && (
                                                     <td className="add" rowSpan={array.filter((item) => item.kId === kId).length}>
                                                         <i className="fa-solid fa-plus"
@@ -398,8 +457,6 @@ const SanPham = ({ sanPham }) => {
                                                         )}
                                                     </div>
                                                 </td>
-
-
                                                 <td className="maSp">
                                                     <div className="inputItem">
                                                         <i className="fa-solid fa-barcode"
@@ -442,6 +499,8 @@ const SanPham = ({ sanPham }) => {
                                                                 : quyDoi[spId].toLocaleString()
                                                                 : sp.quyDoi.toLocaleString()}
                                                             onChange={(event) => handleChangeInput(event, spId)}
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
                                                             style={{ textAlign: 'right' }} />
                                                     </div>
                                                 </td>
@@ -453,7 +512,8 @@ const SanPham = ({ sanPham }) => {
                                                                 : giaNhap[spId].toLocaleString()
                                                                 : sp.giaNhap?.toLocaleString()}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            onBlur={handleBlurInput}
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
                                                             style={{ textAlign: 'right' }} />
                                                     </div>
                                                 </td>
@@ -465,7 +525,8 @@ const SanPham = ({ sanPham }) => {
                                                                 : giaBan[spId].toLocaleString()
                                                                 : sp.giaBan?.toLocaleString()}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            onBlur={handleBlurInput}
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
 
                                                             style={{ textAlign: 'right' }} />
                                                     </div>
@@ -478,7 +539,8 @@ const SanPham = ({ sanPham }) => {
                                                                 : giaGiam[spId].toLocaleString()
                                                                 : sp.giaGiam?.toLocaleString()}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            onBlur={handleBlurInput}
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
 
                                                             style={{ textAlign: 'right' }} />
                                                     </div>
@@ -491,8 +553,8 @@ const SanPham = ({ sanPham }) => {
                                                                 : phiVc[spId].toLocaleString()
                                                                 : sp.phiVc?.toLocaleString()}
                                                             onChange={(event) => handleChangeInput(event, spId)}
-                                                            onBlur={handleBlurInput}
-
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
                                                             style={{ textAlign: 'right' }} />
                                                     </div>
                                                 </td>
@@ -501,6 +563,8 @@ const SanPham = ({ sanPham }) => {
                                                         <input type="text"
                                                             name="maxOrder"
                                                             onChange={(event) => handleChangeInput(event, spId)}
+                                                            onClick={(event) => handleClickInput(event, spId)}
+                                                            onBlur={(event) => handleBlurInput(event, spId)}
                                                             value={maxOrder[spId] !== undefined ? maxOrder[spId] === 0 ? 0
                                                                 : maxOrder[spId].toLocaleString()
                                                                 : sp.maxOrder?.toLocaleString()} style={{ textAlign: 'right' }} />

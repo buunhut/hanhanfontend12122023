@@ -114,14 +114,18 @@ table {
   }
   tbody {
     tr {
-      &:nth-child(even) {
-        background-color: rgb(245, 245, 245);
-      }
+      // &:nth-child(even) {
+      //   background-color: rgb(245, 245, 245);
+      // }
       td {
         padding: 5px;
-        input {
-          background-color: transparent;
-          padding: 0;
+        .inputItem {
+          border: none;
+
+          input {
+            background-color: transparent;
+            padding: 0;
+          }
         }
         .hinhAnh {
           position: relative;
@@ -177,6 +181,9 @@ table {
         width: 30px;
         text-align: center;
       }
+    }
+    tr.groupContent {
+      border: 1px solid silver;
     }
   }
 }
