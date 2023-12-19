@@ -6,6 +6,114 @@
     .ant-tabs-nav-operations {
       display: none;
     }
+    .ant-tabs {
+      width: 100%;
+      // padding: 0 10px;
+      .ant-tabs-nav {
+        .ant-tabs-nav-wrap {
+          .ant-tabs-nav-list {
+            // display: flex;
+            // flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(32, 1fr); /* Set four columns */
+            grid-template-rows: repeat(3, 1fr); /* Set three rows */
+            grid-gap: 5px; /* Adjust the gap between rows */
+
+            .ant-tabs-tab {
+              margin: 0 10px;
+            }
+          }
+        }
+      }
+      // .ant-tabs-nav {
+      //   .ant-tabs-ink-bar {
+      //     display: none;
+      //   }
+      //   // background-color: red;
+      //   overflow-x: scroll;
+      //   .ant-tabs-tab {
+      //     margin: 0;
+      //     padding: 0;
+      //     width: 60px;
+      //     // border: 1px solid silver;
+      //     .ant-tabs-tab-btn {
+      //       .tabLabel {
+      //         width: 60px;
+      //         text-align: center;
+      //         //   word-wrap: break-word;
+      //         //   white-space: initial;
+      //         img {
+      //           width: 60px;
+      //           border-radius: 50%;
+      //           object-fit: fill;
+      //         }
+      //         p {
+      //           width: 100px;
+      //           font-size: 12px;
+      //           font-weight: bold;
+      //           color: rgb(100, 100, 100);
+      //         }
+      //         .tenDanhMuc {
+      //           width: 100px;
+      //           text-align: center;
+      //           font-size: 12px;
+      //           font-weight: bold;
+      //           color: rgb(120, 120, 120);
+      //           word-wrap: break-word;
+      //         }
+      //       }
+      //     }
+      //   }
+      //   .ant-tabs-nav-operations {
+      //     display: none;
+      //   }
+
+      //   .ant-tabs-nav-wrap {
+      //     // overflow: auto;
+      //     .ant-tabs-nav-list {
+      //       // display: grid;
+      //       // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+      //       // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+      //       // grid-gap: 5px; /* Adjust the gap between rows */
+      //       // overflow-x: scroll; /* Enable horizontal scrolling */
+      //       // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+      //       padding-bottom: 10px;
+
+      //       display: flex;
+      //       flex-wrap: wrap;
+      //       // max-height: 180px;
+      //       // max-width: 100%;
+      //       overflow: auto;
+
+      //       &::-webkit-scrollbar {
+      //         // height: 12px;
+      //         display: none;
+      //       }
+
+      //       .ant-tabs-tab {
+      //         margin: 8px; /* Adjust the margin as needed */
+      //       }
+
+      //       .ant-tabs-ink-bar-animated {
+      //         display: none;
+      //       }
+      //     }
+      //   }
+      // }
+
+      // .ant-tabs-content-holder {
+      //   width: 380px;
+      //   margin: 0 auto;
+      //   .ant-tabs-tabpane-active {
+      //     padding: 0 !important;
+      //     margin: 0 auto;
+      //     width: 380px;
+      //     display: flex;
+      //     gap: 10px;
+      //     flex-wrap: wrap;
+      //   }
+      // }
+    }
 
     // .ant-tabs {
     //   .ant-tabs-nav {
@@ -198,18 +306,115 @@
       // //     display: none;
       // //   }
       // // }
-      .ant-tabs-content-holder {
-        width: 380px;
-        margin: 0 auto;
-        .ant-tabs-tabpane-active {
-          padding: 0 !important;
-          margin: 0 auto;
+      .ant-tabs {
+        width: 100%;
+        // padding: 0 10px;
+        .ant-tabs-nav {
+          .ant-tabs-nav-wrap {
+            .ant-tabs-nav-list {
+              // display: flex;
+              // flex-wrap: wrap;
+              display: grid;
+              grid-template-columns: repeat(32, 1fr); /* Set four columns */
+              grid-template-rows: repeat(3, 1fr); /* Set three rows */
+              grid-gap: 5px; /* Adjust the gap between rows */
+
+              .ant-tabs-tab {
+                margin: 0 10px;
+              }
+            }
+          }
+        }
+        // .ant-tabs-nav {
+        //   .ant-tabs-ink-bar {
+        //     display: none;
+        //   }
+        //   // background-color: red;
+        //   overflow-x: scroll;
+        //   .ant-tabs-tab {
+        //     margin: 0;
+        //     padding: 0;
+        //     width: 60px;
+        //     // border: 1px solid silver;
+        //     .ant-tabs-tab-btn {
+        //       .tabLabel {
+        //         width: 60px;
+        //         text-align: center;
+        //         //   word-wrap: break-word;
+        //         //   white-space: initial;
+        //         img {
+        //           width: 60px;
+        //           border-radius: 50%;
+        //           object-fit: fill;
+        //         }
+        //         p {
+        //           width: 100px;
+        //           font-size: 12px;
+        //           font-weight: bold;
+        //           color: rgb(100, 100, 100);
+        //         }
+        //         .tenDanhMuc {
+        //           width: 100px;
+        //           text-align: center;
+        //           font-size: 12px;
+        //           font-weight: bold;
+        //           color: rgb(120, 120, 120);
+        //           word-wrap: break-word;
+        //         }
+        //       }
+        //     }
+        //   }
+        //   .ant-tabs-nav-operations {
+        //     display: none;
+        //   }
+
+        //   .ant-tabs-nav-wrap {
+        //     // overflow: auto;
+        //     .ant-tabs-nav-list {
+        //       // display: grid;
+        //       // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+        //       // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+        //       // grid-gap: 5px; /* Adjust the gap between rows */
+        //       // overflow-x: scroll; /* Enable horizontal scrolling */
+        //       // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+        //       padding-bottom: 10px;
+
+        //       display: flex;
+        //       flex-wrap: wrap;
+        //       // max-height: 180px;
+        //       // max-width: 100%;
+        //       overflow: auto;
+
+        //       &::-webkit-scrollbar {
+        //         // height: 12px;
+        //         display: none;
+        //       }
+
+        //       .ant-tabs-tab {
+        //         margin: 8px; /* Adjust the margin as needed */
+        //       }
+
+        //       .ant-tabs-ink-bar-animated {
+        //         display: none;
+        //       }
+        //     }
+        //   }
+        // }
+
+        .ant-tabs-content-holder {
           width: 380px;
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
+          margin: 0 auto;
+          .ant-tabs-tabpane-active {
+            padding: 0 !important;
+            margin: 0 auto;
+            width: 380px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
         }
       }
+
       // width: 414px;
       // .ant-tabs {
       //   .ant-tabs-nav {
@@ -325,6 +530,23 @@
       width: 100%;
       .ant-tabs {
         width: 100%;
+        // padding: 0 10px;
+        .ant-tabs-nav {
+          .ant-tabs-nav-wrap {
+            .ant-tabs-nav-list {
+              // display: flex;
+              // flex-wrap: wrap;
+              display: grid;
+              grid-template-columns: repeat(32, 1fr); /* Set four columns */
+              grid-template-rows: repeat(3, 1fr); /* Set three rows */
+              grid-gap: 5px; /* Adjust the gap between rows */
+
+              .ant-tabs-tab {
+                margin: 0 10px;
+              }
+            }
+          }
+        }
         // .ant-tabs-nav {
         //   .ant-tabs-ink-bar {
         //     display: none;
