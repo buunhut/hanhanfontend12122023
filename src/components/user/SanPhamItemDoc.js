@@ -82,24 +82,50 @@ const SanPhamItemDoc = ({ sanPham }) => {
             <div className="hinhAnh">
                 <img src={`${URL}/${hinhAnh}`} alt="" />
             </div>
-            <div className='tenSp'>
-                <p>{tenSp}</p>
-            </div>
-            <div className='giaSp'>
-                {
-                    giaGiam > 0 ? (
-                        <p className='giaGiam'>{giaGiam.toLocaleString()}đ</p>
+            <div className='small'>
+                <div className='tenSp'>
+                    <p>{tenSp}</p>
+                </div>
+                <div className='giaSp'>
+                    {
+                        giaGiam > 0 ? (
+                            <p className='giaGiam'>{giaGiam.toLocaleString()}đ</p>
 
+                        ) : (
+                            <p className='giaGiam'>{giaBan.toLocaleString()}đ</p>
+                        )
+                    }
+                    {
+                        giaGiam > 0 ? (
+                            <p className='giaBan'>{giaBan.toLocaleString()}đ</p>
+                        ) : null
+                    }
+                </div>
+
+                {
+                    inCart ? (
+                        <>
+                            <div className='tangGiamSoLuong'>
+                                <i className="fa-solid fa-minus giam" onClick={() => handleGiamSoLuong(sanPham)}></i>
+                                <p>{inCart.soLuong}</p>
+                                <i className="fa-solid fa-plus tang" onClick={() => handleTangSoLuong(sanPham)}></i>
+                            </div>
+                        </>
                     ) : (
-                        <p className='giaGiam'>{giaBan.toLocaleString()}đ</p>
+                        <div className='themVaoGio'>
+                            {
+                                sanPham.soLuong / sanPham.quyDoi >= 1 ? (
+                                    <button type='button' onClick={() => handleThemVaoGio(sanPham)}>Thêm vào giỏ</button>
+                                ) : (
+                                    <button type='button' className='tamHet'>Tạm hết hàng</button>
+                                )
+                            }
+                        </div>
+
                     )
                 }
-                {
-                    giaGiam > 0 ? (
-                        <p className='giaBan'>{giaBan.toLocaleString()}đ</p>
-                    ) : null
-                }
             </div>
+
             <div className="phanTram" style={{ display: phanTram == 100 ? 'none' : 'block' }}>
                 {
                     phanTram !== 'NaN' ? (<p>{-phanTram}%</p>) : null
@@ -112,28 +138,8 @@ const SanPhamItemDoc = ({ sanPham }) => {
                     </p>) : null
                 }
             </div>
-            {
-                inCart ? (
-                    <>
-                        <div className='tangGiamSoLuong'>
-                            <i className="fa-solid fa-minus giam" onClick={() => handleGiamSoLuong(sanPham)}></i>
-                            <p>{inCart.soLuong}</p>
-                            <i className="fa-solid fa-plus tang" onClick={() => handleTangSoLuong(sanPham)}></i>
-                        </div>
-                    </>
-                ) : (
-                    <div className='themVaoGio'>
-                        {
-                            sanPham.soLuong / sanPham.quyDoi >= 1 ? (
-                                <button type='button' onClick={() => handleThemVaoGio(sanPham)}>Thêm vào giỏ</button>
-                            ) : (
-                                <button type='button' className='tamHet'>Tạm hết hàng</button>
-                            )
-                        }
-                    </div>
 
-                )
-            }
+
         </div >
     )
 }

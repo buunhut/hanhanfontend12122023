@@ -23,7 +23,6 @@ const ThuongHieu = () => {
             <div className='container'>
                 <Tabs
                     tabPosition='top'
-
                     items={
                         listSanPhamByThuongHieu?.map((item, index) => {
                             const { hinhAnh, sanPham } = item
