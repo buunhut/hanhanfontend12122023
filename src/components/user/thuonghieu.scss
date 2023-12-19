@@ -29,14 +29,14 @@
                 font-weight: bold;
                 color: rgb(100, 100, 100);
               }
-              .tenDanhMuc {
-                width: 100px;
-                text-align: center;
-                font-size: 12px;
-                font-weight: bold;
-                color: rgb(120, 120, 120);
-                word-wrap: break-word;
-              }
+              // .tenDanhMuc {
+              //   width: 100px;
+              //   text-align: center;
+              //   font-size: 12px;
+              //   font-weight: bold;
+              //   color: rgb(120, 120, 120);
+              //   word-wrap: break-word;
+              // }
             }
           }
         }
@@ -45,20 +45,21 @@
         }
 
         .ant-tabs-nav-wrap {
-          // overflow: auto;
+          overflow: scroll;
           .ant-tabs-nav-list {
-            display: grid;
-            grid-template-columns: repeat(32, 1fr); /* Set four columns */
-            grid-template-rows: repeat(3, 1fr); /* Set three rows */
-            grid-gap: 5px; /* Adjust the gap between rows */
-            overflow-x: scroll; /* Enable horizontal scrolling */
-            // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
-            padding-bottom: 10px;
+            // display: grid;
+            // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+            // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+            // grid-gap: 5px; /* Adjust the gap between rows */
+            // overflow-x: scroll; /* Enable horizontal scrolling */
+            // // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
+            // padding-bottom: 10px;
 
-            //   display: flex;
-            //   flex-wrap: wrap;
-            // max-height: 180px;
-            // overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            max-height: 180px;
+            max-width: 1160px;
+            overflow: auto;
             //   overflow-y: hidden; /* Hide vertical overflow */
             //   max-height: auto; /* Set the maximum height */
             //   width: 100%;
@@ -252,18 +253,19 @@
           .ant-tabs-nav-wrap {
             // overflow: auto;
             .ant-tabs-nav-list {
-              display: grid;
-              grid-template-columns: repeat(32, 1fr); /* Set four columns */
-              grid-template-rows: repeat(3, 1fr); /* Set three rows */
-              grid-gap: 5px; /* Adjust the gap between rows */
-              overflow-x: scroll; /* Enable horizontal scrolling */
+              // display: grid;
+              // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+              // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+              // grid-gap: 5px; /* Adjust the gap between rows */
+              // overflow-x: scroll; /* Enable horizontal scrolling */
               // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
               padding-bottom: 10px;
 
-              //   display: flex;
-              //   flex-wrap: wrap;
-              // max-height: 180px;
-              // overflow: auto;
+              display: flex;
+              flex-wrap: wrap;
+              max-height: 180px;
+              max-width: 100%;
+              overflow: auto;
               //   overflow-y: hidden; /* Hide vertical overflow */
               //   max-height: auto; /* Set the maximum height */
               //   width: 100%;
@@ -364,21 +366,19 @@
           .ant-tabs-nav-wrap {
             // overflow: auto;
             .ant-tabs-nav-list {
-              display: grid;
-              grid-template-columns: repeat(32, 1fr); /* Set four columns */
-              grid-template-rows: repeat(3, 1fr); /* Set three rows */
-              grid-gap: 5px; /* Adjust the gap between rows */
-              overflow-x: scroll; /* Enable horizontal scrolling */
+              // display: grid;
+              // grid-template-columns: repeat(32, 1fr); /* Set four columns */
+              // grid-template-rows: repeat(3, 1fr); /* Set three rows */
+              // grid-gap: 5px; /* Adjust the gap between rows */
+              // overflow-x: scroll; /* Enable horizontal scrolling */
               // -webkit-overflow-scrolling: touch; /* Thêm tiền tố -webkit- */
               padding-bottom: 10px;
 
-              //   display: flex;
-              //   flex-wrap: wrap;
-              // max-height: 180px;
-              // overflow: auto;
-              //   overflow-y: hidden; /* Hide vertical overflow */
-              //   max-height: auto; /* Set the maximum height */
-              //   width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              max-height: 180px;
+              max-width: 100%;
+              overflow: auto;
 
               &::-webkit-scrollbar {
                 // height: 12px;
