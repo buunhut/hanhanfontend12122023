@@ -430,13 +430,24 @@ const Header = () => {
                                     })
 
                                 }
-                                <tr>
-                                    <td colSpan={2} style={{ textAlign: 'center' }}>Tổng tiền hàng</td>
-                                    <td style={{ textAlign: 'right' }}>{totalTienHang.toLocaleString()}</td>
-                                </tr>
+
                                 {
                                     totalSoLuong > 0 ? (
                                         <>
+                                            <tr>
+                                                <td colSpan={2} style={{ textAlign: 'center' }}>Tổng tiền hàng</td>
+                                                <td style={{ textAlign: 'right' }}>{totalTienHang.toLocaleString()}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colSpan={2} className="note">
+                                                    <p style={{ textAlign: 'center', fontSize: '16px' }}>Số tiền tích luỹ</p>
+                                                </td>
+                                                <td className="thanhTien note">
+                                                    <p className="tichLuy" style={{ fontSize: '16px' }}>
+                                                        {Math.floor(diemTichLuy).toLocaleString()}
+                                                    </p>
+                                                </td>
+                                            </tr>
                                             <tr className="phiVc" >
                                                 <td colSpan={2} className="pvc">Phí vận chuyển
                                                     {
@@ -462,16 +473,7 @@ const Header = () => {
                                                 >{phiVc <= 0 ? 0 : phiVc.toLocaleString()}
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td colSpan={2} className="note">
-                                                    <p style={{ textAlign: 'center', fontSize: '16px' }}>Số tiền tích luỹ</p>
-                                                </td>
-                                                <td className="thanhTien note">
-                                                    <p className="tichLuy" style={{ fontSize: '16px' }}>
-                                                        {Math.floor(diemTichLuy).toLocaleString()}
-                                                    </p>
-                                                </td>
-                                            </tr>
+
 
                                         </>
                                     ) : null
