@@ -231,7 +231,7 @@ const FormNhapHang = () => {
 
 
     return (
-        <div>
+        <div className="leftContent">
             <div className="topForm">
                 <div className="groupItem">
                     <div className="inputItem">
