@@ -74,6 +74,9 @@ header {
 }
 
 #gioHang {
+  max-height: 100vh;
+  overflow: scroll;
+  position: relative;
   .overlay {
     position: absolute;
     top: 0;
@@ -85,308 +88,310 @@ header {
   }
   #gioHangContent {
     width: 0;
+    // display: none;
     background-color: white;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    height: 100vh;
+    // height: 100vh;
     z-index: 700;
     transition: all 0.1s; /* Use a transition on the 'right' property */
     overflow-y: scroll;
     &.show {
+      // display: block;
       width: 500px; /* Move in when the 'show' class is applied */
-    }
-    .title {
-      padding: 20px;
-      height: 62px;
-      text-align: center;
-      background-color: white;
-      // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgb(200, 200, 200);
-      i {
-        width: 30px;
-        color: red;
-        cursor: pointer;
-      }
-      .p {
-        width: 100%;
-      }
-      button {
-        width: 60px;
-        margin: 0;
-        font-size: 16px;
-        font-weight: 400;
-      }
-    }
-    .main {
-      padding: 10px;
-      max-height: calc(100vh - 162px);
-      overflow-y: scroll;
-      background-color: white;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      table {
-        width: 100%;
-        margin: 5px 0;
-        border-collapse: collapse;
-        border-bottom: 1px solid rgb(195, 195, 195);
-        tbody {
-          tr {
-            padding: 10px;
-
-            &:nth-child(even) {
-              background-color: rgba(245, 245, 245, 0.6);
-            }
-            td {
-              &.tienHang {
-                background-color: white;
-              }
-
-              padding: 5px;
-            }
-            td.hinhAnh {
-              width: 50px;
-              img {
-                width: 50px;
-                height: 50px;
-              }
-            }
-            td.tenSp {
-              p.ten {
-                font-size: 14px;
-                font-weight: 400;
-                padding: 5px 0;
-                text-transform: capitalize;
-              }
-              .bottomMenu {
-                display: flex;
-                align-items: center;
-                p.donGia {
-                  width: 80px;
-                  font-size: 14px;
-                  font-weight: 400;
-                  color: red;
-                }
-                .tangGiamSoLuong {
-                  // padding: 10px;
-                  height: 30px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  gap: 10px;
-                  i.giam {
-                    width: 18px;
-                    height: 18px;
-                    line-height: 17px;
-                    text-align: center;
-                    color: silver;
-                    background-color: white;
-                    border: 1px solid silver;
-                    border-radius: 50%;
-                    cursor: pointer;
-                  }
-                  i.tang {
-                    width: 19px;
-                    height: 19px;
-                    line-height: 19px;
-                    text-align: center;
-                    color: white;
-                    background-color: rgba(195, 195, 195, 0.6);
-                    border-radius: 50%;
-                    cursor: pointer;
-                  }
-                  p {
-                    height: 20px;
-                    line-height: 20px;
-                    text-align: center;
-                    width: 60px;
-                    background-color: rgb(255, 245, 245);
-                    color: red;
-                    border-radius: 20px;
-                    font-size: 14px;
-                    font-weight: 400;
-                  }
-                }
-              }
-            }
-            td.thanhTien {
-              background-color: white;
-              p.xoa {
-                font-size: 14px;
-                font-weight: 400;
-                text-align: right;
-                padding: 5px 0 10px;
-                color: silver;
-                cursor: pointer;
-                transition: all 0.3s;
-                &:hover {
-                  color: red;
-                }
-              }
-              p.thanhTien {
-                font-size: 14px;
-                font-weight: 400;
-                text-align: right;
-                color: red;
-              }
-              p.tichLuy {
-                font-size: 14px;
-                font-weight: 400;
-                text-align: right;
-              }
-            }
-            td.note {
-              padding: 0 5px;
-              background-color: white;
-              text-align: center;
-              i {
-                color: silver;
-                font-size: 13px;
-                font-weight: 400;
-              }
-            }
-          }
-          tr.phiVc {
-            height: 50px;
-            color: royalblue;
-            td.pvc {
-              text-align: center;
-              font-size: 16px;
-              font-weight: 400;
-
-              background-color: white;
-            }
-            td.tien {
-              text-align: right;
-              // vertical-align: top;
-              font-size: 16px;
-              font-weight: 400;
-              background-color: white;
-
-              // color: red;
-            }
-          }
-        }
-      }
-      .khachTuLay {
-        display: flex;
-        justify-content: start;
-
-        input {
-          width: 18px;
-          height: 18px;
-          margin-right: 7px;
-          border-radius: 50%;
-        }
-        padding: 10px 0;
-        margin-bottom: 30px;
-      }
-      p.center {
+      .title {
+        padding: 20px;
+        height: 62px;
         text-align: center;
-        padding: 3px;
+        background-color: white;
+        // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgb(200, 200, 200);
         i {
-          font-size: 14px;
-          font-weight: 400;
-          // color: silver;
+          width: 30px;
+          color: red;
+          cursor: pointer;
         }
-      }
-
-      .extraInfo {
-        padding: 10px;
-        h3 {
-          color: silver;
-          // text-align: center;
-          font-size: 16px;
-          font-weight: 500;
-        }
-        form {
-          margin: 10px 0;
-          padding: 10px;
-          border: 1px solid rgb(195, 195, 195);
-          border-radius: 10px;
-          #tenKhachHang,
-          #diaChi {
-            text-transform: capitalize;
-          }
-
-          p {
-            margin-top: 10px;
-          }
-        }
-      }
-      .hetHang {
-        padding: 10px;
-      }
-    }
-    .viCuaBan {
-      height: 30px;
-      line-height: 30px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      bottom: 100px;
-      left: 0;
-      right: 0;
-      background-color: white;
-      p {
-        width: 220px;
-      }
-      input {
-        height: 15px;
-        width: 15px;
-        margin-right: 8px;
-      }
-    }
-    .bottom {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px;
-      background-color: white;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-      border-top: 1px solid rgb(200, 200, 200);
-      div.thanhToan {
-        width: 100%;
-        padding: 0 20px 0 0;
-        .inputItem {
-          border: none;
-          p {
-            width: 115px;
-            color: red;
-            font-size: 15px;
-            font-weight: 500;
-            &:last-child {
-              text-align: right;
-            }
-          }
-        }
-      }
-      a {
-        color: white;
-        margin: 0;
-        width: 100%;
-        button {
-          margin: 0;
+        .p {
           width: 100%;
         }
+        button {
+          width: 60px;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 400;
+        }
       }
-      button {
-        margin: 0;
-        width: 50%;
-        font-size: 15px;
-        font-weight: 500;
+      .main {
+        padding: 10px;
+        max-height: calc(100vh - 162px);
+        overflow-y: scroll;
+        background-color: white;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        table {
+          width: 100%;
+          margin: 5px 0;
+          border-collapse: collapse;
+          border-bottom: 1px solid rgb(195, 195, 195);
+          tbody {
+            tr {
+              padding: 10px;
+
+              &:nth-child(even) {
+                background-color: rgba(245, 245, 245, 0.6);
+              }
+              td {
+                &.tongTienHang {
+                  background-color: white;
+                }
+
+                padding: 5px;
+              }
+              td.hinhAnh {
+                width: 50px;
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+              }
+              td.tenSp {
+                p.ten {
+                  font-size: 14px;
+                  font-weight: 400;
+                  padding: 5px 0;
+                  text-transform: capitalize;
+                }
+                .bottomMenu {
+                  display: flex;
+                  align-items: center;
+                  p.donGia {
+                    width: 80px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: red;
+                  }
+                  .tangGiamSoLuong {
+                    // padding: 10px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    i.giam {
+                      width: 18px;
+                      height: 18px;
+                      line-height: 17px;
+                      text-align: center;
+                      color: silver;
+                      background-color: white;
+                      border: 1px solid silver;
+                      border-radius: 50%;
+                      cursor: pointer;
+                    }
+                    i.tang {
+                      width: 19px;
+                      height: 19px;
+                      line-height: 19px;
+                      text-align: center;
+                      color: white;
+                      background-color: rgba(195, 195, 195, 0.6);
+                      border-radius: 50%;
+                      cursor: pointer;
+                    }
+                    p {
+                      height: 20px;
+                      line-height: 20px;
+                      text-align: center;
+                      width: 60px;
+                      background-color: rgb(255, 245, 245);
+                      color: red;
+                      border-radius: 20px;
+                      font-size: 14px;
+                      font-weight: 400;
+                    }
+                  }
+                }
+              }
+              td.thanhTien {
+                // background-color: white;
+                p.xoa {
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: right;
+                  padding: 5px 0 10px;
+                  color: silver;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                  &:hover {
+                    color: red;
+                  }
+                }
+                p.thanhTien {
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: right;
+                  color: red;
+                }
+                p.tichLuy {
+                  font-size: 14px;
+                  font-weight: 400;
+                  text-align: right;
+                }
+              }
+              td.note {
+                padding: 0 5px;
+                background-color: white;
+                text-align: center;
+                i {
+                  color: silver;
+                  font-size: 13px;
+                  font-weight: 400;
+                }
+              }
+            }
+            tr.phiVc {
+              height: 50px;
+              color: royalblue;
+              td.pvc {
+                text-align: center;
+                font-size: 16px;
+                font-weight: 400;
+
+                background-color: white;
+              }
+              td.tien {
+                text-align: right;
+                // vertical-align: top;
+                font-size: 16px;
+                font-weight: 400;
+                background-color: white;
+
+                // color: red;
+              }
+            }
+          }
+        }
+        .khachTuLay {
+          display: flex;
+          justify-content: start;
+
+          input {
+            width: 18px;
+            height: 18px;
+            margin-right: 7px;
+            border-radius: 50%;
+          }
+          padding: 10px 0;
+          margin-bottom: 30px;
+        }
+        p.center {
+          text-align: center;
+          padding: 3px;
+          i {
+            font-size: 14px;
+            font-weight: 400;
+            // color: silver;
+          }
+        }
+
+        .extraInfo {
+          padding: 10px;
+          h3 {
+            color: silver;
+            // text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+          }
+          form {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid rgb(195, 195, 195);
+            border-radius: 10px;
+            #tenKhachHang,
+            #diaChi {
+              text-transform: capitalize;
+            }
+
+            p {
+              margin-top: 10px;
+            }
+          }
+        }
+        .hetHang {
+          padding: 10px;
+        }
+      }
+      .viCuaBan {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 100px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        p {
+          width: 220px;
+        }
+        input {
+          height: 15px;
+          width: 15px;
+          margin-right: 8px;
+        }
+      }
+      .bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-top: 1px solid rgb(200, 200, 200);
+        div.thanhToan {
+          width: 100%;
+          padding: 0 20px 0 0;
+          .inputItem {
+            border: none;
+            p {
+              width: 115px;
+              color: red;
+              font-size: 15px;
+              font-weight: 500;
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+        a {
+          color: white;
+          margin: 0;
+          width: 100%;
+          button {
+            margin: 0;
+            width: 100%;
+          }
+        }
+        button {
+          margin: 0;
+          width: 50%;
+          font-size: 15px;
+          font-weight: 500;
+        }
       }
     }
   }
