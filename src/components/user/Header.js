@@ -434,9 +434,9 @@ const Header = () => {
                                 {
                                     totalSoLuong > 0 ? (
                                         <>
-                                            <tr>
-                                                <td colSpan={2} style={{ textAlign: 'center' }}>Tổng tiền hàng</td>
-                                                <td style={{ textAlign: 'right' }}>{totalTienHang.toLocaleString()}</td>
+                                            <tr className="tienHang" >
+                                                <td colSpan={2} className="tienHang" style={{ textAlign: 'center' }}>Tổng tiền hàng</td>
+                                                <td className="tienHang" style={{ textAlign: 'right' }}>{totalTienHang.toLocaleString()}</td>
                                             </tr>
                                             <tr>
                                                 <td colSpan={2} className="note">
