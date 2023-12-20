@@ -81,17 +81,18 @@ header {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 500;
+    z-index: 530;
   }
   #gioHangContent {
     width: 0;
     background-color: whitesmoke;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
+    height: 100vh;
     // right: -100%; /* Initially off-screen */
-    z-index: 501;
+    z-index: 600;
     transition: all 0.1s; /* Use a transition on the 'right' property */
     overflow-y: scroll;
     &.show {

@@ -629,15 +629,15 @@ const CreateProducts = () => {
 
             {
                 dmId !== 0 && thId !== 0 ? (
-                    <button style={{ width: "160px" }} onClick={() => handleTaoSanPham()}>
+                    <button onClick={() => handleTaoSanPham()}>
                         Tạo sản phẩm
                     </button>
                 ) : dmId !== 0 && thId === 0 ? (
-                    <button style={{ width: "160px" }} onClick={() => handleFormThuongHieu()}>
+                    <button onClick={() => handleFormThuongHieu()}>
                         Thương hiệu
                     </button>
                 ) : (
-                    <button style={{ width: "160px" }} onClick={() => handleFormDanhMuc()}>
+                    <button onClick={() => handleFormDanhMuc()}>
                         Danh mục
                     </button>
                 )

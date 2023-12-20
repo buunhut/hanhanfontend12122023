@@ -121,6 +121,7 @@ table {
     tr {
       &:nth-child(even) {
         background-color: rgb(245, 245, 245);
+        // border: 1px solid silver;
       }
       td {
         padding: 5px;
@@ -190,7 +191,7 @@ table {
     tr.groupContent {
       border-bottom: 1px solid silver;
       td {
-        border-bottom: 1px solid silver;
+        // border-bottom: 1px solid 1px;
 
         // border-top: 1px solid transparent;
         // border-bottom: 1px solid transparent;
