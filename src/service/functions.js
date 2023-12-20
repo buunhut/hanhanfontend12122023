@@ -2,8 +2,8 @@ import { useDispatch } from "react-redux";
 import { tangSoLuong } from "../redux/gioHangSlice";
 
 // export const URL = 'http://localhost:8080'
-// export const URL = 'http://61.14.233.80:8080'
-export const URL = 'http://nodejs.edu.vn:8080'
+export const URL = 'http://61.14.233.80:8080'
+// export const URL = 'http://nodejs.edu.vn:8080'
 
 
 
