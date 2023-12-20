@@ -136,7 +136,7 @@ header {
 
       table {
         width: 100%;
-        margin: 20px 0;
+        margin: 10px 0;
         border-collapse: collapse;
         border-bottom: 1px solid rgb(195, 195, 195);
         tbody {
@@ -270,6 +270,7 @@ header {
       .khachTuLay {
         display: flex;
         justify-content: start;
+
         input {
           width: 18px;
           height: 18px;
@@ -277,6 +278,7 @@ header {
           border-radius: 50%;
         }
         padding: 10px 0;
+        margin-bottom: 30px;
       }
       p.center {
         text-align: center;
@@ -322,8 +324,10 @@ header {
       display: flex;
       align-items: center;
       position: absolute;
-      bottom: 110px;
+      bottom: 100px;
       left: 0;
+      right: 0;
+      background-color: white;
       p {
         width: 300px;
       }
@@ -400,7 +404,7 @@ header {
       top: 0;
       right: 0;
       bottom: 0;
-      height: 100vh;
+      // height: 100vh;
       // right: -100%; /* Initially off-screen */
       z-index: 600;
       transition: all 0.1s; /* Use a transition on the 'right' property */
@@ -446,14 +450,14 @@ header {
         // padding: 10px;
         // background-color: white;
         // padding: 10px;
-        height: calc(100vh - 162px);
+        height: calc(100vh - 192px);
         // overflow-y: scroll;
         // background-color: white;
         margin-top: 62px;
 
         table {
           width: 100%;
-          margin-top: 30px;
+          // margin-top: 30px;
           border-collapse: collapse;
           tbody {
             tr {
@@ -554,10 +558,10 @@ header {
         }
       }
       .bottom {
-        // position: absolute;
-        // left: 0;
-        // right: 0;
-        // bottom: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
         height: 100px;
         display: flex;
         align-items: center;
