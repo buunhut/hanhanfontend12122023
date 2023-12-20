@@ -91,7 +91,6 @@ header {
     right: 0;
     bottom: 0;
     height: 100vh;
-    // right: -100%; /* Initially off-screen */
     z-index: 700;
     transition: all 0.1s; /* Use a transition on the 'right' property */
     overflow-y: scroll;
@@ -107,10 +106,6 @@ header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      // position: absolute;
-      // top: 0;
-      // left: 0;
-      // right: 0;
       border-bottom: 1px solid rgb(200, 200, 200);
       i {
         width: 30px;
@@ -135,7 +130,7 @@ header {
       // left: 0;
       // right: 0;
       padding: 10px;
-      height: calc(100vh - 162px);
+      height: calc(100vh - 112px);
       overflow-y: scroll;
       background-color: white;
 
@@ -405,6 +400,7 @@ header {
       top: 0;
       right: 0;
       bottom: 0;
+      height: 100vh;
       // right: -100%; /* Initially off-screen */
       z-index: 600;
       transition: all 0.1s; /* Use a transition on the 'right' property */
