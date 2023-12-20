@@ -550,7 +550,18 @@ const Header = () => {
                                     <span> Trừ ví</span>
                                 </div>
 
-                            ) : null
+                            ) : (
+                                <div className="viCuaBan" >
+                                    <p>
+                                        {/* Ví của bạn: {tongDiemTichLuy.toLocaleString()}đ */}
+                                    </p>
+                                    {/* <input type="checkbox" name="traBangVi"
+
+                                        onClick={(event) => handleTraBangVi(event)}
+                                    /> */}
+                                    {/* <span> Trừ ví</span> */}
+                                </div>
+                            )
                         }
                     </div>
 
