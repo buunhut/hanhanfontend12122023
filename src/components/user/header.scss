@@ -81,7 +81,7 @@ header {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 530;
+    z-index: 601;
   }
   #gioHangContent {
     width: 0;
@@ -92,7 +92,7 @@ header {
     bottom: 0;
     height: 100vh;
     // right: -100%; /* Initially off-screen */
-    z-index: 600;
+    z-index: 700;
     transition: all 0.1s; /* Use a transition on the 'right' property */
     overflow-y: scroll;
     &.show {

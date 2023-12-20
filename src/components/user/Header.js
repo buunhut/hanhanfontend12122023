@@ -347,7 +347,7 @@ const Header = () => {
                     <div className="contentMenu">
                         <div className="topItem">
                             <i className="fa-solid fa-location-dot"></i>
-                            <p>Bách Hoá HÂN HÂN</p>
+                            <p>Bách hoá HÂN HÂN</p>
                             <i className="fa-solid fa-caret-down"></i>
                         </div>
                         <div className="topItem">
