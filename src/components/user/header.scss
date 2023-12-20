@@ -406,7 +406,7 @@ header {
       right: 0;
       bottom: 0;
       // right: -100%; /* Initially off-screen */
-      z-index: 501;
+      z-index: 600;
       transition: all 0.1s; /* Use a transition on the 'right' property */
       overflow-y: scroll;
       &.show {
