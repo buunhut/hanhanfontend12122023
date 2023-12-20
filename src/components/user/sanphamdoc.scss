@@ -96,8 +96,14 @@
       }
 
       &.tamHet {
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 30px;
+        margin: 10px 0 10px;
+        width: 100%;
+
         background-color: silver;
-        // cursor: none;
+        cursor: not-allowed;
       }
     }
   }
