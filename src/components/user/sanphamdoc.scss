@@ -59,6 +59,15 @@
     background-color: red;
     border-radius: 10px 0 10px 0;
     color: white;
+
+    background: linear-gradient(
+      90deg,
+      #ff0000,
+      #ff6f00,
+      #ff0000
+    ); /* Màu gradient từ trái sang phải */
+    background-size: 200% 200%;
+    animation: gradientAnimation 3s ease infinite; /* 3s là thời gian của animation */
   }
   .gifs {
     position: absolute;
@@ -68,12 +77,45 @@
     color: green;
   }
   .themVaoGio {
+    /* Định nghĩa keyframes cho animation */
+
+    /* CSS cho nút button */
+    // .gradient-button {
+    //   display: inline-block;
+    //   padding: 10px 20px;
+    //   font-size: 16px;
+    //   font-weight: bold;
+    //   text-align: center;
+    //   text-decoration: none;
+    //   color: #fff;
+    //   border: none;
+    //   border-radius: 5px;
+    //   cursor: pointer;
+    //   background: linear-gradient(
+    //     90deg,
+    //     #ff8c00,
+    //     #ffd700
+    //   ); /* Màu gradient từ trái sang phải */
+    //   background-size: 200% 200%;
+    //   animation: gradientAnimation 3s ease infinite; /* 3s là thời gian của animation */
+    // }
+
     button {
       font-size: 14px;
       font-weight: 400;
       border-radius: 30px;
       margin: 10px 0 10px;
       width: 100%;
+
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff6f00,
+        #ff0000
+      ); /* Màu gradient từ trái sang phải */
+      background-size: 200% 200%;
+      animation: gradientAnimation 6s ease infinite; /* 3s là thời gian của animation */
+
       &.tamHet {
         background-color: silver;
         // cursor: none;
@@ -119,6 +161,18 @@
     }
   }
 }
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .sanPhamDoc {
     width: 100%;
