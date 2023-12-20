@@ -10,7 +10,8 @@ const initialState = {
         hoanTien: 0,
         mucHoan: 0,
     },
-    tongDiemTichLuy: 0
+    tongDiemTichLuy: 0,
+    soLuongDonHang: 0,
 };
 
 export const orderSlice = createSlice({
@@ -58,6 +59,12 @@ export const orderSlice = createSlice({
                 tongDiemTichLuy: action.payload,
             };
         },
+        updateSoLuongDonHang: (state, action) => {
+            return {
+                ...state,
+                soLuongDonHang: action.payload,
+            };
+        },
     },
 });
 export const {
@@ -65,6 +72,7 @@ export const {
     updateListOrderByShop,
     updateListCauHinhByShop,
     updateListTrangThai,
-    updateDiemTichLuy
+    updateDiemTichLuy,
+    updateSoLuongDonHang
 } = orderSlice.actions;
 export default orderSlice.reducer;

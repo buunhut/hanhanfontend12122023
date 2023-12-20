@@ -64,6 +64,13 @@ export const donHangApi = {
             headers
         })
     },
+    apiGetDonHangChoXuLy: (headers) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/don-hang/don-hang-cho-xu-ly/`,
+            headers
+        })
+    },
 
 
 

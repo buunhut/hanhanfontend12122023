@@ -3,7 +3,7 @@ import './xulydonhang.scss'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { callApi } from '../../api/callApi';
-import { updateListOrderByShop, updateListTrangThai } from '../../redux/orderSlice';
+import { updateListOrderByShop, updateListTrangThai, updateSoLuongDonHang } from '../../redux/orderSlice';
 import moment from 'moment';
 import { capitalizeFirstLetter } from '../../service/functions';
 import { Popconfirm, message } from 'antd';
@@ -34,6 +34,15 @@ const XuLyDonHang = () => {
 
 
     }
+    const callSoLuongDonHang = () => {
+        donHangApi.apiGetDonHangChoXuLy(headers)
+            .then((res) => {
+                dispath(updateSoLuongDonHang(res.data.content));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
     const callListNhanVien = () => {
         nhanVienApi.apiGetNhanVienByShop(headers).then((res) => {
             dispath(updateListNhanVienByShop(res.data.content))
@@ -46,16 +55,18 @@ const XuLyDonHang = () => {
     }
 
 
-    useEffect(() => {
-        callListOrderByShop()
-        callListNhanVien()
-        callListTrangThai()
-    }, [])
+
 
 
     let { listOrderByShop } = useSelector((state) => state.order)
     let { listTrangThai } = useSelector((state) => state.order)
+    let { soLuongDonHang } = useSelector((state) => state.order)
     let { listNhanVienByShop } = useSelector((state) => state.nhanVien)
+    useEffect(() => {
+        callListOrderByShop()
+        callListNhanVien()
+        callListTrangThai()
+    }, [soLuongDonHang])
 
 
     // console.log(listNhanVienByShop)
@@ -114,7 +125,7 @@ const XuLyDonHang = () => {
 
     //cập nhật người giao
     const handleChangeNguoiGiao = (event, item) => {
-        console.log(event.target)
+        // console.log(event.target)
         const { value } = event.target
         const { oId } = item
         const data = {
@@ -127,6 +138,7 @@ const XuLyDonHang = () => {
             if (statusCode === 200) {
                 callListOrderByShop()
                 callListTrangThai()
+                callSoLuongDonHang()
             }
         }).catch((err) => {
             console.log(err)
@@ -347,7 +359,7 @@ const XuLyDonHang = () => {
                                         tongPhiVc += phiVc
                                         tongThanhToan += item.thanhToan;
                                         tongTraVi += item.traVi;
-                                        tongConNo = (tongTienHang + tongPhiVc) - (tongThanhToan);
+                                        tongConNo = (tongTienHang + tongPhiVc) - (tongThanhToan + tongTraVi);
                                     }
                                     return (
                                         <tr key={index} className='item'>

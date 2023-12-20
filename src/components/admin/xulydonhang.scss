@@ -21,7 +21,8 @@
     font-size: 14px;
     thead {
       position: sticky;
-      top: -10px;
+      top: -2px;
+      z-index: 500;
       tr {
         td {
           background-color: royalblue;
