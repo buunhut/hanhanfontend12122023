@@ -130,7 +130,7 @@ header {
         }
       }
       .main {
-        padding: 10px;
+        padding: 10px 15px;
         max-height: calc(100vh - 162px);
         overflow-y: scroll;
         background-color: white;
@@ -417,7 +417,7 @@ header {
       &.show {
         width: 100%; /* Move in when the 'show' class is applied */
         .main {
-          padding: 0 0 60px;
+          padding: 0 0 110px;
         }
       }
     }
