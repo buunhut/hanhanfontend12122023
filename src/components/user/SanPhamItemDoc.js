@@ -106,7 +106,7 @@ const SanPhamItemDoc = ({ sanPham }) => {
                         <div className='themVaoGio'>
                             {
                                 sanPham.soLuong / sanPham.quyDoi >= 1 ? (
-                                    <button type='button' onClick={() => handleThemVaoGio(sanPham)}>Thêm vào giỏ</button>
+                                    <button className='coHang' type='button' onClick={() => handleThemVaoGio(sanPham)}>Thêm vào giỏ</button>
                                 ) : (
                                     <button type='button' className='tamHet'>Tạm hết hàng</button>
                                 )

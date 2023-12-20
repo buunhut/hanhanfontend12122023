@@ -416,6 +416,9 @@ header {
       width: 0;
       &.show {
         width: 100%; /* Move in when the 'show' class is applied */
+        .main {
+          padding: 0 0 60px;
+        }
       }
     }
     //     width: 0;
