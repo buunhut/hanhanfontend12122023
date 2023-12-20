@@ -428,7 +428,12 @@ const Header = () => {
                                             </tr>
                                         )
                                     })
+
                                 }
+                                <tr>
+                                    <td colSpan={2} style={{ textAlign: 'center' }}>Tổng tiền hàng</td>
+                                    <td style={{ textAlign: 'right' }}>{totalTienHang.toLocaleString()}</td>
+                                </tr>
                                 {
                                     totalSoLuong > 0 ? (
                                         <>
@@ -459,10 +464,10 @@ const Header = () => {
                                             </tr>
                                             <tr>
                                                 <td colSpan={2} className="note">
-                                                    <p>Số tiền tích luỹ</p>
+                                                    <p style={{ textAlign: 'center', fontSize: '16px' }}>Số tiền tích luỹ</p>
                                                 </td>
                                                 <td className="thanhTien note">
-                                                    <p className="tichLuy">
+                                                    <p className="tichLuy" style={{ fontSize: '16px' }}>
                                                         {Math.floor(diemTichLuy).toLocaleString()}
                                                     </p>
                                                 </td>
@@ -574,7 +579,7 @@ const Header = () => {
                             <>
                                 <div className="thanhToan">
                                     <div className="inputItem">
-                                        <p>Tổng:</p>
+                                        <p>Tổng thanh toán:</p>
                                         <p>{(totalTienHang + phiVc).toLocaleString()}đ</p>
                                     </div>
                                     <div className="inputItem" style={{ display: traBangVi > 0 ? 'flex' : 'none' }}>
@@ -591,7 +596,7 @@ const Header = () => {
 
                                         <button type="button"
                                             onClick={() => handleXacNhanDonHang(gioHang, thongTinDatHang)}>
-                                            Xác nhận đơn hàng
+                                            Xác nhận đơn
                                         </button>
                                     ) : (
                                         <NavLink to={'/tai-khoan'}>

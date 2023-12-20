@@ -133,6 +133,9 @@ header {
       height: calc(100vh - 162px);
       overflow-y: scroll;
       background-color: white;
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       table {
         width: 100%;
@@ -256,12 +259,17 @@ header {
             td.pvc {
               text-align: center;
               font-size: 16px;
+              font-weight: 400;
+
+              background-color: white;
             }
             td.tien {
               text-align: right;
               // vertical-align: top;
-              font-size: 14px;
+              font-size: 16px;
               font-weight: 400;
+              background-color: white;
+
               // color: red;
             }
           }
@@ -355,11 +363,10 @@ header {
         padding: 0 20px 0 0;
         .inputItem {
           border: none;
-
           p {
             width: 100%;
             color: red;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
             &:last-child {
               text-align: right;
@@ -371,7 +378,6 @@ header {
         color: white;
         margin: 0;
         width: 100%;
-
         button {
           margin: 0;
           width: 100%;
@@ -379,7 +385,9 @@ header {
       }
       button {
         margin: 0;
-        width: 100%;
+        width: 50%;
+        font-size: 15px;
+        font-weight: 500;
       }
     }
   }
