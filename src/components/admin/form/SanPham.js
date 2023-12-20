@@ -338,25 +338,27 @@ const SanPham = ({ sanPham }) => {
     }
 
     const handleBlurInput = (event) => {
-        const { name, value } = event.target;
-        if (name === 'maxOrder') {
-            setMaxOrder({})
-        } else if (name === 'phiVc') {
-            setPhiVc({})
+        // const { name, value } = event.target;
+        // if (name === 'maxOrder') {
+        //     setMaxOrder({})
+        // } else if (name === 'phiVc') {
+        //     setPhiVc({})
 
-        } else if (name === 'giaGiam') {
-            setGiaGiam({})
+        // } else if (name === 'giaGiam') {
+        //     setGiaGiam({})
 
-        } else if (name === 'giaBan') {
-            setGiaBan({})
+        // } else if (name === 'giaBan') {
+        //     setGiaBan({})
 
-        } else if (name === 'giaNhap') {
-            setGiaNhap({})
+        // } else if (name === 'giaNhap') {
+        //     setGiaNhap({})
 
-        } else if (name === 'quyDoi') {
-            setQuyDoi({})
+        // } else if (name === 'quyDoi') {
+        //     setQuyDoi({})
 
-        }
+        // }
+        callTatCaSanPham()
+
     }
 
 
@@ -390,7 +392,7 @@ const SanPham = ({ sanPham }) => {
                                     <td className="center"><i className="fa-regular fa-trash-can"></i></td>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="groupContainer">
                                 {listSanPham
                                     ?.sort((a, b) => {
                                         // Sắp xếp theo kId
@@ -414,8 +416,7 @@ const SanPham = ({ sanPham }) => {
                                         // Kiểm tra nếu là phần tử đầu tiên của array hoặc kId khác với phần tử trước đó
                                         const isFirstOrDifferentKId = index === 0 || kId !== array[index - 1].kId;
                                         return (
-                                            // <p key={index}>{item.tenSp}</p>
-                                            <tr key={index} className="groupContent">
+                                            <tr key={spId} className="groupContent">
                                                 {isFirstOrDifferentKId && (
                                                     <td className="add" rowSpan={array.filter((item) => item.kId === kId).length}>
                                                         <i className="fa-solid fa-plus"

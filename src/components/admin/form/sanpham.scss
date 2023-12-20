@@ -83,21 +83,21 @@ table {
         text-align: center;
       }
       td.maSp {
-        width: 180px;
+        width: 160px;
       }
       td {
         padding: 5px;
       }
       td.giaTien {
-        width: 100px;
+        width: 90px;
         text-align: right;
       }
       td.quyDoi {
-        width: 60px;
+        width: 50px;
         text-align: right;
       }
       td.dvt {
-        width: 80px;
+        width: 70px;
       }
       td.order {
         width: 50px;
@@ -113,10 +113,15 @@ table {
     }
   }
   tbody {
+    &.groupContainer {
+      border-collapse: collapse;
+      width: 100%;
+      // border: 2px solid red;
+    }
     tr {
-      // &:nth-child(even) {
-      //   background-color: rgb(245, 245, 245);
-      // }
+      &:nth-child(even) {
+        background-color: rgb(245, 245, 245);
+      }
       td {
         padding: 5px;
         .inputItem {
@@ -151,7 +156,7 @@ table {
         }
       }
       td.maSp {
-        width: 180px;
+        width: 160px;
       }
 
       td.add {
@@ -160,15 +165,15 @@ table {
         background-color: white;
       }
       td.giaTien {
-        width: 100px;
+        width: 90px;
         text-align: right;
       }
       td.quyDoi {
-        width: 60px;
+        width: 50px;
         text-align: right;
       }
       td.dvt {
-        width: 80px;
+        width: 60px;
       }
       td.order {
         width: 50px;
@@ -183,7 +188,16 @@ table {
       }
     }
     tr.groupContent {
-      border: 1px solid silver;
+      border-bottom: 1px solid silver;
+      td {
+        border-bottom: 1px solid silver;
+
+        // border-top: 1px solid transparent;
+        // border-bottom: 1px solid transparent;
+      }
     }
+    // tr.highlighted {
+    //   border-bottom: 2px solid red;
+    // }
   }
 }
