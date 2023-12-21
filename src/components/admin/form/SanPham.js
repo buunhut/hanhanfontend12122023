@@ -338,25 +338,26 @@ const SanPham = ({ sanPham }) => {
     }
 
     const handleBlurInput = (event) => {
-        // const { name, value } = event.target;
-        // if (name === 'maxOrder') {
-        //     setMaxOrder({})
-        // } else if (name === 'phiVc') {
-        //     setPhiVc({})
 
-        // } else if (name === 'giaGiam') {
-        //     setGiaGiam({})
+        const { name, value } = event.target;
+        if (name === 'maxOrder') {
+            setMaxOrder({})
+        } else if (name === 'phiVc') {
+            setPhiVc({})
 
-        // } else if (name === 'giaBan') {
-        //     setGiaBan({})
+        } else if (name === 'giaGiam') {
+            setGiaGiam({})
 
-        // } else if (name === 'giaNhap') {
-        //     setGiaNhap({})
+        } else if (name === 'giaBan') {
+            setGiaBan({})
 
-        // } else if (name === 'quyDoi') {
-        //     setQuyDoi({})
+        } else if (name === 'giaNhap') {
+            setGiaNhap({})
 
-        // }
+        } else if (name === 'quyDoi') {
+            setQuyDoi({})
+
+        }
         callTatCaSanPham()
 
     }

@@ -156,7 +156,7 @@ const InDonHang = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <button className='no-print' onClick={() => window.print()}><i className="fa-solid fa-print"></i> In</button>
+                    <button className='no-print' onClick={() => window.print()}>In phiếu</button>
                 </div>
             </div>
         </div>
