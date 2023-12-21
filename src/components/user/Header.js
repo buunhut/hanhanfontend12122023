@@ -11,6 +11,7 @@ import { usersApi } from "../../api/usersApi";
 import * as moment from 'moment';
 import { updateDiemTichLuy, updateListCauHinhByShop, updateListOrderByShop } from "../../redux/orderSlice";
 import { shopsApi } from "../../api/shopsApi";
+import { updateListSanPhamByDanhMuc, updateListSanPhamByThuongHieu } from "../../redux/danhMucSlice";
 
 
 
@@ -342,21 +343,18 @@ const Header = () => {
     const handleTimKiem = (event) => {
         const { value } = event.target;
         setKeyword(value)
+        usersApi.apiTimKiemSanPham(value).then((res) => {
+            // console.log(res.data.content)
+            dispath(updateSanPham(res.data.content))
+        }).catch((err) => {
+            console.log(err)
+        })
 
-        if (value !== '') {
-            usersApi.apiTimKiemSanPham(value).then((res) => {
-                // console.log(res.data.content)
-                dispath(updateSanPham(res.data.content))
-            }).catch((err) => {
-                console.log(err)
-            })
-        } else {
-            dispath(updateSanPham([]))
-
-        }
     }
     const handleClickTimKiem = () => {
-        dispath(updateSanPham([]))
+        // dispath(updateSanPham([]))
+        navigate('/')
+
     };
 
     const handleBlurTimKiem = () => {
@@ -364,7 +362,6 @@ const Header = () => {
             usersApi.apiGetTatCaSanPham().then((res) => {
                 // setListSanPham(res.data.content)
                 dispath(updateSanPham(res.data.content))
-
             }).catch((err) => {
                 console.log(err)
             })
@@ -396,7 +393,7 @@ const Header = () => {
                                     type="text"
                                     id="timKiem"
                                     placeholder="Bạn muốn tìm gì hôm nay"
-                                    autoFocus
+                                    // autoFocus
                                     value={keyword}
                                     onChange={handleTimKiem}
                                     onClick={handleClickTimKiem}
