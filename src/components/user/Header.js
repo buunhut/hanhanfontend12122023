@@ -343,13 +343,21 @@ const Header = () => {
     const handleTimKiem = (event) => {
         const { value } = event.target;
         setKeyword(value)
-        usersApi.apiTimKiemSanPham(value).then((res) => {
-            // console.log(res.data.content)
-            dispath(updateSanPham(res.data.content))
-        }).catch((err) => {
-            console.log(err)
-        })
-
+        if (value !== '') {
+            usersApi.apiTimKiemSanPham(value).then((res) => {
+                // console.log(res.data.content)
+                dispath(updateSanPham(res.data.content))
+            }).catch((err) => {
+                console.log(err)
+            })
+        } else {
+            usersApi.apiGetTatCaSanPham().then((res) => {
+                // setListSanPham(res.data.content)
+                dispath(updateSanPham(res.data.content))
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
     }
     const handleClickTimKiem = () => {
         // dispath(updateSanPham([]))
