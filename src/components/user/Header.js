@@ -18,9 +18,9 @@ import { shopsApi } from "../../api/shopsApi";
 
 const Header = () => {
     const navigate = useNavigate()
-    const handleClickTimKiem = () => {
-        navigate('tim-kiem')
-    };
+    // const handleClickTimKiem = () => {
+    //     navigate('tim-kiem')
+    // };
     const { isLogin, user } = useSelector((state) => state.dangNhap)
     let uId = 0;
     let headers = {
@@ -181,8 +181,6 @@ const Header = () => {
                 dispath(updateDiemTichLuy(res.data.content))
             })
         }
-
-
         setOpen(true);
 
     };
@@ -339,6 +337,23 @@ const Header = () => {
         }
     }
 
+    //chức năng tìm kiếm
+    const [keyword, setKeyword] = useState('')
+    const handleTimKiem = (event) => {
+        const { value } = event.target;
+        setKeyword(value)
+        usersApi.apiTimKiemSanPham(value).then((res) => {
+            // console.log(res.data.content)
+            dispath(updateSanPham(res.data.content))
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+    const handleClickTimKiem = () => {
+        dispath(updateSanPham([]))
+    };
+
+
 
     return (
         <>
@@ -352,10 +367,20 @@ const Header = () => {
                         </div>
                         <div className="topItem">
                             <div className="inputItem">
+                                {/* <input
+                                    type="text"
+                                    id="timKiem"
+                                    placeholder="Bạn muốn tìm gì hôm nay"
+                                    // onClick={handleClickTimKiem}
+
+                                /> */}
                                 <input
                                     type="text"
                                     id="timKiem"
                                     placeholder="Bạn muốn tìm gì hôm nay"
+                                    autoFocus
+                                    value={keyword}
+                                    onChange={handleTimKiem}
                                     onClick={handleClickTimKiem}
                                 />
                                 <i className="fa-solid fa-magnifying-glass"></i>
