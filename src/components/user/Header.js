@@ -144,7 +144,7 @@ const Header = () => {
         if (item.phiVc > 0) {
             listPhiVc.push(item.phiVc)
         }
-        if (item.phiVc > 0 && item.phiVc < listCauHinh?.phiVc) {
+        if (item.phiVc > 0 && item.phiVc <= listCauHinh?.phiVc) {
             tongLoaiTru += item.soLuong * item.donGia
         }
     })
@@ -154,7 +154,7 @@ const Header = () => {
     } else {
         if (listPhiVc.length > 0) {
             let maxPhiVc = Math.max(...listPhiVc);
-            if (maxPhiVc > listCauHinh?.phiVc) {
+            if (maxPhiVc >= listCauHinh?.phiVc) {
                 phiVc = maxPhiVc
             } else {
                 if (totalTienHang - tongLoaiTru > tongDonMienPhiVc) {
