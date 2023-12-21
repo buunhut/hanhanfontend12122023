@@ -154,7 +154,7 @@ const Header = () => {
     } else {
         if (listPhiVc.length > 0) {
             let maxPhiVc = Math.max(...listPhiVc);
-            if (maxPhiVc >= listCauHinh?.phiVc) {
+            if (maxPhiVc > listCauHinh?.phiVc) {
                 phiVc = maxPhiVc
             } else {
                 if (totalTienHang - tongLoaiTru > tongDonMienPhiVc) {
