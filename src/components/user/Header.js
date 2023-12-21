@@ -342,16 +342,34 @@ const Header = () => {
     const handleTimKiem = (event) => {
         const { value } = event.target;
         setKeyword(value)
-        usersApi.apiTimKiemSanPham(value).then((res) => {
-            // console.log(res.data.content)
-            dispath(updateSanPham(res.data.content))
-        }).catch((err) => {
-            console.log(err)
-        })
+
+        if (value !== '') {
+            usersApi.apiTimKiemSanPham(value).then((res) => {
+                // console.log(res.data.content)
+                dispath(updateSanPham(res.data.content))
+            }).catch((err) => {
+                console.log(err)
+            })
+        } else {
+            dispath(updateSanPham([]))
+
+        }
     }
     const handleClickTimKiem = () => {
         dispath(updateSanPham([]))
     };
+
+    const handleBlurTimKiem = () => {
+        if (keyword === '') {
+            usersApi.apiGetTatCaSanPham().then((res) => {
+                // setListSanPham(res.data.content)
+                dispath(updateSanPham(res.data.content))
+
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
+    }
 
 
 
@@ -382,6 +400,7 @@ const Header = () => {
                                     value={keyword}
                                     onChange={handleTimKiem}
                                     onClick={handleClickTimKiem}
+                                    onBlur={handleBlurTimKiem}
                                 />
                                 <i className="fa-solid fa-magnifying-glass"></i>
                             </div>
