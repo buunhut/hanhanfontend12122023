@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { usersApi } from '../../api/usersApi'
 import SanPhamItemNgang from './SanPhamItemNgang'
 import { updateSanPham, updateSanPhamTimKiem } from '../../redux/sanPhamSlice'
+import SanPhamItemDoc from './SanPhamItemDoc'
 
 const TimKiem = () => {
     const dispath = useDispatch()
@@ -83,31 +84,31 @@ const TimKiem = () => {
                 </div>
             </header>
 
-                <div className="container">
-                    <div className="content">
-                        {
-                            listSanPhamTimKiem?.map((sanPhamItem, index) => {
-                                let { kId, soLuong } = sanPhamItem;
+            <div className="container">
+                <div className="content">
+                    {
+                        listSanPhamTimKiem?.map((sanPhamItem, index) => {
+                            let { kId, soLuong } = sanPhamItem;
 
-                                gioHang.forEach((gioHangItem) => {
-                                    if (gioHangItem.kId === kId) {
-                                        soLuong -= gioHangItem.soLuong * gioHangItem.quyDoi;
-                                    }
-                                });
+                            gioHang.forEach((gioHangItem) => {
+                                if (gioHangItem.kId === kId) {
+                                    soLuong -= gioHangItem.soLuong * gioHangItem.quyDoi;
+                                }
+                            });
 
-                                let updatedSanPhamItem = {
-                                    ...sanPhamItem,
-                                    soLuong,
-                                };
+                            let updatedSanPhamItem = {
+                                ...sanPhamItem,
+                                soLuong,
+                            };
 
-                                // const sortedSanPham = [...sanPham].sort((a, b) => a.quyDoi - b.quyDoi);
-                                return (
+                            // const sortedSanPham = [...sanPham].sort((a, b) => a.quyDoi - b.quyDoi);
+                            return (
 
-                                    <SanPhamItemNgang sanPham={updatedSanPhamItem} key={index} />
+                                <SanPhamItemDoc sanPham={updatedSanPhamItem} key={index} />
 
-                                );
-                            })
-                        }
+                            );
+                        })
+                    }
 
 
 

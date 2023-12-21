@@ -1,0 +1,31 @@
+.themVaoGio {
+    button {
+      &.coHang {
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 30px;
+        margin: 10px 0 10px;
+        width: 100%;
+
+        background: linear-gradient(
+          90deg,
+          #ff0000,
+          #ff6f00,
+          #ff0000
+        ); /* Màu gradient từ trái sang phải */
+        background-size: 200% 200%;
+        animation: gradientAnimation 6s ease infinite; /* 3s là thời gian của animation */
+      }
+
+      &.tamHet {
+        font-size: 14px;
+        font-weight: 400;
+        border-radius: 30px;
+        margin: 10px 0 10px;
+        width: 100%;
+
+        background-color: silver;
+        cursor: not-allowed;
+      }
+    }
+  }
