@@ -70,6 +70,7 @@ body {
             background-color: black;
             color: white;
             padding: 5px;
+            width: 110px;
           }
           td.tien {
             text-align: right;
@@ -79,16 +80,18 @@ body {
       tbody {
         tr {
           padding: 5px;
-          td.tenHang {
-            // width: 300px;
+          td {
             padding: 8px 0;
             border-bottom: 1px solid silver;
             span {
-              width: 100px;
+              width: 110px;
               color: black;
-              font-size: 12px;
-              font-weight: 400;
+              font-size: 13px;
+              font-weight: 500;
               margin-top: 5px;
+              &:last-child {
+                padding-left: 5px;
+              }
             }
             .inputItem {
               border: none;
@@ -112,9 +115,9 @@ body {
       }
     }
     .bottom {
-      margin-top: 20px;
+      margin-top: 50px;
       text-align: center;
-      border-top: 1px solid silver;
+      // border-top: 1px solid silver;
       padding-top: 5px;
     }
   }

@@ -90,11 +90,14 @@ const InDonHang = () => {
                     <table className='orderDetails'>
                         <thead>
                             <tr>
-                                <td>
-                                    Tên sản phẩm
+                                <td className='tenHang' >
+                                    Tên hàng
+                                </td>
+                                <td className='tenHang' >
+                                    Số lượng
                                 </td>
                                 <td className='tien'>
-                                    Tiền
+                                    Thành tiền
                                 </td>
                             </tr>
                         </thead>
@@ -106,11 +109,11 @@ const InDonHang = () => {
                                     tongThu += thanhTien
                                     return (
                                         <tr key={index}>
-                                            <td className='tenHang'>
+                                            <td colSpan={2}>
                                                 <p>{capitalizeFirstLetter(tenSp)}</p>
                                                 <div className="inputItem">
 
-                                                    <span>{donGia.toLocaleString()}</span>
+                                                    <span>Giá: {donGia.toLocaleString()}</span>
                                                     <span>{soLuong.toLocaleString()} </span>
 
                                                 </div>
@@ -123,7 +126,7 @@ const InDonHang = () => {
                                 })
                             }
                             <tr style={{ background: 'white' }}>
-                                <td style={{ textAlign: 'right' }}>
+                                <td style={{ textAlign: 'right' }} colSpan={2}>
                                     <b>Tiền hàng:</b>
                                 </td>
                                 <td className='tien'>
@@ -131,7 +134,7 @@ const InDonHang = () => {
                                 </td>
                             </tr>
                             <tr style={{ background: 'white', display: orderDetails?.phiVc <= 0 ? 'none' : '' }}>
-                                <td style={{ textAlign: 'right' }}>
+                                <td style={{ textAlign: 'right' }} colSpan={2}>
                                     <b>Phí vận chuyển:</b>
                                 </td>
                                 <td className='tien'>
@@ -139,7 +142,7 @@ const InDonHang = () => {
                                 </td>
                             </tr>
                             <tr style={{ background: 'white', display: orderDetails?.traVi <= 0 ? 'none' : '' }}>
-                                <td style={{ textAlign: 'right' }}>
+                                <td colSpan={2} style={{ textAlign: 'right' }}>
                                     <b>Trả ví:</b>
                                 </td>
                                 <td className='tien'>
@@ -147,7 +150,7 @@ const InDonHang = () => {
                                 </td>
                             </tr>
                             <tr style={{ background: 'white' }}>
-                                <td style={{ textAlign: 'right' }}>
+                                <td style={{ textAlign: 'right' }} colSpan={2}>
                                     <b>Tổng tiền thanh toán:</b>
                                 </td>
                                 <td className='tien'>
