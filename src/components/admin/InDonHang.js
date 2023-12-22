@@ -68,10 +68,10 @@ const InDonHang = () => {
                 <div>
                     <h3>PHIẾU BÁN HÀNG</h3>
                     <p className='center'>
-                        Số ĐH: {orderDetails?.soDonHang}
+                        <b>Số ĐH: {orderDetails?.soDonHang}</b>
                     </p>
                     <p className='center'>
-                        {moment(orderDetails?.ngay).format('DD/MM/YYYY hh:mm')}
+                        <b> {moment(orderDetails?.ngay).format('DD/MM/YYYY hh:mm')}</b>
                     </p>
                 </div>
                 <div className='thongTinKhachHang'>
@@ -80,10 +80,10 @@ const InDonHang = () => {
                     </p>
 
                     <p>
-                        SĐT: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
+                        Sđt: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
                     </p>
                     <p>
-                        Địa chỉ: {orderDetails?.users.diaChi}
+                        Đc: <b>{orderDetails?.users.diaChi}</b>
                     </p>
                 </div>
                 <div className='thongTinDonHang'>
