@@ -109,8 +109,10 @@ const InDonHang = () => {
                                             <td className='tenHang'>
                                                 <p>{capitalizeFirstLetter(tenSp)}</p>
                                                 <div className="inputItem">
-                                                    <span>Đơn giá: {donGia.toLocaleString()}</span>
-                                                    <span>Số lượng: {soLuong.toLocaleString()}</span>
+
+                                                    <span>{donGia.toLocaleString()}</span>
+                                                    <span>{soLuong.toLocaleString()} </span>
+
                                                 </div>
                                             </td>
                                             <td className='thanhTien'>
@@ -159,6 +161,7 @@ const InDonHang = () => {
                         <p>http://www.bachhoahanhan.com</p>
                     </div>
                     <svg id='maDonHang'></svg>
+
                     <button className='no-print' onClick={() => window.print()}>In phiếu</button>
                 </div>
             </div>

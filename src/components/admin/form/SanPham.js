@@ -374,7 +374,7 @@ const SanPham = ({ sanPham }) => {
                 listSanPham.length === 0 ? <h4>Không có sản phẩm</h4>
                     : (
 
-                        <table>
+                        <table className="sanPham">
                             <thead>
                                 <tr>
                                     <td></td>
