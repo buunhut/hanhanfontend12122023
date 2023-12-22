@@ -66,7 +66,7 @@ const HomePage = () => {
                     ></i>)
                 }
 
-                <p >Xin chào: {user.tenShop.toUpperCase()} <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleDangXuat}></i> </p>
+                <p >Xin chào: {user.tenShop} <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleDangXuat}></i> </p>
             </div>
             <div id='quanLy'>
                 <div className={smallSizeMenu ? 'menu small' : 'menu'}>
@@ -91,7 +91,7 @@ const HomePage = () => {
 
                     </Outlet>
                     <div className="bottomTitle">
-                        <span>{user.tenShop.toUpperCase()} - 2023</span>
+                        <span>{user.tenShop} - 2023</span>
                     </div>
                 </div>
             </div>
