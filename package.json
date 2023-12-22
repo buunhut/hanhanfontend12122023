@@ -12,6 +12,7 @@
     "axios": "^1.5.1",
     "jsbarcode": "^3.11.6",
     "moment": "^2.29.4",
+    "number-to-words": "^1.2.4",
     "react": "^18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
