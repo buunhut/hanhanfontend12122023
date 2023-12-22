@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./header.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { Select, message } from 'antd';
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { giamSoLuong, resetGioHang, tangSoLuong, xoaDatHang } from "../../redux/gioHangSlice";
 import { URL, capitalizeFirstLetter } from "../../service/functions";
 import { callApi } from "../../api/callApi";
@@ -339,6 +339,10 @@ const Header = () => {
     }
 
     //chức năng tìm kiếm
+    const currentUrl = window.location.href;
+    // Lấy giá trị phía sau dấu /
+    const pathValue = currentUrl.split('/').pop();
+    console.log(pathValue)
     const [keyword, setKeyword] = useState('')
     const handleTimKiem = (event) => {
         const { value } = event.target;

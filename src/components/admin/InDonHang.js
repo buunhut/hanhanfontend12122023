@@ -6,6 +6,8 @@ import { capitalizeFirstLetter } from '../../service/functions';
 import './indonhang.scss'
 import { callApi } from '../../api/callApi';
 import { donHangApi } from '../../api/donHangApi';
+import JsBarcode from 'jsbarcode';
+
 
 
 
@@ -17,9 +19,20 @@ const InDonHang = () => {
     };
     let tongThu = 0;
     const { oId } = useParams('oId')
-
     const [orderDetails, setOrderDetails] = useState(null)
     const [autoPrint, setAutoPrint] = useState(false)
+
+
+    let soDonHang = orderDetails?.soDonHang
+    const generateBarcode = () => {
+        const barcodeElement = document.getElementById('maDonHang');
+        // Generate the barcode for the string "hd00001"
+        JsBarcode(barcodeElement, soDonHang, {
+            format: 'CODE128',
+            displayValue: false,
+        });
+    };
+
     //gọi dữ liệu về
     useEffect(() => {
         const getData = async () => {
@@ -36,57 +49,45 @@ const InDonHang = () => {
         // }, 100)
     }, [oId])
 
-
-
-
-
+    useEffect(() => {
+        if (orderDetails) {
+            generateBarcode();
+        }
+    }, [orderDetails]);
 
 
     return (
+
         <div style={{ display: orderDetails === null ? 'none' : 'block' }}>
+
             <div className="printArea">
-                <h3>{user.tenShop.toUpperCase()}</h3>
-                <p className='diaChi'><i className="fa-solid fa-location-dot"></i> {user.diaChi}</p>
+                <h2>{user.tenShop}</h2>
+                <p className='dienThoai'><i className="fa-solid fa-phone"></i> {user.soDt}</p>
+
                 <div className="inputItem spaceAround">
-                    <p><i className="fa-solid fa-phone"></i> {user.soDt}</p>
-                    <p className='nguoiLienHe'><i className="fa-solid fa-user"></i> {user.nguoiLienHe}</p>
+                    <p className='diaChi'><i className="fa-solid fa-location-dot"></i> {user.diaChi}</p>
+
+                </div>
+                <div>
+                    <h3>PHIẾU BÁN HÀNG</h3>
+                    <p className='center'>
+                        Số ĐH: {orderDetails?.soDonHang}
+                    </p>
+                    <p className='center'>
+                        {moment(orderDetails?.ngay).format('DD/MM/YYYY hh:mm')}
+                    </p>
                 </div>
                 <div className='thongTinKhachHang'>
-                    <div className="groupItem">
-                        <div className="inputItem">
-                            <p>
-                                <i className="fa-solid fa-calendar-days"></i> {moment(orderDetails?.ngay).format('hh:mm DD/MM/YYYY')}
-                            </p>
-                        </div>
-                        <div className="inputItem">
-                            <p className='soPhieu'>
-                                <i className="fa-solid fa-file-invoice"></i> {orderDetails?.soDonHang}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="groupItem">
+                    <p>
+                        Khách hàng: <b> {orderDetails?.users.hoTen}</b>
+                    </p>
 
-                        <div className="inputItem">
-                            <p>
-                                <i className="fa-solid fa-user"></i> {orderDetails?.users.hoTen}
-                            </p>
-                        </div>
-                        <div className="inputItem">
-                            <p>
-                                <i className="fa-solid fa-phone"></i> {orderDetails?.users.soDt.replace('+84', '0')}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="inputItem">
-                        <p>
-                            <i className="fa-solid fa-location-dot"></i> {orderDetails?.users.diaChi}
-                        </p>
-                    </div>
-                    <div className="inputItem">
-                        <p className='ghiChu'>
-                            <i className="fa-solid fa-pen"></i> {orderDetails?.ghiChu}
-                        </p>
-                    </div>
+                    <p>
+                        SĐT: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
+                    </p>
+                    <p>
+                        Địa chỉ: {orderDetails?.users.diaChi}
+                    </p>
                 </div>
                 <div className='thongTinDonHang'>
                     <table className='orderDetails'>
@@ -156,6 +157,11 @@ const InDonHang = () => {
                             </tr>
                         </tbody>
                     </table>
+                    <div className='bottom'>
+                        <p>Cảm ơn Quý Khách</p>
+                        <p>http://www.bachhoahanhan.com</p>
+                    </div>
+                    <svg id='maDonHang'></svg>
                     <button className='no-print' onClick={() => window.print()}>In phiếu</button>
                 </div>
             </div>
