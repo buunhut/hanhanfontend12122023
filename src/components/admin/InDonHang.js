@@ -59,14 +59,11 @@ const InDonHang = () => {
     return (
 
         <div style={{ display: orderDetails === null ? 'none' : 'block' }}>
-
             <div className="printArea">
                 <h2>{user.tenShop}</h2>
                 <p className='dienThoai'><i className="fa-solid fa-phone"></i> {user.soDt}</p>
-
                 <div className="inputItem spaceAround">
                     <p className='diaChi'><i className="fa-solid fa-location-dot"></i> {user.diaChi}</p>
-
                 </div>
                 <div>
                     <h3>PHIẾU BÁN HÀNG</h3>
