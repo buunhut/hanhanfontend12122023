@@ -77,6 +77,9 @@ table {
   thead {
     background-color: royalblue;
     color: white;
+    position: sticky;
+    z-index: 500;
+    top: -2px;
     tr {
       td.hinhAnh {
         width: 70px;
