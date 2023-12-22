@@ -1,7 +1,7 @@
 body {
   background-color: white;
-  font-size: 13px;
-  font-weight: 500;
+  // font-size: 13px;
+  // font-weight: 500;
 }
 .printArea {
   width: 300px;
@@ -43,16 +43,24 @@ body {
     text-transform: capitalize;
     text-align: center;
     margin-bottom: 4px;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
   }
+
   p.nguoiLienHe {
     text-transform: capitalize;
+  }
+  p.center {
+    font-size: 14px;
+    font-weight: 500;
   }
   .thongTinKhachHang {
     margin-top: 5px;
     p {
       b {
         text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 500;
       }
       padding: 5px 0 0;
     }
@@ -103,6 +111,14 @@ body {
             .inputItem {
               border: none;
             }
+            p {
+              font-size: 14px;
+              font-weight: 500;
+            }
+            b {
+              font-size: 14px;
+              font-weight: 500;
+            }
           }
           td.thanhTien {
             width: 80px;
@@ -110,6 +126,7 @@ body {
             vertical-align: bottom;
             border-bottom: 1px solid black;
             padding: 6px 0;
+            font-size: 14px;
             font-weight: 500;
           }
           td.tien {
@@ -117,6 +134,9 @@ body {
 
             text-align: right;
             padding: 3px 0;
+            font-size: 14px;
+            font-weight: 500;
+
           }
         }
       }
