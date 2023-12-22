@@ -36,6 +36,7 @@ body {
   .inputItem.spaceAround {
     justify-content: space-around;
     gap: 20px;
+    border-bottom: 1px solid black;
   }
 
   p.diaChi {
@@ -87,7 +88,7 @@ body {
         tr {
           padding: 5px;
           td {
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px solid black;
             span {
               width: 110px;
