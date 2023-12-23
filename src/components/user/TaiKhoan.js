@@ -92,16 +92,15 @@ const TaiKhoan = () => {
                             </div>
                             {chiTietDonHangByUser.length > 0 ? (
                                 <div>
-                                    <span>Số tiền tích luỹ sẽ được cộng vào ví khi đơn hàng được giao thành công. Tiền tích luỹ không có giá trị quy đổi thành tiền mặt.</span>
+                                    <span className="note">Số tiền tích luỹ sẽ được cộng vào ví khi đơn hàng được giao thành công. Tiền tích luỹ không có giá trị quy đổi thành tiền mặt.</span>
                                     <table>
                                         <thead>
                                             <tr>
                                                 {/* <td className="stt">STT</td> */}
                                                 <td className="ngay">Ngày</td>
-                                                <td>Số đơn hàng</td>
                                                 <td className="right">Trạng thái</td>
                                                 <td className="right">Tổng tiền</td>
-                                                <td className="right">Điềm tích luỹ</td>
+                                                <td className="right">Điềm</td>
                                                 <td className="huy"></td>
                                             </tr>
                                         </thead>
@@ -120,8 +119,11 @@ const TaiKhoan = () => {
                                                         {/* <td className="stt">{index + 1}</td> */}
                                                         <td className="ngay">
                                                             {moment(ngay).format("hh:mm DD/MM/YYYY")}
+                                                            <br />
+                                                            <span>
+                                                                {soDonHang}
+                                                            </span>
                                                         </td>
-                                                        <td>{soDonHang}</td>
                                                         <td className="right">
                                                             {trangThai === "chờ khách lấy"
                                                                 ? "Tự đến lấy"

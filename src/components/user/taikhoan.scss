@@ -13,7 +13,7 @@
       text-align: right;
     }
   }
-  span {
+  span.note {
     color: silver;
     font-size: 13px;
     font-weight: 400;
@@ -32,7 +32,7 @@
           padding: 0 10px 0 5px;
         }
         td.ngay {
-          width: 100px;
+          width: 140px;
         }
         td.right {
           text-align: right;
@@ -46,13 +46,16 @@
     }
     tbody {
       tr {
-        td.stt {
-          width: 50px;
-          text-align: right;
-          padding: 0 10px 0 5px;
+        &:nth-child(even) {
+          background-color: rgb(240, 240, 240);
         }
         td.ngay {
-          width: 100px;
+          width: 140px;
+          padding: 5px 10px 5px 5px;
+
+          span {
+            color: silver;
+          }
         }
 
         td.right {
