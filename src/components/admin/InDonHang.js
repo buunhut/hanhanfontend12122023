@@ -162,7 +162,7 @@ const InDonHang = () => {
                     </table>
                     <div className='bottom'>
                         <p>Cảm ơn Quý Khách</p>
-                        <p>http://www.bachhoahanhan.com</p>
+                        <p>http://bachhoahanhan.com</p>
                     </div>
                     <svg id='maDonHang'></svg>
 
