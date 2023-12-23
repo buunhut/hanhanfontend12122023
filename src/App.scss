@@ -109,6 +109,15 @@ button {
 }
 
 table {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  border-collapse: collapse;
+  thead {
+    background-color: royalblue;
+    color: white;
+    height: 30px;
+  }
   tr {
     td {
       p {
