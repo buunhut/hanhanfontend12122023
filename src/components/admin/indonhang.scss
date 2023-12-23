@@ -53,6 +53,10 @@ body {
   p.center {
     font-size: 14px;
     font-weight: 500;
+    b{
+      display: block;
+      padding: 3px 0 0 0;
+    }
   }
   .thongTinKhachHang {
     margin-top: 5px;
@@ -80,6 +84,7 @@ body {
       width: 300px;
       margin: 0 auto;
       thead {
+        font-size: 14px;
         tr {
           td {
             background-color: black;
@@ -149,7 +154,7 @@ body {
     }
   }
   svg {
-    height: 50px;
+    height: 80px;
     width: 100%;
     color: black;
   }
