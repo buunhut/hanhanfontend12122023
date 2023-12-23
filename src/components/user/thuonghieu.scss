@@ -10,6 +10,18 @@
       width: 100%;
       // padding: 0 10px;
       .ant-tabs-nav {
+        .ant-tabs-nav-wrap-ping-left {
+          &::before {
+            display: none;
+          }
+        }
+
+        .ant-tabs-nav-wrap-ping-right {
+          &::after {
+            display: none;
+          }
+        }
+
         .ant-tabs-nav-wrap {
           .ant-tabs-nav-list {
             // display: flex;
@@ -307,6 +319,7 @@
   #thuongHieuSanPham {
     .container {
       width: 414px;
+      padding: 0 5px;
       // // .ant-tabs-nav-list {
       // //   // display: grid;
       // //   // grid-template-columns: repeat(16, 1fr); /* Set four columns */
@@ -340,7 +353,7 @@
               grid-gap: 5px; /* Adjust the gap between rows */
 
               .ant-tabs-tab {
-                margin: 0 10px;
+                // margin: 0 5px;
               }
             }
           }
@@ -548,10 +561,13 @@
   #thuongHieuSanPham {
     .container {
       width: 100%;
+      padding: 0 5px;
+
       .ant-tabs {
         width: 100%;
         // padding: 0 10px;
         .ant-tabs-nav {
+          padding: 0 5px;
           .ant-tabs-nav-wrap {
             .ant-tabs-nav-list {
               // display: flex;
@@ -562,7 +578,7 @@
               grid-gap: 5px; /* Adjust the gap between rows */
 
               .ant-tabs-tab {
-                margin: 0 10px;
+                // margin: 0 10px;
               }
             }
           }
