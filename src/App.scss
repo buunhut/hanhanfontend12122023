@@ -117,9 +117,15 @@ table {
     background-color: royalblue;
     color: white;
     height: 30px;
+    tr {
+      td {
+        padding: 0 5px;
+      }
+    }
   }
   tr {
     td {
+      padding: 0 5px;
       p {
         font-size: 14px;
         font-weight: 400;
