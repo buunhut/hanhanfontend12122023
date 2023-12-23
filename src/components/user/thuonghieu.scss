@@ -18,9 +18,29 @@
             grid-template-columns: repeat(32, 1fr); /* Set four columns */
             grid-template-rows: repeat(3, 1fr); /* Set three rows */
             grid-gap: 5px; /* Adjust the gap between rows */
+            padding: 5px 0;
 
             .ant-tabs-tab {
-              margin: 0 10px;
+              margin: 1px;
+              padding: 1px;
+              width: 60px;
+              height: 60px;
+              justify-content: center;
+              align-items: center;
+              border-radius: 5px;
+              .tabLabel {
+                padding: 2px;
+                border: 1px solid silver;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 50%;
+                }
+              }
             }
           }
         }
