@@ -81,10 +81,10 @@ const InDonHang = () => {
                     </p>
 
                     <p>
-                        Sđt: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
+                        Điện thoại: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
                     </p>
                     <p>
-                        Đc: <b>{orderDetails?.users.diaChi}</b>
+                        Địa chỉ: <b>{orderDetails?.users.diaChi}</b>
                     </p>
                 </div>
                 <div className='thongTinDonHang'>
