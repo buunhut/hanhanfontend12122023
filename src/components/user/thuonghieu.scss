@@ -8,8 +8,9 @@
     }
     .ant-tabs {
       width: 100%;
-      // padding: 0 10px;
       .ant-tabs-nav {
+        border-bottom: 1px solid rgb(220, 220, 220);
+
         .ant-tabs-nav-wrap-ping-left {
           &::before {
             display: none;
@@ -30,7 +31,7 @@
             grid-template-columns: repeat(32, 1fr); /* Set four columns */
             grid-template-rows: repeat(3, 1fr); /* Set three rows */
             grid-gap: 5px; /* Adjust the gap between rows */
-            padding: 5px 0;
+            padding: 5px;
 
             .ant-tabs-tab {
               margin: 1px;
@@ -50,7 +51,7 @@
                 img {
                   width: 56px;
                   height: 56px;
-                  border-radius: 50%;
+                  border-radius: 6px;
                 }
               }
             }
