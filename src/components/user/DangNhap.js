@@ -13,15 +13,17 @@ const DangNhap = () => {
 
     const { isLogin, user } = useSelector((state) => state.dangNhap)
 
+    const [showPass, setShowPass] = useState(false)
 
 
     const [userDangKy, setUserDangKy] = useState({
         soDt: '',
         hoTen: '',
         diaChi: '',
-        matKhau: '123456'
-
+        matKhau: ''
     })
+
+    // console.log(userDangKy)
 
 
 
@@ -30,7 +32,8 @@ const DangNhap = () => {
     const [alert, setAlert] = useState({
         soDt: '',
         hoTen: '',
-        diaChi: ''
+        diaChi: '',
+        matKhau: ''
     })
 
 
@@ -54,6 +57,12 @@ const DangNhap = () => {
                     setAlert((prevState) => ({
                         ...prevState,
                         [key]: 'Vui lòng nhập địa chỉ'
+                    }))
+                    valid = false
+                } else if (key === 'matKhau') {
+                    setAlert((prevState) => ({
+                        ...prevState,
+                        [key]: 'Vui lòng mật khẩu'
                     }))
                     valid = false
                 }
@@ -80,11 +89,19 @@ const DangNhap = () => {
             });
     }
 
+    const [data, setData] = useState({
+        soDt: userDangKy.soDt,
+        matKhau: userDangKy.matKhau
+    })
+
+    // console.log(data)
+
     const handleDangNhap = () => {
         let valid = true
-        const data = {
-            soDt: userDangKy.soDt
-        }
+        // const data = {
+        //     soDt: userDangKy.soDt,
+        //     matKhau: userDangKy.matKhau
+        // }
         if (data.soDt === '') {
             setAlert((prevState) => ({
                 ...prevState,
@@ -95,6 +112,19 @@ const DangNhap = () => {
             setAlert((prevState) => ({
                 ...prevState,
                 soDt: ''
+            }))
+            valid = true
+        }
+        if (data.matKhau === '') {
+            setAlert((prevState) => ({
+                ...prevState,
+                matKhau: 'Vui lòng nhập mật khẩu'
+            }))
+            valid = false
+        } else {
+            setAlert((prevState) => ({
+                ...prevState,
+                matKhau: ''
             }))
             valid = true
         }
@@ -110,7 +140,14 @@ const DangNhap = () => {
                 message.success('Đăng nhập thành công', 3)
                 dispath(userLogin(content))
             } else {
-                message.error('Số tài khoản chưa đăng ký', 3)
+                if (statusCode === 404) {
+                    message.error('Số điện thoại chưa đăng ký', 3)
+
+
+                } else if (statusCode === 405) {
+                    message.error('Sai mật khẩu', 3)
+
+                }
             }
         }).catch((err) => {
             console.log(err)
@@ -182,6 +219,10 @@ const DangNhap = () => {
 
     }
 
+
+
+
+
     const handleChangeInputSoDtDangNhap = (value) => {
         setUserDangKy((prevState) => ({
             ...prevState,
@@ -197,9 +238,41 @@ const DangNhap = () => {
                 ...prevState,
                 soDt: ''
             }))
-            const data = {
+            // const data = {
+            //     ...data,
+            //     soDt: value
+            // }
+            setData((prevState) => ({
+                ...prevState,
                 soDt: value
-            }
+            }))
+        }
+
+    }
+    const handleChangeInputMatKhau = (event) => {
+        const { value } = event.target
+        // setUserDangKy((prevState) => ({
+        //     ...prevState,
+        //     matKhau: value
+        // }))
+        if (value === '') {
+            setAlert((prevState) => ({
+                ...prevState,
+                matKhau: 'Vui lòng nhập mật khẩu'
+            }))
+        } else {
+            setAlert((prevState) => ({
+                ...prevState,
+                matKhau: ''
+            }))
+            // const data = {
+            //     ...data,
+            //     matKhau: value,
+            // }
+            setData((prevState) => ({
+                ...prevState,
+                matKhau: value
+            }))
         }
 
     }
@@ -234,6 +307,23 @@ const DangNhap = () => {
                         {
                             <p className="alert">{alert.soDt}</p>
                         }
+                        <div className="inputItem">
+                            <i className="fa-solid fa-key"></i>
+                            <input
+                                type={showPass ? 'text' : 'password'}
+                                placeholder="Mật khẩu"
+                                id="matKhau"
+                                value={data.matKhau}
+                                onChange={handleChangeInputMatKhau}
+
+                            />
+
+                            <i className="fa-regular fa-eye" onClick={() => setShowPass(!showPass)}></i>
+                        </div>
+                        {
+                            <p className="alert">{alert.matKhau}</p>
+                        }
+
                         <div className="buttonItem">
                             <button className="myBtn" type="button" onClick={handleDangNhap}>Đăng nhập</button>
                         </div>
@@ -254,6 +344,8 @@ const DangNhap = () => {
                     <div className="myForm">
                         <div className="inputItem">
                             {/* <input type="text" placeholder="Số điện thoại" /> */}
+                            <i className="fa-solid fa-phone"></i>
+
                             <PhoneInput
                                 defaultCountry="VN"
                                 placeholder="Số điện thoại"
@@ -264,30 +356,48 @@ const DangNhap = () => {
                                 autoFocus
 
                             />
-                            <i className="fa-solid fa-phone"></i>
                         </div>
                         {
                             <p className="alert">{alert.soDt}</p>
                         }
                         <div className="inputItem">
+                            <i className="fa-solid fa-key"></i>
+                            <input
+
+                                type={showPass ? 'text' : 'password'}
+                                placeholder="Mật khẩu"
+                                id="matKhau"
+                                value={userDangKy.matKhau}
+                                onChange={changeInput}
+
+                            />
+
+                            <i className="fa-regular fa-eye" onClick={() => setShowPass(!showPass)}></i>
+                        </div>
+                        {
+                            <p className="alert">{alert.matKhau}</p>
+                        }
+                        <div className="inputItem">
+                            <i className="fa-solid fa-user"></i>
+
                             <input type="text" placeholder="Họ tên"
                                 id="hoTen"
                                 value={userDangKy.hoTen}
                                 onChange={changeInput}
 
                             />
-                            <i className="fa-solid fa-user"></i>
                         </div>
                         {
                             <p className="alert">{alert.hoTen}</p>
                         }
                         <div className="inputItem">
+                            <i className="fa-solid fa-location-dot"></i>
+
                             <input type="text" placeholder="Địa chỉ"
                                 id="diaChi"
                                 value={userDangKy.diaChi}
                                 onChange={changeInput}
                             />
-                            <i className="fa-solid fa-location-dot"></i>
                         </div>
                         {
                             <p className="alert">{alert.diaChi}</p>
