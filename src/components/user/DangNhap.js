@@ -10,7 +10,7 @@ import { usersApi } from "../../api/usersApi";
 
 
 const DangNhap = () => {
-
+    const dispath = useDispatch()
     const { isLogin, user } = useSelector((state) => state.dangNhap)
 
     const [showPass, setShowPass] = useState(false)
@@ -24,10 +24,10 @@ const DangNhap = () => {
     })
 
     // console.log(userDangKy)
-
-
-
-    const dispath = useDispatch()
+    const [data, setData] = useState({
+        soDt: userDangKy.soDt,
+        matKhau: userDangKy.matKhau
+    })
 
     const [alert, setAlert] = useState({
         soDt: '',
@@ -77,6 +77,10 @@ const DangNhap = () => {
                 const { statusCode, content } = res.data;
                 if (statusCode === 200) {
                     message.success('Đăng ký thành công', 3)
+                    setData({
+                        soDt: userDangKy.soDt,
+                        matKhau: userDangKy.matKhau
+                    })
                     setFormDangNhap(true)
 
                 } else {
@@ -89,10 +93,6 @@ const DangNhap = () => {
             });
     }
 
-    const [data, setData] = useState({
-        soDt: userDangKy.soDt,
-        matKhau: userDangKy.matKhau
-    })
 
     // console.log(data)
 
@@ -299,7 +299,7 @@ const DangNhap = () => {
                                 ref={phoneInputRef}
                                 defaultCountry="VN"
                                 placeholder="Số điện thoại"
-                                value={userDangKy?.soDt}
+                                value={data.soDt}
                                 onChange={(value) => handleChangeInputSoDtDangNhap(value)}
                                 countries={["VN"]}
                                 international={false}
