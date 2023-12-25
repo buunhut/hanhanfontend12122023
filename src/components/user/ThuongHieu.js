@@ -17,6 +17,33 @@ const ThuongHieu = () => {
         })
     }, [])
 
+    console.log(listSanPhamByThuongHieu)
+    // Tạo một đối tượng để lưu trữ thông tin theo tên thương hiệu
+    const groupedData = {};
+
+    // Duyệt qua mảng và gộp thông tin theo tên thương hiệu
+    listSanPhamByThuongHieu.forEach(item => {
+        const { tenThuongHieu, hinhAnh, sanPham } = item;
+
+        if (!groupedData[tenThuongHieu]) {
+            // Nếu tên thương hiệu chưa tồn tại trong đối tượng groupedData, tạo một đối tượng mới
+            groupedData[tenThuongHieu] = {
+                tenThuongHieu,
+                hinhAnh,
+                sanPham: []
+            };
+        }
+
+        // Thêm sản phẩm vào mảng của tên thương hiệu tương ứng
+        groupedData[tenThuongHieu].sanPham = groupedData[tenThuongHieu].sanPham.concat(sanPham);
+    });
+
+    // Chuyển đối tượng thành mảng để có kết quả cuối cùng
+    const finalResult = Object.values(groupedData);
+
+    // Hiển thị kết quả
+    console.log(finalResult);
+
 
     return (
         <div id="thuongHieuSanPham">
@@ -24,7 +51,7 @@ const ThuongHieu = () => {
                 <Tabs
                     tabPosition='top'
                     items={
-                        listSanPhamByThuongHieu?.map((item, index) => {
+                        finalResult?.map((item, index) => {
                             const { hinhAnh, sanPham } = item
                             return {
                                 label: (
@@ -32,7 +59,7 @@ const ThuongHieu = () => {
                                         <img
                                             src={`${URL}/${hinhAnh}`}
                                             alt=""
-                                            // style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                                        // style={{ width: '50px', height: '50px', borderRadius: '50%' }}
                                         />
                                     </div>
                                 ),

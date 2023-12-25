@@ -342,7 +342,7 @@ const Header = () => {
     const currentUrl = window.location.href;
     // Lấy giá trị phía sau dấu /
     const pathValue = currentUrl.split('/').pop();
-    console.log(pathValue)
+    // console.log(pathValue)
     const [keyword, setKeyword] = useState('')
     const handleTimKiem = (event) => {
         const { value } = event.target;
