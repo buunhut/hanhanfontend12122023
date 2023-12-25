@@ -6,6 +6,7 @@ import { createSlice } from "@reduxjs/toolkit";
 let initialState = {
     isLogin: false,
     user: null,
+    tatShop: false,
 };
 
 // Lấy dữ liệu người dùng từ localStorage (nếu có)
@@ -32,11 +33,19 @@ export const dangNhapSlice = createSlice({
             localStorage.removeItem("user");
             return { ...state, user: null, isLogin: false };
         },
+
+        tatMoShop: (state, action) => {
+            const content = action.payload;
+            return {
+                ...state,
+                tatShop: content,
+            }
+        },
     },
 });
 
 // Xuất các actions
-export const { userLogin, userLogout } = dangNhapSlice.actions;
+export const { userLogin, userLogout, tatMoShop } = dangNhapSlice.actions;
 
 // Xuất reducer
 export default dangNhapSlice.reducer;

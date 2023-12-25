@@ -26,7 +26,7 @@ const CauHinh = () => {
                 phiVc,
                 hoanTien,
                 mucHoan,
-                // tatShop
+                tatShop
             }
             )
         })
@@ -41,9 +41,8 @@ const CauHinh = () => {
         phiVc: 0,
         hoanTien: 0,
         mucHoan: 0,
-        // tatShop: false
+        tatShop: false
     })
-    // console.log(data)
 
     const handleChangeInput = (event) => {
         const { name, value } = event.target;
@@ -130,7 +129,7 @@ const CauHinh = () => {
                     <p>
                         5. Tạm tắt shop
                     </p>
-                    <Switch defaultChecked={false} onChange={handleTatShop} style={{ width: '10px', marginTop: '5px' }} />
+                    <Switch checked={data.tatShop} onChange={handleTatShop} style={{ width: '10px', marginTop: '5px' }} />
 
                 </div>
             </div>

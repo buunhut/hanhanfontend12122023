@@ -8,7 +8,7 @@ import ThongBao from './components/user/ThongBao';
 import TaiKhoan from './components/user/TaiKhoan';
 import TimKiem from './components/user/TimKiem';
 import HomePage from './components/admin/HomePage';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Login from './components/admin/Login';
 import DangKyShop from './components/admin/DangKyShop';
 import TaoSanPham from './components/admin/TaoSanPham';
@@ -28,11 +28,32 @@ import CreateProducts from './components/admin/form/CreateProducts';
 import InMaVach from './components/admin/form/InMaVach';
 import Demo from './components/user/Demo';
 import CauHinh from './components/admin/form/CauHinh';
+import { shopsApi } from './api/shopsApi';
+import { useEffect, useState } from 'react';
+import { tatMoShop } from './redux/dangNhapSlice';
+import TamNghi from './components/admin/TamNghi';
 
 function App() {
-  const { isLogin, user } = useSelector((state) => state.dangNhap)
+  const { isLogin, user, tatShop } = useSelector((state) => state.dangNhap)
+  const { sId } = useSelector((state) => state.sanPham)
 
-  if (isLogin === true && user.sId !== undefined) {
+  // console.log(tatShop)
+  const dispath = useDispatch()
+
+  useEffect(() => {
+    shopsApi.apiGetCauHinh(sId).then((res) => {
+      // console.log(res.data.content)
+      const { tatShop } = res.data.content
+      console.log(tatShop)
+      dispath(tatMoShop(tatShop))
+    })
+
+  }, [])
+
+
+
+
+  if (isLogin === true && user?.sId !== undefined) {
     return (
       <BrowserRouter>
         <Routes>
@@ -61,21 +82,29 @@ function App() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<TrangChu />}>
-            <Route index element={<SanPham />} />
-            <Route path='/danh-muc' element={<DanhMuc />} />
-            <Route path='/thuong-hieu' element={<ThuongHieu />} />
-            <Route path='/thong-bao' element={<ThongBao />} />
-            <Route path='/tai-khoan' element={<TaiKhoan />} />
-            {/* <Route path='/dang-nhap' element={<DangNhap />} /> */}
+          {
+            tatShop ? (
+              <Route path="/" element={<TamNghi />}></Route>
+            ) : (
+              <Route path="/" element={<TrangChu />}>
+                <Route index element={<SanPham />} />
+                <Route path='/danh-muc' element={<DanhMuc />} />
+                <Route path='/thuong-hieu' element={<ThuongHieu />} />
+                <Route path='/thong-bao' element={<ThongBao />} />
+                <Route path='/tai-khoan' element={<TaiKhoan />} />
+                {/* <Route path='/dang-nhap' element={<DangNhap />} /> */}
 
-          </Route>
+              </Route>
+
+            )
+          }
+
+
           <Route path='/tim-kiem' element={<TimKiem />} />
-          {/* login của quản lý */}
           <Route path='/quan-ly' element={<Login />} />
           <Route path='/dang-ky-shop' element={<DangKyShop />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter >
     )
   }
 }
