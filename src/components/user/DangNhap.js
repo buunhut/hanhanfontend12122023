@@ -251,15 +251,16 @@ const DangNhap = () => {
     }
     const handleChangeInputMatKhau = (event) => {
         const { value } = event.target
-        // setUserDangKy((prevState) => ({
-        //     ...prevState,
-        //     matKhau: value
-        // }))
         if (value === '') {
             setAlert((prevState) => ({
                 ...prevState,
                 matKhau: 'Vui lòng nhập mật khẩu'
             }))
+            setData((prevState) => ({
+                ...prevState,
+                matKhau: value
+            }))
+
         } else {
             setAlert((prevState) => ({
                 ...prevState,
