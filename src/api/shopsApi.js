@@ -18,6 +18,13 @@ export const shopsApi = {
             data
         })
     },
+    apiTatMoShop: (headers) => {
+        return axios({
+            method: 'post',
+            url: `${URL}/shops/tat-mo-shop`,
+            headers,
+        })
+    },
     apiGetCauHinh: (sId) => {
         return axios({
             method: 'get',

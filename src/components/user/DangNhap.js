@@ -319,7 +319,8 @@ const DangNhap = () => {
 
                             />
 
-                            <i className="fa-regular fa-eye" onClick={() => setShowPass(!showPass)}></i>
+
+                            <i className={showPass ? "fa-regular fa-eye-slash" : "fa-regular fa-eye"} onClick={() => setShowPass(!showPass)}></i>
                         </div>
                         {
                             <p className="alert">{alert.matKhau}</p>

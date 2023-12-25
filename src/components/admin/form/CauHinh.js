@@ -3,6 +3,7 @@ import './cauhinh.scss'
 import { shopsApi } from '../../../api/shopsApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateListCauHinhByShop } from '../../../redux/orderSlice';
+import { Switch } from 'antd';
 
 const CauHinh = () => {
     const { user } = useSelector((state) => state.dangNhap);
@@ -18,14 +19,14 @@ const CauHinh = () => {
     const callCauHinh = () => {
         shopsApi.apiGetCauHinh(user.sId).then((res) => {
             // console.log(res.data.content)
-            const { mienPhiVc, phiVc, hoanTien, mucHoan } = res.data.content
-
+            const { mienPhiVc, phiVc, hoanTien, mucHoan, tatShop } = res.data.content
             dispath(updateListCauHinhByShop(res.data.content))
             setData({
                 mienPhiVc,
                 phiVc,
                 hoanTien,
-                mucHoan
+                mucHoan,
+                // tatShop
             }
             )
         })
@@ -40,7 +41,9 @@ const CauHinh = () => {
         phiVc: 0,
         hoanTien: 0,
         mucHoan: 0,
+        // tatShop: false
     })
+    // console.log(data)
 
     const handleChangeInput = (event) => {
         const { name, value } = event.target;
@@ -52,6 +55,14 @@ const CauHinh = () => {
     }
     const luuCauHinh = () => {
         shopsApi.apiTaoCauHinh(headers, data).then((res) => {
+            callCauHinh()
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    const handleTatShop = () => {
+        shopsApi.apiTatMoShop(headers).then((res) => {
             callCauHinh()
         }).catch((err) => {
             console.log(err)
@@ -94,7 +105,7 @@ const CauHinh = () => {
                     <p>
                         3. Hoàn tiền cho đơn từ
                     </p>
-                    <input type="text" placeholder='Giá trị hoàn tiền'
+                    <input type="text" placeholder='Giá trị'
                         name='hoanTien'
                         value={
                             data.hoanTien === 0 ? '' :
@@ -115,47 +126,14 @@ const CauHinh = () => {
                         onChange={handleChangeInput}
                     />
                 </div>
+                <div className="inputItem">
+                    <p>
+                        5. Tạm tắt shop
+                    </p>
+                    <Switch defaultChecked={false} onChange={handleTatShop} style={{ width: '10px', marginTop: '5px' }} />
+
+                </div>
             </div>
-            {/* <div style={{ marginTop: '20px' }}>
-                    <div className="inputItem">
-                        <input type="text" placeholder='Miễn phí vận chuyển'
-                            name='mienPhiVc'
-                            value={
-                                data.mienPhiVc === 0 ? '' :
-                                    data.mienPhiVc.toLocaleString()
-                            }
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <div className="inputItem">
-                        <input type="text" placeholder='Phí vận chuyển'
-                            name='phiVc'
-                            value={
-                                data.phiVc === 0 ? '' :
-                                    data.phiVc.toLocaleString()
-                            }
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <div className="inputItem">
-                        <input type="text" placeholder='Giá trị hoàn tiền'
-                            name='hoanTien'
-                            value={
-                                data.hoanTien === 0 ? '' :
-                                    data.hoanTien.toLocaleString()
-                            }
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <div className="inputItem">
-                        <input type="text" placeholder='Mức % hoàn tiền'
-                            name='mucHoan'
-                            value={data.mucHoan}
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <button type='button' onClick={luuCauHinh}><i className="fa-regular fa-floppy-disk"></i></button>
-                </div> */}
         </div>
     )
 }

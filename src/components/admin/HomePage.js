@@ -53,7 +53,7 @@ const HomePage = () => {
 
     //lấy dữ liệu đơn hàng
     let { soLuongDonHang } = useSelector((state) => state.order)
-    console.log(soLuongDonHang)
+    // console.log(soLuongDonHang)
 
     return (
         <>

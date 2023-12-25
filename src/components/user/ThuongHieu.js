@@ -17,7 +17,7 @@ const ThuongHieu = () => {
         })
     }, [])
 
-    console.log(listSanPhamByThuongHieu)
+    // console.log(listSanPhamByThuongHieu)
     // Tạo một đối tượng để lưu trữ thông tin theo tên thương hiệu
     const groupedData = {};
 
@@ -42,7 +42,7 @@ const ThuongHieu = () => {
     const finalResult = Object.values(groupedData);
 
     // Hiển thị kết quả
-    console.log(finalResult);
+    // console.log(finalResult);
 
 
     return (
@@ -60,7 +60,6 @@ const ThuongHieu = () => {
                                             <img
                                                 src={`${URL}/${hinhAnh}`}
                                                 alt=""
-                                            // style={{ width: '50px', height: '50px', borderRadius: '50%' }}
                                             />
                                         </div>
                                     ),
