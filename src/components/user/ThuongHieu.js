@@ -53,19 +53,21 @@ const ThuongHieu = () => {
                     items={
                         finalResult?.map((item, index) => {
                             const { hinhAnh, sanPham } = item
-                            return {
-                                label: (
-                                    <div className='tabLabel'>
-                                        <img
-                                            src={`${URL}/${hinhAnh}`}
-                                            alt=""
-                                        // style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-                                        />
-                                    </div>
-                                ),
-                                key: index,
-                                children: <SanPhamByThuongHieu listSanPham={sanPham} />
-                            };
+                            if (hinhAnh) {
+                                return {
+                                    label: (
+                                        <div className='tabLabel'>
+                                            <img
+                                                src={`${URL}/${hinhAnh}`}
+                                                alt=""
+                                            // style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+                                            />
+                                        </div>
+                                    ),
+                                    key: index,
+                                    children: <SanPhamByThuongHieu listSanPham={sanPham} />
+                                };
+                            }
                         })
                     }
                 />
