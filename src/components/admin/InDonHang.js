@@ -37,9 +37,6 @@ const InDonHang = () => {
     //gọi dữ liệu về
     useEffect(() => {
         const getData = async () => {
-            // await callApi.apiOneOrder(headers, +oId).then((res) => {
-            //     setOrderDetails(res.data.content)
-            // })
             await donHangApi.apiInDonHangByShop(headers, oId).then((res) => {
                 setOrderDetails(res.data.content)
             })
@@ -56,6 +53,7 @@ const InDonHang = () => {
         }
     }, [orderDetails]);
 
+    // console.log(orderDetails)
 
     return (
 
@@ -81,10 +79,13 @@ const InDonHang = () => {
                     </p>
 
                     <p>
-                        Điện thoại: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
+                        SĐT: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
                     </p>
                     <p>
                         Địa chỉ: <b>{orderDetails?.users.diaChi}</b>
+                    </p>
+                    <p style={{ display: orderDetails?.ghiChu ? 'block' : 'none' }}>
+                        Ghi chú: <b>{orderDetails?.ghiChu}</b>
                     </p>
                 </div>
                 <div className='thongTinDonHang'>
