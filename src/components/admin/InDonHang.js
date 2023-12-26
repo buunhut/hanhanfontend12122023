@@ -82,10 +82,10 @@ const InDonHang = () => {
                         SĐT: <b>{orderDetails?.users.soDt.replace('+84', '0')}</b>
                     </p>
                     <p>
-                        Địa chỉ: <b>{orderDetails?.users.diaChi}</b>
+                        Địa chỉ: <b className='diaChi'>{orderDetails?.users.diaChi}</b>
                     </p>
                     <p style={{ display: orderDetails?.ghiChu ? 'block' : 'none' }}>
-                        Ghi chú: <b>{orderDetails?.ghiChu}</b>
+                        Ghi chú: <b className='ghiChu'>{capitalizeFirstLetter(orderDetails?.ghiChu)}</b>
                     </p>
                 </div>
                 <div className='thongTinDonHang'>

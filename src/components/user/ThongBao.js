@@ -5,7 +5,7 @@ const ThongBao = () => {
         <div>
             <div className="container">
                 <div className="content">
-                    Hiện chưa có thông báo
+                    Hiện chưa có thông báo.
                 </div>
             </div>
         </div>
