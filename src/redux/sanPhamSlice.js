@@ -6,7 +6,8 @@ const initialState = {
     listSanPhamTimKiem: [],
     sanPhamByShop: [],
     dmId: 0,
-    thId: 0
+    thId: 0,
+    keyword: '',
 }
 
 export const sanPhamSlice = createSlice({
@@ -55,9 +56,16 @@ export const sanPhamSlice = createSlice({
                 ...state,
                 thId: action.payload
             }
+        },
+
+        updateKeyword: (state, action) => {
+            return {
+                ...state,
+                keyword: action.payload
+            }
         }
 
     }
 })
-export const { timKiem, updateSanPham, updateSanPhamTimKiem, updateSanPhamByShop, updateDmId, updateThId } = sanPhamSlice.actions;
+export const { timKiem, updateSanPham, updateSanPhamTimKiem, updateSanPhamByShop, updateDmId, updateThId, updateKeyword } = sanPhamSlice.actions;
 export default sanPhamSlice.reducer

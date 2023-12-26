@@ -6,7 +6,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { giamSoLuong, resetGioHang, tangSoLuong, xoaDatHang } from "../../redux/gioHangSlice";
 import { URL, capitalizeFirstLetter } from "../../service/functions";
 import { callApi } from "../../api/callApi";
-import { updateSanPham } from "../../redux/sanPhamSlice";
+import { updateKeyword, updateSanPham } from "../../redux/sanPhamSlice";
 import { usersApi } from "../../api/usersApi";
 import * as moment from 'moment';
 import { updateDiemTichLuy, updateListCauHinhByShop, updateListOrderByShop } from "../../redux/orderSlice";
@@ -343,10 +343,13 @@ const Header = () => {
     // Lấy giá trị phía sau dấu /
     const pathValue = currentUrl.split('/').pop();
     // console.log(pathValue)
-    const [keyword, setKeyword] = useState('')
+    // const [keyword, setKeyword] = useState('')
+
+    const { keyword } = useSelector((state) => state.sanPham)
     const handleTimKiem = (event) => {
         const { value } = event.target;
-        setKeyword(value)
+        // setKeyword(value)
+        dispath(updateKeyword(value))
         if (value !== '') {
             usersApi.apiTimKiemSanPham(value).then((res) => {
                 // console.log(res.data.content)
@@ -380,6 +383,17 @@ const Header = () => {
         }
     }
 
+    const handleClearKeyword = () => {
+        // setKeyword('')
+        dispath(updateKeyword(''))
+        usersApi.apiGetTatCaSanPham().then((res) => {
+            // setListSanPham(res.data.content)
+            dispath(updateSanPham(res.data.content))
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
 
 
     return (
@@ -394,13 +408,6 @@ const Header = () => {
                         </div>
                         <div className="topItem">
                             <div className="inputItem">
-                                {/* <input
-                                    type="text"
-                                    id="timKiem"
-                                    placeholder="Bạn muốn tìm gì hôm nay"
-                                    // onClick={handleClickTimKiem}
-
-                                /> */}
                                 <input
                                     type="text"
                                     id="timKiem"
@@ -411,7 +418,12 @@ const Header = () => {
                                     onClick={handleClickTimKiem}
                                     onBlur={handleBlurTimKiem}
                                 />
-                                <i className="fa-solid fa-magnifying-glass"></i>
+                                <i className=" myGlass fa-solid fa-magnifying-glass"></i>
+                                <i className="clearKeyword fa-solid fa-xmark"
+                                    style={{ display: keyword ? 'block' : 'none' }}
+                                    onClick={handleClearKeyword}
+
+                                ></i>
                             </div>
 
                             <div className="gioHang" onClick={showDrawer}>

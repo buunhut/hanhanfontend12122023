@@ -6,6 +6,7 @@ import { updateListSanPhamByDanhMuc } from '../../redux/danhMucSlice';
 import { Radio, Tabs } from 'antd';
 import { URL } from '../../service/functions';
 import SanPhamByDanhMuc from './SanPhamByDanhMuc';
+import { updateKeyword } from '../../redux/sanPhamSlice';
 
 const DanhMuc = () => {
 
@@ -16,6 +17,7 @@ const DanhMuc = () => {
         usersApi.apiGetSanPhamByDanhMuc().then((res) => {
             dispath(updateListSanPhamByDanhMuc(res.data.content))
         })
+        dispath(updateKeyword(''))
     }, [])
 
 

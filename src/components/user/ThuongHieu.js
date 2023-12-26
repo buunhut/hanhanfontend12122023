@@ -6,6 +6,7 @@ import SanPhamByThuongHieu from './SanPhamByThuongHieu'
 import { Carousel, Col, Row, Tabs } from 'antd'
 import { URL } from '../../service/functions'
 import './thuonghieu.scss'
+import { updateKeyword } from '../../redux/sanPhamSlice'
 
 const ThuongHieu = () => {
     const { listSanPhamByThuongHieu } = useSelector((state) => state.danhMuc)
@@ -15,6 +16,8 @@ const ThuongHieu = () => {
         usersApi.apiGetSanPhamByThuongHieu().then((res) => {
             dispath(updateListSanPhamByThuongHieu(res.data.content))
         })
+        dispath(updateKeyword(''))
+
     }, [])
 
     // console.log(listSanPhamByThuongHieu)
