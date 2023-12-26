@@ -332,7 +332,7 @@ const DangNhap = () => {
                         <div>
                             <NavLink onClick={() => setFormDangNhap(false)}>Chưa có tài khoản, đăng ký ngay</NavLink>
                         </div>
-                        <div>
+                        <div id="back">
                             <NavLink to={'/'}>Quay về trang chủ</NavLink>
                         </div>
                     </div>
@@ -410,7 +410,7 @@ const DangNhap = () => {
                         <div>
                             <NavLink onClick={() => setFormDangNhap(true)}>Quay về trang đăng nhập</NavLink>
                         </div>
-                        <div>
+                        <div id="back">
                             <NavLink to={'/'}>Quay về trang chủ</NavLink>
                         </div>
                     </div>
