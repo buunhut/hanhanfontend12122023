@@ -2,6 +2,14 @@ import axios from "axios";
 import { URL } from "../service/functions";
 
 export const shopsApi = {
+    //phân đăng ký shop
+    apiDangKyShop: (data) => {
+        return axios({
+            method: 'post',
+            url: `${URL}/shops/dang-ky`,
+            data
+        })
+    },
     //phần đăng nhập
     apiLogin: (data) => {
         return axios({

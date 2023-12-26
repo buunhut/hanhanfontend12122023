@@ -1,0 +1,21 @@
+#dangKyShop {
+  h3 {
+    text-align: center;
+    margin: 20px auto;
+  }
+  form {
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    p {
+      text-align: right;
+      color: red;
+      font-size: 12px;
+      margin: 2px 0;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}
