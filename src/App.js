@@ -42,15 +42,11 @@ function App() {
 
   useEffect(() => {
     shopsApi.apiGetCauHinh(sId).then((res) => {
-      // console.log(res.data.content)
       const { tatShop } = res.data.content
-      console.log(tatShop)
       dispath(tatMoShop(tatShop))
     })
 
   }, [])
-
-
 
 
   if (isLogin === true && user?.sId !== undefined) {
@@ -98,8 +94,6 @@ function App() {
 
             )
           }
-
-
           <Route path='/tim-kiem' element={<TimKiem />} />
           <Route path='/quan-ly' element={<Login />} />
           <Route path='/dang-ky-shop' element={<DangKyShop />} />

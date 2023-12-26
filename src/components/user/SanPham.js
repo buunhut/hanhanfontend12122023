@@ -7,7 +7,7 @@ import { updateSanPham } from '../../redux/sanPhamSlice'
 import { usersApi } from '../../api/usersApi'
 
 const SanPham = () => {
-    const dispath = useDispatch()
+    const dispatch = useDispatch()
     //chọn shop, trả về sản phẩm của shop đó, để viết triển sau
     const { sId } = useSelector((state) => state.sanPham)
 
@@ -16,24 +16,51 @@ const SanPham = () => {
     let { gioHang } = useSelector((state) => state.gioHang);
 
     let { listSanPham } = useSelector((state) => state.sanPham)
-    // console.log(listSanPham)
+    const [shuffledList, setShuffledList] = useState([]);
 
-    // const [listSanPham, setListSanPham] = useState([])
     useEffect(() => {
-        usersApi.apiGetTatCaSanPham().then((res) => {
-            // setListSanPham(res.data.content)
-            dispath(updateSanPham(res.data.content))
+        // Thực hiện xáo trộn mảng khi component được render lần đầu tiên
+        const shuffledArray = [...listSanPham].sort(() => Math.random() - 0.5);
+        setShuffledList(shuffledArray);
+    }, [listSanPham]); // Chỉ chạy khi listSanPham thay đổi
 
-        }).catch((err) => {
-            console.log(err)
-        })
-    }, [])
+    useEffect(() => {
+        usersApi.apiGetTatCaSanPham()
+            .then((res) => {
+                dispatch(updateSanPham(res.data.content));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [dispatch]);
+
+    // // Hàm xáo trộn mảng ngẫu nhiên
+    // const shuffleArray = (array) => {
+    //     for (let i = array.length - 1; i > 0; i--) {
+    //         const j = Math.floor(Math.random() * (i + 1));
+    //         [array[i], array[j]] = [array[j], array[i]];
+    //     }
+    //     setShuffList(array)
+    // }
+
+
+    // // const [listSanPham, setListSanPham] = useState([])
+    // useEffect(() => {
+    //     usersApi.apiGetTatCaSanPham().then((res) => {
+    //         // setListSanPham(res.data.content)
+    //         dispath(updateSanPham(res.data.content))
+
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+
+    // }, [])
 
     return (
         <div className="container">
             <div className="content">
                 {
-                    listSanPham?.map((sanPhamItem, index) => {
+                    shuffledList?.map((sanPhamItem, index) => {
                         let { kId, soLuong } = sanPhamItem;
 
                         gioHang.forEach((gioHangItem) => {
