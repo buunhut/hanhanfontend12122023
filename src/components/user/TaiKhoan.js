@@ -87,8 +87,8 @@ const TaiKhoan = () => {
                     <div className="content">
                         <div id="taiKhoan">
                             <div className="tittle">
-                                <p> <b> Xin chào, {user.hoTen}</b></p>
-                                <h3>Ví tích luỹ: {(tongDiemTichLuy - tongTruTichLuy).toLocaleString()}đ</h3>
+                                <p><i className="fa-solid fa-user"></i> <b> {user.hoTen}</b></p>
+                                <h3><i className="fa-solid fa-wallet"></i> {(tongDiemTichLuy - tongTruTichLuy).toLocaleString()}đ</h3>
                             </div>
                             {chiTietDonHangByUser.length > 0 ? (
                                 <div>
