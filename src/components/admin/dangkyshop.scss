@@ -7,11 +7,15 @@
     width: 400px;
     margin: 10px auto;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     p {
       text-align: right;
       color: red;
       font-size: 12px;
       margin: 2px 0;
+    }
+    i#showPass {
+      cursor: pointer;
     }
     button {
       width: 100%;

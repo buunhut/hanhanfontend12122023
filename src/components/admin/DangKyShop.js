@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './dangkyshop.scss'
 import { shopsApi } from '../../api/shopsApi'
 import { message } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const DangKyShop = () => {
     const [alert, setAlert] = useState({
@@ -23,6 +23,7 @@ const DangKyShop = () => {
 
 
     })
+    const [showPass, setShowPass] = useState(false)
     const handleChangeInput = (event) => {
         const { id, value } = event.target;
         setThongTinShop((prevState) => ({
@@ -182,9 +183,10 @@ const DangKyShop = () => {
 
                 <div className="inputItem">
                     <i className="fa-solid fa-key"></i>
-                    <input type="text" id='matKhau' placeholder='Mật khẩu'
+                    <input type={showPass ? 'text' : 'password'} id='matKhau' placeholder='Mật khẩu'
                         onChange={handleChangeInput}
                     />
+                    <i id='showPass' className={showPass ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'} onClick={() => setShowPass(!showPass)}></i>
                 </div>
                 <p>{alert.matKhau}</p>
 
@@ -223,6 +225,7 @@ const DangKyShop = () => {
                 <button type='button' onClick={handleDangKyShop}>
                     Đăng ký shop
                 </button>
+                <NavLink to={'/quan-ly'}>Quay về đăng nhập</NavLink>
             </form>
         </div>
     )
