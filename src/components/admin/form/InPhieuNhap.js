@@ -25,11 +25,11 @@ const InPhieuNhap = () => {
         })
     }, [])
 
-    console.log(phieu)
 
 
 
     const [sizeIn, setSizeIn] = useState('530px')
+
     return (
         <div id='inPhieuNhap' style={{ width: sizeIn }}>
             {/* <h3 className='no-print'>In Phiếu Nhập</h3> */}
@@ -37,7 +37,7 @@ const InPhieuNhap = () => {
                 <span onClick={() => setSizeIn('530px')} className={sizeIn === '530px' ? 'no-print active' : 'no-print'}>Khổ A5</span>
                 <span onClick={() => setSizeIn('300px')} className={sizeIn === '300px' ? 'no-print active' : 'no-print'}>Khổ nhỏ</span>
             </div>
-            <div className='topContent'>
+            <div className='topContent' id={sizeIn === '300px' ? 'smallSize' : null}>
                 <div className="formInBig">
                     <h2>{user.tenShop}</h2>
                     <p className='dienThoai'><i className="fa-solid fa-phone"></i> {user.soDt}</p>
@@ -52,7 +52,6 @@ const InPhieuNhap = () => {
             <div className="thongTin">
                 <p>Nhà phân phối: <b>{phieu?.doiTac.tenDoiTac}</b></p>
                 <p>SĐT: <b>{phieu?.doiTac.soDt}</b> </p>
-
                 <p>Địa chỉ: <b>{phieu?.doiTac.diaChi}</b></p>
             </div>
             <table id='inPhieu'>

@@ -88,13 +88,83 @@
       }
     }
   }
+  #smallSize {
+    display: block;
+    .formInBig {
+      // background-color: aqua;
+      width: 100%;
+      margin: 20px 0;
+      h2 {
+        font-weight: bold;
+        font-size: 24px;
+      }
+      p {
+        text-align: center;
+      }
+      p.dienThoai {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-align: center;
+
+        i {
+          font-size: 14px;
+        }
+      }
+      p.diaChi {
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid black;
+        text-align: center;
+        i {
+          font-size: 13px;
+        }
+      }
+    }
+    .formIn {
+      // background-color: aqua;
+      width: 100%;
+      margin: 20px 0;
+      h2 {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      p {
+        text-align: center;
+      }
+      p.dienThoai {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-align: center;
+
+        i {
+          font-size: 14px;
+        }
+      }
+      p.diaChi {
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        // border-bottom: 1px solid black;
+        text-align: center;
+        i {
+          font-size: 13px;
+        }
+      }
+    }
+  }
   p {
     text-align: left;
     span {
       text-transform: uppercase;
     }
   }
-  table#inPhieu {
+  table.inPhieu {
     border: 1px solid black;
     border-collapse: collapse;
     margin: 10px auto;
@@ -163,6 +233,9 @@
             // width: 180px;
             text-align: left;
           }
+          div.inputItem {
+            border: none;
+          }
         }
       }
     }
@@ -170,6 +243,102 @@
       tr {
         td {
           border: 1px solid black;
+          text-align: center;
+          padding: 5px 3px;
+          font-weight: bold;
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+  table#inPhieu {
+    // border: 1px solid black;
+    border-collapse: collapse;
+    margin: 10px auto;
+    thead {
+      background-color: black;
+      color: white;
+
+      tr {
+        font-weight: 500;
+        td {
+          padding: 5px 3px;
+          // border: 1px solid black;
+          &.stt {
+            width: 40px;
+            text-align: right;
+          }
+          &.dvt {
+            width: 60px;
+            // text-align: right;
+          }
+          &.soLuong {
+            width: 60px;
+            text-align: right;
+          }
+
+          &.donGia {
+            width: 80px;
+            text-align: right;
+          }
+          &.thanhTien {
+            width: 10px;
+            text-align: right;
+          }
+          &.tenHang {
+            // width: 180px;
+          }
+        }
+      }
+    }
+    tbody {
+      font-size: 13px;
+      font-weight: 500;
+      tr {
+        td {
+          padding: 5px 3px;
+          border-bottom: 1px solid black;
+          &.stt {
+            width: 40px;
+            text-align: right;
+          }
+          &.dvt {
+            width: 50px;
+            // text-align: right;
+          }
+          &.soLuong {
+            width: 50px;
+            // text-align: right;
+          }
+
+          &.donGia {
+            width: 80px;
+            text-align: right;
+          }
+          &.thanhTien {
+            width: 100px;
+            text-align: right;
+          }
+          &.tenHang {
+            text-align: left;
+            vertical-align: bottom;
+          }
+          p {
+            font-weight: 500;
+          }
+          div.inputItem {
+            border: none;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    tfoot {
+      tr {
+        td {
+          border-bottom: 1px solid black;
           text-align: center;
           padding: 5px 3px;
           font-weight: bold;

@@ -114,7 +114,6 @@ const InDonHang = () => {
                                             <td colSpan={2}>
                                                 <p>{capitalizeFirstLetter(tenSp)}</p>
                                                 <div className="inputItem">
-
                                                     <span>Giá: {donGia.toLocaleString()}</span>
                                                     <span>{soLuong.toLocaleString()} </span>
 
