@@ -309,7 +309,7 @@ const PhieuXuatNo = () => {
                                     <td className='right'>STT</td>
                                     <td>Ngày</td>
                                     <td>Số phiếu</td>
-                                    <td>Tên nhà phân phối</td>
+                                    <td>Tên khách hàng</td>
                                     <td className='right'>Số tiền</td>
                                     <td className='right'>Thanh toán</td>
                                     <td className='right'>Còn nợ</td>
