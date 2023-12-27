@@ -206,6 +206,12 @@ const ChiTietPhieuXuat = ({ item }) => {
     }
 
 
+    //in phieu
+    const handleInPhieu = (pId) => {
+        window.open(`/in-phieu-xuat/${pId}`, '_blank');
+    }
+
+
 
     return (
         <div className='phieuNhap'>
@@ -400,7 +406,9 @@ const ChiTietPhieuXuat = ({ item }) => {
                 <button type='button' onClick={() => handleLuuPhieuXuat(item)}>
                     <i className="fa-regular fa-floppy-disk"></i>
                 </button>
-                <button type='button'><i className="fa-solid fa-print"></i></button>
+                <button type='button'><i className="fa-solid fa-print"
+                    onClick={() => handleInPhieu(item.pId)}
+                ></i></button>
 
                 <Popconfirm
                     title="Xoá phiếu xuất"

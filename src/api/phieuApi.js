@@ -35,7 +35,7 @@ export const phieuApi = {
     apiGetPhieuXuatMoiTao: (headers) => {
         return axios({
             method: 'get',
-            url: `${URL}/phieu/get-phieu-nhap-moi-tao`,
+            url: `${URL}/phieu/get-phieu-xuat-moi-tao`,
             headers
         })
     },

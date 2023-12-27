@@ -21,16 +21,17 @@ const XuatHang = () => {
     const dispath = useDispatch();
 
 
-    useEffect(() => {
-        return () => {
-            phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
-                dispath(updateListPhieuXuatMoiTao(res.data.content))
-                if (res.data.content.length > 0) {
-                    dispath(updatePhieuXuatActi(res.data.content[0].pId))
-                }
 
-            })
-        }
+    useEffect(() => {
+        phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
+            console.log(res.data.content)
+
+            dispath(updateListPhieuXuatMoiTao(res.data.content))
+            if (res.data.content.length > 0) {
+                dispath(updatePhieuXuatActi(res.data.content[0].pId))
+            }
+
+        })
 
     }, [])
 
