@@ -32,6 +32,8 @@ import { shopsApi } from './api/shopsApi';
 import { useEffect, useState } from 'react';
 import { tatMoShop } from './redux/dangNhapSlice';
 import TamNghi from './components/admin/TamNghi';
+import InPhieuNhap from './components/admin/form/InPhieuNhap';
+import InPhieuXuat from './components/admin/form/InPhieuXuat';
 
 function App() {
   const { isLogin, user, tatShop } = useSelector((state) => state.dangNhap)
@@ -70,6 +72,9 @@ function App() {
           </Route>
           <Route path='in-don-hang/:oId' element={<InDonHang />}></Route>
           <Route path='in-ma-vach/:spId/:maSp/:tenSp' element={<InMaVach />}></Route>
+          <Route path='in-phieu-nhap/:pId' element={<InPhieuNhap />}></Route>
+          <Route path='in-phieu-xuat/:pId' element={<InPhieuXuat />}></Route>
+
 
         </Routes>
       </BrowserRouter>

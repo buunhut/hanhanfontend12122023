@@ -18,10 +18,24 @@ export const chiTietApi = {
             headers,
         })
     },
+    apiGetChiTietXuat: (headers) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/chi-tiet/get-chi-tiet-xuat`,
+            headers,
+        })
+    },
     apiTimChiTietNhap: (headers, keyword) => {
         return axios({
             method: 'get',
             url: `${URL}/chi-tiet/tim-chi-tiet-nhap/${keyword}`,
+            headers,
+        })
+    },
+    apiTimChiTietXuat: (headers, keyword) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/chi-tiet/tim-chi-tiet-Xuat/${keyword}`,
             headers,
         })
     },

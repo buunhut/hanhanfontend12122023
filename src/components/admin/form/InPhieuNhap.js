@@ -1,0 +1,152 @@
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import './inphieunhap.scss'
+import { useSelector } from 'react-redux';
+import { phieuApi } from '../../../api/phieuApi';
+import moment from 'moment';
+
+const InPhieuNhap = () => {
+    const { user } = useSelector((state) => state.dangNhap);
+    const { token } = user;
+    const headers = {
+        token,
+    };
+    const { pId } = useParams('pId')
+
+    const [phieu, setPhieu] = useState(null)
+    let tongCong = 0
+    let noCu = 0
+
+    useEffect(() => {
+        phieuApi.apiInPhieuNhap(headers, pId).then((res) => {
+            setPhieu(res.data.content)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, [])
+
+    console.log(phieu)
+
+
+
+    const [sizeIn, setSizeIn] = useState('530px')
+    return (
+        <div id='inPhieuNhap' style={{ width: sizeIn }}>
+            {/* <h3 className='no-print'>In Phiếu Nhập</h3> */}
+            <div className="sizeArea no-print">
+                <span onClick={() => setSizeIn('530px')} className={sizeIn === '530px' ? 'no-print active' : 'no-print'}>Khổ A5</span>
+                <span onClick={() => setSizeIn('300px')} className={sizeIn === '300px' ? 'no-print active' : 'no-print'}>Khổ nhỏ</span>
+            </div>
+            <div className='topContent'>
+                <div className="formInBig">
+                    <h2>{user.tenShop}</h2>
+                    <p className='dienThoai'><i className="fa-solid fa-phone"></i> {user.soDt}</p>
+                    <p className='diaChi'><i className="fa-solid fa-location-dot"></i> {user.diaChi}</p>
+                </div>
+                <div className='formIn'>
+                    <h2>PHIẾU NHẬP HÀNG</h2>
+                    <p>Ngày: <span>{moment(phieu?.ngay).format('DD/MM/YYYY')}</span></p>
+                    {/* <p>Phiếu số: <span> {phieu?.soPhieu}</span></p> */}
+                </div>
+            </div>
+            <div className="thongTin">
+                <p>Nhà phân phối: <b>{phieu?.doiTac.tenDoiTac}</b></p>
+                <p>SĐT: <b>{phieu?.doiTac.soDt}</b> </p>
+
+                <p>Địa chỉ: <b>{phieu?.doiTac.diaChi}</b></p>
+            </div>
+            <table id='inPhieu'>
+                <thead>
+                    <tr>
+                        <td className='stt'>
+                            STT
+                        </td>
+                        <td className='tenHang'>
+                            Tên hàng
+                        </td>
+                        <td className='dvt'>
+                            ĐVT
+                        </td>
+                        <td className='soLuong'>
+                            SL
+                        </td>
+                        <td className='donGia'>
+                            Đơn giá
+                        </td>
+                        <td className='thanhTien'>
+                            Thành tiền
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        phieu?.bangChiTiet.map((item, index) => {
+                            tongCong += (item.soLuong * item.donGia)
+                            return (
+                                <tr key={index}>
+                                    <td className='stt'>
+                                        {index + 1}
+                                    </td>
+                                    <td className='tenHang'>
+                                        {item.tenSp}
+                                    </td>
+                                    <td className='dvt'>
+                                        {item.dvt}
+                                    </td>
+                                    <td className='soLuong'>
+                                        {item.soLuong.toLocaleString()}
+                                    </td>
+                                    <td className='donGia'>
+                                        {item.donGia.toLocaleString()}
+                                    </td>
+                                    <td className='thanhTien'>
+                                        {(item.donGia * item.soLuong).toLocaleString()}
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={5}>
+                            TỔNG CỘNG
+                        </td>
+                        <td>
+                            {tongCong.toLocaleString()}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={5}>
+
+                            NỢ CŨ
+                        </td>
+                        <td>
+                            {
+                                noCu.toLocaleString()
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={5}>
+
+                            TỔNG PHẢI TRẢ
+                        </td>
+                        <td>
+                            {
+                                (tongCong + noCu).toLocaleString()
+                            }
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+
+            <button className='no-print' onClick={() => window.print()}>In phiếu</button>
+        </div>
+    )
+}
+
+export default InPhieuNhap

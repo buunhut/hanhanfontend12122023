@@ -45,6 +45,15 @@
             text-align: right;
             background-color: transparent;
             font-size: 14px;
+            padding-right: 0;
+          }
+          i {
+            color: silver;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              color: orangered;
+            }
           }
 
           &.right {

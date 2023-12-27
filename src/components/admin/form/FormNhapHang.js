@@ -45,7 +45,6 @@ const FormNhapHang = () => {
     const sortedListNpp = [...listNpp].sort((a, b) => {
         const maDoiTacA = a.maDoiTac.toUpperCase();
         const maDoiTacB = b.maDoiTac.toUpperCase();
-
         if (maDoiTacA < maDoiTacB) {
             return -1;
         }

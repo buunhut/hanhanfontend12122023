@@ -1,0 +1,193 @@
+#inPhieuNhap {
+  text-align: center;
+  margin: 0 auto;
+  .sizeArea {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    span {
+      padding: 5px;
+      border: 1px solid silver;
+      border-radius: 5px;
+      cursor: pointer;
+      &.active {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+  .topContent {
+    display: flex;
+    align-items: center;
+    .formInBig {
+      // background-color: aqua;
+      width: 60%;
+      margin: 20px 0;
+      h2 {
+        font-weight: bold;
+        font-size: 20px;
+      }
+      p {
+        text-align: center;
+      }
+      p.dienThoai {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-align: center;
+
+        i {
+          font-size: 14px;
+        }
+      }
+      p.diaChi {
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        // border-bottom: 1px solid black;
+        text-align: center;
+        i {
+          font-size: 13px;
+        }
+      }
+    }
+    .formIn {
+      // background-color: aqua;
+      width: 40%;
+      margin: 20px 0;
+      h2 {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      p {
+        text-align: center;
+      }
+      p.dienThoai {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-align: center;
+
+        i {
+          font-size: 14px;
+        }
+      }
+      p.diaChi {
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        // border-bottom: 1px solid black;
+        text-align: center;
+        i {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  p {
+    text-align: left;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  table#inPhieu {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 10px auto;
+    thead {
+      background-color: white;
+      color: black;
+      tr {
+        font-weight: 500;
+        td {
+          padding: 5px 3px;
+          border: 1px solid black;
+          &.stt {
+            width: 40px;
+            text-align: right;
+          }
+          &.dvt {
+            width: 60px;
+            // text-align: right;
+          }
+          &.soLuong {
+            width: 60px;
+            // text-align: right;
+          }
+
+          &.donGia {
+            width: 80px;
+            text-align: right;
+          }
+          &.thanhTien {
+            width: 10px;
+            text-align: right;
+          }
+          &.tenHang {
+            // width: 180px;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 5px 3px;
+          border: 1px solid black;
+          &.stt {
+            width: 40px;
+            text-align: right;
+          }
+          &.dvt {
+            width: 50px;
+            // text-align: right;
+          }
+          &.soLuong {
+            width: 50px;
+            // text-align: right;
+          }
+
+          &.donGia {
+            width: 80px;
+            text-align: right;
+          }
+          &.thanhTien {
+            width: 100px;
+            text-align: right;
+          }
+          &.tenHang {
+            // width: 180px;
+            text-align: left;
+          }
+        }
+      }
+    }
+    tfoot {
+      tr {
+        td {
+          border: 1px solid black;
+          text-align: center;
+          padding: 5px 3px;
+          font-weight: bold;
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+  .extra {
+    margin-top: 30px;
+    p {
+      text-align: center;
+    }
+  }
+
+  button {
+    margin-top: 30px;
+  }
+}

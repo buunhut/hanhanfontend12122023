@@ -2,8 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     listPhieuNhapMoiTao: [],
+    listPhieuXuatMoiTao: [],
     listPhieuNhapDaLuu: [],
-    phieuNhapActi: 0
+    phieuNhapActi: 0,
+    phieuXuatActi: 0,
 }
 
 
@@ -21,6 +23,12 @@ export const nhapHangSlice = createSlice({
                 listPhieuNhapMoiTao: action.payload
             }
         },
+        updateListPhieuXuatMoiTao: (state, action) => {
+            return {
+                ...state,
+                listPhieuXuatMoiTao: action.payload
+            }
+        },
         updateListPhieuNhapDaLuu: (state, action) => {
             return {
                 ...state,
@@ -32,8 +40,14 @@ export const nhapHangSlice = createSlice({
                 ...state,
                 phieuNhapActi: action.payload
             }
+        },
+        updatePhieuXuatActi: (state, action) => {
+            return {
+                ...state,
+                phieuXuatActi: action.payload
+            }
         }
     }
 })
-export const { updateListPhieuNhapMoiTao, updateListPhieuNhapDaLuu, updatePhieuNhapActi } = nhapHangSlice.actions;
+export const { updateListPhieuNhapMoiTao, updateListPhieuXuatMoiTao, updateListPhieuNhapDaLuu, updatePhieuNhapActi, updatePhieuXuatActi } = nhapHangSlice.actions;
 export default nhapHangSlice.reducer

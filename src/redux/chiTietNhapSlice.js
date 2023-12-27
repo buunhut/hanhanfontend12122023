@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     listChiTietNhap: [],
+    listChiTietXuat: [],
 
 }
 
@@ -19,7 +20,13 @@ export const chiTietNhapSlice = createSlice({
                 listChiTietNhap: action.payload
             }
         },
+        updateListChiTietXuat: (state, action) => {
+            return {
+                ...state,
+                listChiTietXuat: action.payload
+            }
+        },
     }
 })
-export const { updateListChiTietNhap } = chiTietNhapSlice.actions;
+export const { updateListChiTietNhap, updateListChiTietXuat } = chiTietNhapSlice.actions;
 export default chiTietNhapSlice.reducer

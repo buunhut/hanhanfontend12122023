@@ -234,6 +234,11 @@ const PhieuNhapNo = () => {
         })
     }
 
+    //in phieu
+    const handleInPhieu = (pId) => {
+        window.open(`/in-phieu-nhap/${pId}`, '_blank');
+    }
+
 
 
     return (
@@ -309,6 +314,7 @@ const PhieuNhapNo = () => {
                                     <td className='right'>Thanh toán</td>
                                     <td className='right'>Còn nợ</td>
                                     <td>Ghi chú</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -341,6 +347,7 @@ const PhieuNhapNo = () => {
                                                         : item.conNo.toLocaleString()
                                                 }</td>
                                                 <td>{capitalizeFirstLetter(ghiChu)}</td>
+                                                <td onClick={() => handleInPhieu(pId)}><i className="fa-solid fa-print"></i></td>
                                             </tr>
                                         )
                                     })
@@ -353,6 +360,7 @@ const PhieuNhapNo = () => {
                                     <td className='right'>{tongSoTien.toLocaleString()}</td>
                                     <td className='right'>{(tongThanhToan + tra).toLocaleString()}</td>
                                     <td className='right'>{(tongSoTien - tongThanhToan - tra).toLocaleString()}</td>
+                                    <td></td>
                                     <td></td>
                                 </tr>
                             </thead>

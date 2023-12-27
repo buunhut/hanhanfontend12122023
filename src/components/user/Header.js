@@ -636,12 +636,7 @@ const Header = () => {
                             )
                         }
                     </div>
-
-
-
                     <div className="bottom">
-
-
                         {totalTienHang > 0 ? (
                             <>
                                 <div className="thanhToan">

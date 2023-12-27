@@ -32,6 +32,13 @@ export const phieuApi = {
             headers
         })
     },
+    apiGetPhieuXuatMoiTao: (headers) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/phieu/get-phieu-nhap-moi-tao`,
+            headers
+        })
+    },
     apiSuaChiTiet: (headers, data) => {
         return axios({
             method: 'put',
@@ -69,6 +76,21 @@ export const phieuApi = {
             url: `${URL}/phieu/sort-phieu/`,
             headers,
             data
+        })
+    },
+    apiSortPhieuXuat: (headers, data) => {
+        return axios({
+            method: 'post',
+            url: `${URL}/phieu/sort-phieu-xuat/`,
+            headers,
+            data
+        })
+    },
+    apiInPhieuNhap: (headers, pId) => {
+        return axios({
+            method: 'get',
+            url: `${URL}/phieu/get-phieu-nhap/${pId}`,
+            headers,
         })
     }
 

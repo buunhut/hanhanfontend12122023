@@ -68,6 +68,7 @@ const SanPhamItemDoc = ({ sanPham }) => {
             }
         }
     }
+
     return (
         <div key={0} className='sanPhamDoc' >
             <div className="hinhAnh">
@@ -122,6 +123,7 @@ const SanPhamItemDoc = ({ sanPham }) => {
                     phanTram !== 'NaN' ? (<p>{-phanTram}%</p>) : null
                 }
             </div>
+            
             <div className="gifs">
                 {
                     gifs?.length > 0 ? (<p>

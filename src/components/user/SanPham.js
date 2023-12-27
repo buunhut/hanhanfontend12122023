@@ -34,27 +34,6 @@ const SanPham = () => {
             });
     }, [dispatch]);
 
-    // // Hàm xáo trộn mảng ngẫu nhiên
-    // const shuffleArray = (array) => {
-    //     for (let i = array.length - 1; i > 0; i--) {
-    //         const j = Math.floor(Math.random() * (i + 1));
-    //         [array[i], array[j]] = [array[j], array[i]];
-    //     }
-    //     setShuffList(array)
-    // }
-
-
-    // // const [listSanPham, setListSanPham] = useState([])
-    // useEffect(() => {
-    //     usersApi.apiGetTatCaSanPham().then((res) => {
-    //         // setListSanPham(res.data.content)
-    //         dispath(updateSanPham(res.data.content))
-
-    //     }).catch((err) => {
-    //         console.log(err)
-    //     })
-
-    // }, [])
 
     return (
         <div className="container">
@@ -74,7 +53,6 @@ const SanPham = () => {
                             soLuong,
                         };
 
-                        // const sortedSanPham = [...sanPham].sort((a, b) => a.quyDoi - b.quyDoi);
                         return (
 
                             <SanPhamItemDoc sanPham={updatedSanPhamItem} key={index} />
