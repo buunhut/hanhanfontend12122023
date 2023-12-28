@@ -24,7 +24,7 @@ const XuatHang = () => {
 
     useEffect(() => {
         phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
-            console.log(res.data.content)
+            // console.log(res.data.content)
 
             dispath(updateListPhieuXuatMoiTao(res.data.content))
             if (res.data.content.length > 0) {

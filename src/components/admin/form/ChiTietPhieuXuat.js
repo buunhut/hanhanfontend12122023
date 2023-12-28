@@ -58,11 +58,22 @@ const ChiTietPhieuXuat = ({ item }) => {
                 ...findKh
             })
             const data = {
-                ngay: item.ngay,
                 pId: item.pId,
                 dtId: + value,
-                ghiChu,
+                // ngay: item.ngay,
+                // ghiChu,
             }
+            // console.log(data)
+
+            phieuApi.apiSuaDoiTac(headers, data).then((res) => {
+                if (res.data.statusCode === 200) {
+                    recallListPhieuXuatMoiTao()
+                    message.success('Đã cập nhật khách hàng', 2)
+
+                }
+            }).catch((err) => {
+                console.log(err)
+            })
         }
     }
 
@@ -231,7 +242,7 @@ const ChiTietPhieuXuat = ({ item }) => {
                             style={{
                                 width: '100%',
                             }}
-                            placeholder="Chọn nhà phân phối"
+                            placeholder="Chọn khách hàng"
                             onChange={handleChangeKh}
                             filterOption={(input, option) =>
                                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -406,8 +417,8 @@ const ChiTietPhieuXuat = ({ item }) => {
                 <button type='button' onClick={() => handleLuuPhieuXuat(item)}>
                     <i className="fa-regular fa-floppy-disk"></i>
                 </button>
-                <button type='button'><i className="fa-solid fa-print"
-                    onClick={() => handleInPhieu(item.pId)}
+                <button type='button' onClick={() => handleInPhieu(item.pId)}><i className="fa-solid fa-print"
+
                 ></i></button>
 
                 <Popconfirm

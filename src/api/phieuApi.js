@@ -47,6 +47,14 @@ export const phieuApi = {
             data
         })
     },
+    apiSuaDoiTac: (headers, data) => {
+        return axios({
+            method: 'put',
+            url: `${URL}/phieu/sua-doi-tac`,
+            headers,
+            data
+        })
+    },
     apiXoaPhieuMoiTao: (headers, pId) => {
         return axios({
             method: 'delete',

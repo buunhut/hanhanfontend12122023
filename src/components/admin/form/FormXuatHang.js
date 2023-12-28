@@ -108,27 +108,27 @@ const FormXuatHang = () => {
             loaiPhieu: 'px'
         };
         if (data.dtId !== "") {
-        // console.log(data)
-        //gọi axios
-        phieuApi
-            .apiTaoPhieu(headers, data)
-            .then((res) => {
-                const { statusCode, content } = res.data;
-                // console.log(content)
-                if (statusCode === 200) {
-                    dispath(updatePhieuXuatActi(content));
-                    // phieuApi.apiGetPhieuNhapMoiTao(headers).then((res) => {
-                    //     if (res.data.content.length > 0) {
-                    //         dispath(updateListPhieuNhapMoiTao(res.data.content));
-                    //     }
-                    // });
-                    recallListPhieuXuatMoiTao()
-                    message.success("Đã tạo phiếu bán hàng", 1);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+            // console.log(data)
+            //gọi axios
+            phieuApi
+                .apiTaoPhieu(headers, data)
+                .then((res) => {
+                    const { statusCode, content } = res.data;
+                    // console.log(statusCode)
+                    if (statusCode === 200) {
+                        dispath(updatePhieuXuatActi(content));
+                        // phieuApi.apiGetPhieuNhapMoiTao(headers).then((res) => {
+                        //     if (res.data.content.length > 0) {
+                        //         dispath(updateListPhieuNhapMoiTao(res.data.content));
+                        //     }
+                        // });
+                        recallListPhieuXuatMoiTao()
+                        message.success("Đã tạo phiếu bán hàng", 1);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         } else {
             message.warning("Chọn khách hàng", 2);
         }
