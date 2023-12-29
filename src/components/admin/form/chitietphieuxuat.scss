@@ -1,0 +1,13 @@
+.goiYThanhToan {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  span {
+    padding: 3px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    background-color: royalblue;
+    color: white;
+  }
+}

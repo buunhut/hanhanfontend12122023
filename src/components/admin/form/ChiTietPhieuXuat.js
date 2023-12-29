@@ -1,7 +1,7 @@
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { capitalizeFirstLetter } from '../../../service/functions'
-import { callApi } from '../../../api/callApi'
+import './chitietphieuxuat.scss'
 import { Popconfirm, Select, message } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateListPhieuXuatMoiTao, updatePhieuXuatActi } from '../../../redux/nhapHangSlice'
@@ -29,11 +29,13 @@ const ChiTietPhieuXuat = ({ item }) => {
     const { bangChiTiet, doiTac } = item
     const tongTien = bangChiTiet.reduce((total, item) => total + item.thanhTien, 0)
     const tongSoLuong = bangChiTiet.reduce((total, item) => total + item.soLuong, 0)
-    const [thanhToan, setThanhToan] = useState(tongTien)
+    const [thanhToan, setThanhToan] = useState(0)
 
-    useEffect(() => {
-        setThanhToan(tongTien)
-    }, [tongTien])
+
+    // useEffect(() => {
+    //     setThanhToan(tongTien)
+
+    // }, [tongTien])
 
     useEffect(() => {
         recallListPhieuXuatMoiTao()
@@ -222,7 +224,27 @@ const ChiTietPhieuXuat = ({ item }) => {
         window.open(`/in-phieu-xuat/${pId}`, '_blank');
     }
 
-
+    // gợi ý thanh toánh
+    const menhGiaTien = [500000, 200000, 100000, 50000, 20000, 10000, 5000, 2000, 1000];
+    const goiYThanhToan = (tongTien, menhGiaTien) => {
+        let result = []
+        for (let i = 0; i < menhGiaTien.length; i++) {
+            if (tongTien < menhGiaTien[i]) {
+                result.push(menhGiaTien[i])
+            } else {
+                if (((Math.floor(tongTien / menhGiaTien[i]) + 1) * menhGiaTien[i]) - tongTien < menhGiaTien[i]) {
+                    result.push(((Math.floor(tongTien / menhGiaTien[i]) + 1) * menhGiaTien[i]))
+                }
+            }
+        }
+        if (tongTien >= 1000) {
+            result.push(tongTien)
+        }
+        const loaiBoGiaTriTrung = [...new Set(result)];
+        return loaiBoGiaTriTrung.sort((a, b) => a - b)
+    }
+    const suggest = goiYThanhToan(tongTien, menhGiaTien)
+    // console.log(suggest)
 
     return (
         <div className='phieuNhap'>
@@ -375,7 +397,9 @@ const ChiTietPhieuXuat = ({ item }) => {
                                         </tr>
                                         <tr>
                                             <td colSpan={3} className='right'>
-                                                <b>Thanh toán : </b >
+
+                                                <b>Khách trả : </b >
+
                                             </td>
                                             <td colSpan={3}>
                                                 <div className="right">
@@ -388,21 +412,54 @@ const ChiTietPhieuXuat = ({ item }) => {
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td colSpan={3} className='right'>
-                                                <b>Còn nợ : </b>
-                                            </td>
-                                            <td colSpan={3}>
-                                                <div className=" right">
-                                                    <input type="text"
-                                                        value={(tongTien - thanhToan).toLocaleString()}
-                                                        disabled style={{ color: 'black', fontWeight: 'bold' }}
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        {
+                                            thanhToan > tongTien ? (
+
+                                                <tr>
+                                                    <td colSpan={3} className='right'>
+                                                        <b>Tiền thói : </b>
+                                                    </td>
+                                                    <td colSpan={3}>
+                                                        <div className=" right">
+                                                            <input type="text"
+                                                                value={(thanhToan - tongTien).toLocaleString()}
+                                                                disabled style={{ color: 'black', fontWeight: 'bold' }}
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            ) : (
+                                                <tr>
+                                                    <td colSpan={3} className='right'>
+                                                        <b>Còn nợ : </b>
+                                                    </td>
+                                                    <td colSpan={3}>
+                                                        <div className=" right">
+                                                            <input type="text"
+                                                                value={(tongTien - thanhToan).toLocaleString()}
+                                                                disabled style={{ color: 'black', fontWeight: 'bold' }}
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            )
+                                        }
+
                                     </thead>
                                 </table>
+                                <div className='goiYThanhToan'>
+                                    {
+                                        suggest.map((item, index) => {
+                                            return (
+                                                <span key={index} onClick={() => setThanhToan(item)}>
+                                                    {item.toLocaleString()}
+                                                </span>
+                                            )
+                                        })
+                                    }
+
+                                </div>
                             </div>
 
 
@@ -411,6 +468,9 @@ const ChiTietPhieuXuat = ({ item }) => {
                         : null
                 }
 
+
+            </div>
+            <div>
 
             </div>
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '20px' }}>
@@ -434,8 +494,6 @@ const ChiTietPhieuXuat = ({ item }) => {
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </Popconfirm>
-
-
             </div>
 
         </div >
