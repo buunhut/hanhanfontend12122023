@@ -4,6 +4,7 @@ import './inphieunhap.scss'
 import { useSelector } from 'react-redux';
 import { phieuApi } from '../../../api/phieuApi';
 import moment from 'moment';
+import { capitalizeFirstLetter, numberToWords } from '../../../service/functions';
 
 const InPhieuXuat = () => {
     const { user } = useSelector((state) => state.dangNhap);
@@ -130,6 +131,11 @@ const InPhieuXuat = () => {
                                     }
                                 </td>
                             </tr>
+                            <tr>
+                                <td colSpan={3} className='vietBangChu'>
+                                    {capitalizeFirstLetter(numberToWords(tongCong + noCu)) + ' đồng.'}
+                                </td>
+                            </tr>
                         </tfoot>
                     </table>
                 ) : (
@@ -214,6 +220,11 @@ const InPhieuXuat = () => {
                                     {
                                         (tongCong + noCu).toLocaleString()
                                     }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={6} className='vietBangChu'>
+                                    {capitalizeFirstLetter(numberToWords(tongCong + noCu)) + ' đồng.'}
                                 </td>
                             </tr>
                         </tfoot>

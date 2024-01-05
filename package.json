@@ -24,6 +24,7 @@
     "redux": "^4.2.1",
     "sass": "^1.69.4",
     "sass-loader": "^13.3.2",
+    "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
     "web-vitals": "^2.1.4"
   },

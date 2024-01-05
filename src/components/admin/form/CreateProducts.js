@@ -20,6 +20,8 @@ import { thuongHieuApi } from "../../../api/thuongHieuApi";
 import { uploadApi } from "../../../api/uploadApi";
 import ThuongHieu from "./ThuongHieu";
 
+
+
 const CreateProducts = () => {
     const { user } = useSelector((state) => state.dangNhap);
     const { token } = user;
@@ -867,6 +869,8 @@ const CreateProducts = () => {
                     <h4>Không có dữ liệu</h4>
                 )}
             </div>
+
+
         </div >
     );
 };

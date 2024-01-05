@@ -251,6 +251,10 @@
           &:last-child {
             text-align: right;
           }
+          &.vietBangChu {
+            text-align: left;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -347,6 +351,10 @@
           font-weight: bold;
           &:last-child {
             text-align: right;
+          }
+          &.vietBangChu {
+            text-align: left;
+            font-size: 14px;
           }
         }
       }
