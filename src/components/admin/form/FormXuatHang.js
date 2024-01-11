@@ -43,7 +43,6 @@ const FormXuatHang = () => {
     }, []);
 
     const { listKh } = useSelector((state) => state.doiTac);
-    // console.log(listNpp)
     const sortedListKh = [...listKh].sort((a, b) => {
         const maDoiTacA = a.maDoiTac.toUpperCase();
         const maDoiTacB = b.maDoiTac.toUpperCase();
@@ -61,8 +60,8 @@ const FormXuatHang = () => {
 
     // const [sanPhamByShop, setSanPhamByShop] = useState([]);
     let { sanPhamByShop } = useSelector((state) => state.sanPham)
-
-    // console.log(sanPhamByShop)
+    const sortSp = [...sanPhamByShop].sort((a, b) => b.spId - a.spId)
+    // console.log(sortSp)
 
     const dispath = useDispatch();
     const recallSanPhamByShop = () => {
@@ -83,7 +82,7 @@ const FormXuatHang = () => {
 
     // let { sanPhamByShop } = useSelector((state) => state.sanPham);
     let { phieuXuatActi } = useSelector((state) => state.nhapHang);
-    // console.log("form nhập hàng: ", phieuNhapActi)
+    // console.log("form nhập hàng: ", phieuXuatActi)
 
     const [ngayThang, setNgayThang] = useState(moment().format("YYYY-MM-DD"));
     // console.log(ngayThang)
@@ -213,10 +212,15 @@ const FormXuatHang = () => {
 
     };
 
+
     const handleSearchSanPham = (event) => {
         const { value } = event.target;
         if (value) {
             phieuApi.apiTimSanPham(headers, value).then((res) => {
+                if (res.data.content.length === 1 && phieuXuatActi) {
+                    const sanPham = res.data.content[0]
+                    handleXuatHang(sanPham)
+                }
                 dispath(updateSanPhamByShop(res.data.content));
                 // setSanPhamByShop(res.data.content)
             })

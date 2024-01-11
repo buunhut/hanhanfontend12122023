@@ -215,6 +215,11 @@ const FormNhapHang = () => {
         const { value } = event.target;
         if (value) {
             phieuApi.apiTimSanPham(headers, value).then((res) => {
+                if (res.data.content.length === 1 && phieuNhapActi) {
+                    const sanPham = res.data.content[0]
+                    handleNhapHang(sanPham)
+                }
+
                 dispath(updateSanPhamByShop(res.data.content));
                 // setSanPhamByShop(res.data.content)
             })

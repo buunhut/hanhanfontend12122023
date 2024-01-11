@@ -30,6 +30,8 @@ const ChiTietPhieuNhap = ({ item }) => {
     const tongTien = bangChiTiet.reduce((total, item) => total + item.thanhTien, 0)
     const tongSoLuong = bangChiTiet.reduce((total, item) => total + item.soLuong, 0)
     const [thanhToan, setThanhToan] = useState(tongTien)
+    let sortBangChiTiet = [...bangChiTiet].sort((a, b) => b.dId - a.dId)
+
 
     useEffect(() => {
         setThanhToan(tongTien)
@@ -274,7 +276,7 @@ const ChiTietPhieuNhap = ({ item }) => {
             </div>
             <div>
                 {
-                    bangChiTiet.length > 0 ?
+                    sortBangChiTiet.length > 0 ?
                         (
                             <div className="thongTin">
                                 <table>
@@ -289,7 +291,7 @@ const ChiTietPhieuNhap = ({ item }) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {bangChiTiet?.map((item, index) => {
+                                        {sortBangChiTiet?.map((item, index) => {
                                             // console.log(item)
 
                                             return (

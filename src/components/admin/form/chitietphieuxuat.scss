@@ -4,10 +4,16 @@
   justify-content: flex-end;
   gap: 10px;
   span {
-    padding: 3px;
-    border: 1px solid silver;
+    display: block;
+    padding: 5px 10px;
+    // border: 1px solid silver;
     border-radius: 10px;
     background-color: royalblue;
     color: white;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+      background-color: red;
+    }
   }
 }
