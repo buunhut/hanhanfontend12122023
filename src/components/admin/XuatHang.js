@@ -17,15 +17,11 @@ const XuatHang = () => {
         token,
     };
 
-
     const dispath = useDispatch();
-
-
 
     useEffect(() => {
         phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
             // console.log(res.data.content)
-
             dispath(updateListPhieuXuatMoiTao(res.data.content))
             if (res.data.content.length > 0) {
                 dispath(updatePhieuXuatActi(res.data.content[0].pId))

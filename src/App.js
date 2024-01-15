@@ -34,6 +34,7 @@ import { tatMoShop } from './redux/dangNhapSlice';
 import TamNghi from './components/admin/TamNghi';
 import InPhieuNhap from './components/admin/form/InPhieuNhap';
 import InPhieuXuat from './components/admin/form/InPhieuXuat';
+import BanHang from './components/admin/form/BanHang';
 
 function App() {
   const { isLogin, user, tatShop } = useSelector((state) => state.dangNhap)
@@ -62,7 +63,8 @@ function App() {
             <Route path='nhap-hang' element={<NhapHang />}></Route>
             <Route path='chi-tiet-nhap' element={<ChiTietNhapHang />}></Route>
             <Route path='phieu-nhap' element={<PhieuNhapNo />}></Route>
-            <Route path='xuat-hang' element={<XuatHang />}></Route>
+            {/* <Route path='xuat-hang' element={<XuatHang />}></Route> */}
+            <Route path='xuat-hang' element={<BanHang />}></Route>
             <Route path='chi-tiet-xuat' element={<ChiTietXuatHang />}></Route>
             <Route path='phieu-xuat-no' element={<PhieuXuatNo />}></Route>
             <Route path='kiem-kho' element={<KiemKho />}></Route>

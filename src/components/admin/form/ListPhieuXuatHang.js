@@ -49,8 +49,7 @@ const ListPhieuXuatHang = () => {
     };
 
     return (
-        <div className='listPhieu' style={{ display: listPhieuXuatMoiTao.length > 0 ? 'block' : 'none' }}>
-
+        <div className='listPhieu' style={{ display: listPhieuXuatMoiTao.length > 0 ? 'flex' : 'none' }}>
             <Tabs
                 onChange={onChange}
                 defaultActiveKey={phieuXuatActi}

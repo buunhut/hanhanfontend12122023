@@ -1,0 +1,21 @@
+#xuatHang {
+    // display: flex;
+  .topMenu {
+    height: 40px;
+    background-color: royalblue;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+
+    .search {
+      width: 50%;
+    }
+    div {
+        button {
+            width: 30px;
+            height: 30px;
+            margin: 0 0 0 10px;
+        }
+    }
+  }
+}

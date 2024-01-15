@@ -82,13 +82,6 @@ const PhieuXuatNo = () => {
     })
 
 
-    // const listNppLoc = Array.from(
-    //     new Set(listNpp.map((item) => JSON.stringify(item)))
-    // ).map((item) => JSON.parse(item));
-
-    // console.log(listNppLoc);
-
-    // console.log(phieuNhapNo)
     const tongSoTien = phieuXuatNo.reduce((total, item) => total + item.soTien, 0)
     const tongThanhToan = phieuXuatNo.reduce((total, item) => total + item.thanhToan, 0)
 
@@ -245,7 +238,6 @@ const PhieuXuatNo = () => {
     return (
         <div id='phieuNhapNo'>
             <h2>Phiếu xuất</h2>
-
             <>
                 <div className="groupItem">
                     <div className="inputItem"
@@ -314,7 +306,7 @@ const PhieuXuatNo = () => {
                                     <td className='right'>Thanh toán</td>
                                     <td className='right'>Còn nợ</td>
                                     <td>Ghi chú</td>
-                                    <td></td>
+                                    <td>In</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -326,7 +318,7 @@ const PhieuXuatNo = () => {
                                                 <td className='stt right'>{index + 1}</td>
                                                 <td>{moment(ngay).format('DD/MM/YYYY')}</td>
                                                 <td>{soPhieu.toUpperCase()}</td>
-                                                <td>{maDoiTac.toUpperCase()}</td>
+                                                <td>{maDoiTac}</td>
                                                 <td className='right'>{soTien.toLocaleString()}</td>
                                                 <td className='right'>
                                                     <input type="text"
@@ -346,7 +338,7 @@ const PhieuXuatNo = () => {
                                                         conNo[pId].toLocaleString()
                                                         : item.conNo.toLocaleString()
                                                 }</td>
-                                                <td>{capitalizeFirstLetter(ghiChu)}</td>
+                                                <td>{ghiChu ? capitalizeFirstLetter(ghiChu) : ''}</td>
                                                 <td onClick={() => handleInPhieu(pId)}><i className="fa-solid fa-print"></i></td>
                                             </tr>
                                         )

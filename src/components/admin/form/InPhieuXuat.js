@@ -47,10 +47,10 @@ const InPhieuXuat = () => {
                 </div>
             </div>
             <div className="thongTin">
-                <p>Khách hàng: <b>{phieu?.doiTac.tenDoiTac}</b></p>
-                <p>SĐT: <b>{phieu?.doiTac.soDt}</b> </p>
+                <p>Khách hàng: <b>{phieu?.doiTac ? phieu?.doiTac.tenDoiTac : ''}</b></p>
+                <p>SĐT: <b>{phieu?.doiTac ? phieu.doiTac.soDt : ''}</b> </p>
 
-                <p>Địa chỉ: <b>{phieu?.doiTac.diaChi}</b></p>
+                <p>Địa chỉ: <b>{phieu?.doiTac ? phieu.doiTac.diaChi : ''}</b></p>
             </div>
             {
                 sizeIn === '300px' ? (
