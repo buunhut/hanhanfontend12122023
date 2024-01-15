@@ -43,6 +43,8 @@ const BanHang = () => {
     // console.log(phieuXuatActi)
     // const [phieu, setPhieu] = useState(phieuXuatActi)
 
+    const inputRef = useRef(null);
+
 
     const dispath = useDispatch();
 
@@ -71,6 +73,10 @@ const BanHang = () => {
         }).catch((err) => {
             console.log(err)
         })
+
+
+
+
 
 
 
@@ -166,13 +172,10 @@ const BanHang = () => {
     };
 
     const handleXuatHang = (sanPham) => {
-
         const { spId, kId, quyDoi, tenSp, dvt } = sanPham
-
         let price = 0;
         let qty = 0;
         // let exch = 0;
-
         if (soLuong[spId] !== undefined) {
             qty = soLuong[spId];
         } else {
@@ -196,16 +199,19 @@ const BanHang = () => {
         };
 
         // console.log(data)
-
-
         chiTietApi
             .apiThemChiTiet(headers, data)
             .then((res) => {
                 const { statusCode } = res.data;
                 if (statusCode === 200) {
                     recallListPhieuXuatMoiTao();
-                    setKeyword('')
+                    // setKeyword('')
                     setSearch(false)
+                    message.success('Đã thêm sản phẩm', 2)
+                    if (inputRef.current) {
+                        inputRef.current.select();
+                    }
+
                 }
             })
             .catch((err) => {
@@ -231,9 +237,8 @@ const BanHang = () => {
                 if (res.data.content.length === 1 && phieuXuatActi) {
                     const sanPham = res.data.content[0]
                     handleXuatHang(sanPham)
-                    setSearch(false)
-                    setKeyword('')
-                    message.success('Đã thêm sản phẩm', 2)
+                    // setSearch(false)
+                    // setKeyword('')
                 }
                 dispath(updateSanPhamByShop(res.data.content));
                 // setSanPhamByShop(res.data.content)
@@ -250,7 +255,6 @@ const BanHang = () => {
     const handleClearSearch = () => {
         setSearch(false)
         setKeyword('')
-
     }
 
     // const handleClickSearchSanPham = () => {
@@ -331,6 +335,7 @@ const BanHang = () => {
                     onChange={handleSearchSanPham}
                     // onClick={handleClickSearchSanPham}
                     autoFocus
+                    ref={inputRef}
                 />
                 <i className="fa-solid fa-xmark clear" style={{ display: keyword ? 'block' : 'none' }}
                     onClick={handleClearSearch}
