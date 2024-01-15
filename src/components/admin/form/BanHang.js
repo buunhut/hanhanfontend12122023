@@ -204,6 +204,8 @@ const BanHang = () => {
                 const { statusCode } = res.data;
                 if (statusCode === 200) {
                     recallListPhieuXuatMoiTao();
+                    setKeyword('')
+                    setSearch(false)
                 }
             })
             .catch((err) => {
