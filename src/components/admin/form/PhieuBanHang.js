@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './phieubanhang.scss'
 import { Popconfirm, Select, message } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
@@ -137,6 +137,7 @@ const PhieuBanHang = ({ item }) => {
                 if (res.data.statusCode === 200) {
                     recallListPhieuXuatMoiTao()
                     message.success('Đã cập nhật khách hàng', 2)
+                    setDropdownVisible(false)
 
                 }
             }).catch((err) => {
@@ -429,6 +430,36 @@ const PhieuBanHang = ({ item }) => {
     const suggest = goiYThanhToan(tongTien, menhGiaTien)
 
 
+    const [firstF4Press, setFirstF4Press] = useState(true);
+
+    // console.log(search)
+
+    //F4
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const inputRef = useRef(null);
+    const handleF4KeyPress = (event) => {
+        if (event.key === 'F4') {
+            // Toggle the value of firstF4Press
+            setFirstF4Press((prevValue) => !prevValue);
+            setDropdownVisible(true);
+            inputRef.current.focus()
+        }
+    };
+    useEffect(() => {
+        // Bắt sự kiện keydown trên cả trang
+        document.addEventListener('keydown', handleF4KeyPress);
+
+        // Cleanup effect để tránh memory leaks
+        return () => {
+            document.removeEventListener('keydown', handleF4KeyPress);
+        };
+
+
+    }, [firstF4Press])
+
+
+
+
     return (
         <div id='phieuBanHang'>
             <div className='main'>
@@ -539,6 +570,10 @@ const PhieuBanHang = ({ item }) => {
                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }
                         value={khachHang.maDoiTac}
+                        open={dropdownVisible}
+                        ref={inputRef}
+                        onBlur={() => setDropdownVisible(false)}
+
                     >
                         {
                             sortedListKh?.map((item) => (
