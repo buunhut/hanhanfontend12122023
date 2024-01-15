@@ -254,12 +254,13 @@ const BanHang = () => {
 
     //tìm sản phẩm
     const [keyword, setKeyword] = useState('')
-    const handleSearchSanPham = (event) => {
+    const handleSearchSanPham = async (event) => {
         const { value } = event.target;
         setKeyword(value)
         if (value) {
+            console.log(value)
             setSearch(true)
-            phieuApi.apiTimSanPham(headers, value).then((res) => {
+            await phieuApi.apiTimSanPham(headers, value).then((res) => {
                 if (res.data.content.length === 1 && phieuXuatActi) {
                     const sanPham = res.data.content[0]
                     handleXuatHang(sanPham)
