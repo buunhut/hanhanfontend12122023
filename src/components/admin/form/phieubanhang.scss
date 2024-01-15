@@ -137,6 +137,12 @@
             font-weight: 400;
           }
         }
+        &:nth-child(even) {
+          background-color: rgb(249, 250, 251);
+        }
+        &:hover {
+          border: 1px solid royalblue;
+        }
       }
     }
   }
