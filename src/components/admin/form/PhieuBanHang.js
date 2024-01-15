@@ -352,36 +352,75 @@ const PhieuBanHang = ({ item }) => {
         if (tongTien > 200 && tongTien < 400) {
             result.push(400)
         } else {
-            result.push(tongTien)
-            if (tongTien === 60000) {
+            if (tongTien > 200) {
                 result.push(tongTien)
-                result.push(70000)
+                // if (tongTien % 6 === 0) {
+                //     result.push(7 * tongTien / 6)
+                // }
+                if (tongTien % 1000 === 600) {
+                    result.push((tongTien - 600) + 700)
+                } else if (tongTien % 10000 === 6000) {
+                    result.push((tongTien - 6000) + 7000)
+                } else if (tongTien % 100000 === 60000) {
+                    result.push((tongTien - 60000) + 70000)
+                } else if (tongTien % 1000000 === 600000) {
+                    result.push((tongTien - 600000) + 700000)
+                }
+                if (tongTien % 1000 === 800) {
+                    result.push((tongTien - 800) + 900)
+                } else if (tongTien % 10000 === 8000) {
+                    result.push((tongTien - 8000) + 9000)
+                } else if (tongTien % 100000 === 80000) {
+                    result.push((tongTien - 80000) + 90000)
+                } else if (tongTien % 1000000 === 800000) {
+                    result.push((tongTien - 800000) + 900000)
+                }
+            }
+            // console.log(tongTien % 100000)
+            // if (tongTien === 600) {
+            //     result.push(tongTien)
+            //     result.push(700)
 
-            } else
-                if (tongTien === 600000) {
-                    result.push(tongTien)
-                    result.push(700000)
+            // } else if (tongTien === 6000) {
+            //     result.push(tongTien)
+            //     result.push(7000)
 
-                } else
+            // } else if (tongTien === 60000) {
+            //     result.push(tongTien)
+            //     result.push(70000)
 
-                    if (tongTien === 160000) {
-                        result.push(tongTien)
-                        result.push(170000)
+            // } else
+            //     if (tongTien === 600000) {
+            //         result.push(tongTien)
+            //         result.push(700000)
 
-                    } else
+            //     } else
 
-                        if (tongTien === 80000) {
-                            result.push(tongTien)
-                            result.push(90000)
+            //         if (tongTien === 160000) {
+            //             result.push(tongTien)
+            //             result.push(170000)
 
-                        } else if (tongTien === 800000) {
-                            result.push(tongTien)
-                            result.push(900000)
+            //         } else
+            //             if (tongTien === 800) {
+            //                 result.push(tongTien)
+            //                 result.push(900)
 
-                        } else if (tongTien === 1800000) {
-                            result.push(tongTien)
-                            result.push(1900000)
-                        }
+            //             } else if (tongTien === 8000) {
+            //                 result.push(tongTien)
+            //                 result.push(9000)
+
+            //             } else if (tongTien === 80000) {
+            //                 result.push(tongTien)
+            //                 result.push(90000)
+
+            //             } else if (tongTien === 800000) {
+            //                 result.push(tongTien)
+            //                 result.push(900000)
+
+            //             } else if (tongTien === 1800000) {
+            //                 result.push(tongTien)
+            //                 result.push(1900000)
+            //             }
         }
         const loaiBoGiaTriTrung = [...new Set(result)];
         return loaiBoGiaTriTrung.sort((a, b) => a - b)

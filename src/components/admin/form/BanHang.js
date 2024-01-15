@@ -9,6 +9,7 @@ import { updateSanPhamByShop } from '../../../redux/sanPhamSlice';
 import { chiTietApi } from '../../../api/chiTietApi';
 import moment from 'moment';
 import confirm from 'antd/es/modal/confirm';
+import { URL } from '../../../service/functions';
 const initialItems = [
     {
         label: 'Phiếu bán hàng',
@@ -85,7 +86,7 @@ const BanHang = () => {
 
     useEffect(() => {
         recallPhieuXuatMoiTao()
-        console.log(phieuXuatActi)
+        // console.log(phieuXuatActi)
 
     }, [phieuXuatActi])
 
@@ -333,7 +334,6 @@ const BanHang = () => {
                     placeholder="Nhập mã, tên sản phẩm"
                     value={keyword}
                     onChange={handleSearchSanPham}
-                    // onClick={handleClickSearchSanPham}
                     autoFocus
                     ref={inputRef}
                 />
