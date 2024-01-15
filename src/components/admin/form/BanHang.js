@@ -33,6 +33,7 @@ const initialItems = [
 ];
 
 const BanHang = () => {
+    const dispath = useDispatch();
     const { user } = useSelector((state) => state.dangNhap);
     const { token } = user;
     const headers = {
@@ -46,8 +47,28 @@ const BanHang = () => {
 
     const inputRef = useRef(null);
 
+    const [search, setSearch] = useState(false)
+    const [firstF3Press, setFirstF3Press] = useState(true);
 
-    const dispath = useDispatch();
+    // console.log(search)
+
+    //F3
+    const handleF3KeyPress = (event) => {
+        if (event.key === 'F3') {
+            if (firstF3Press) {
+                setSearch(!search);
+                setFirstF3Press(!firstF3Press);
+            } else {
+                setSearch(!search);
+                setFirstF3Press(!firstF3Press);
+
+            }
+            inputRef.current.focus();
+        }
+    };
+
+
+
 
     useEffect(() => {
         phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
@@ -74,15 +95,19 @@ const BanHang = () => {
         }).catch((err) => {
             console.log(err)
         })
-
-
-
-
-
-
-
-
     }, [])
+
+    useEffect(() => {
+        // Bắt sự kiện keydown trên cả trang
+        document.addEventListener('keydown', handleF3KeyPress);
+
+        // Cleanup effect để tránh memory leaks
+        return () => {
+            document.removeEventListener('keydown', handleF3KeyPress);
+        };
+
+
+    }, [firstF3Press])
 
     useEffect(() => {
         recallPhieuXuatMoiTao()
@@ -138,7 +163,6 @@ const BanHang = () => {
     const [ngayThang, setNgayThang] = useState(moment().utc());
     const [giaBan, setGiaBan] = useState({});
     const [soLuong, setSoLuong] = useState({});
-    const [search, setSearch] = useState(false)
 
 
 
@@ -212,6 +236,7 @@ const BanHang = () => {
                     if (inputRef.current) {
                         inputRef.current.select();
                     }
+                    setFirstF3Press(!firstF3Press)
 
                 }
             })
@@ -323,6 +348,8 @@ const BanHang = () => {
             remove(targetKey);
         }
     };
+
+
 
 
     return (
