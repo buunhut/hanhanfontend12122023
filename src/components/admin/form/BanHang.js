@@ -359,7 +359,7 @@ const BanHang = () => {
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <input
                     type="text"
-                    placeholder="Nhập mã, tên sản phẩm"
+                    placeholder="F3, Tìm mã, tên sản phẩm."
                     value={keyword}
                     onChange={handleSearchSanPham}
                     autoFocus

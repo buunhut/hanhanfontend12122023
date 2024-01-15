@@ -441,7 +441,7 @@ const PhieuBanHang = ({ item }) => {
         if (event.key === 'F4') {
             // Toggle the value of firstF4Press
             setFirstF4Press((prevValue) => !prevValue);
-            setDropdownVisible(true);
+            setDropdownVisible((prevValue) => !prevValue);
             inputRef.current.focus()
         }
     };
@@ -564,7 +564,7 @@ const PhieuBanHang = ({ item }) => {
                         style={{
                             width: '100%',
                         }}
-                        placeholder="Chọn khách hàng"
+                        placeholder="F4, Chọn khách hàng."
                         onChange={handleChangeKh}
                         filterOption={(input, option) =>
                             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -573,6 +573,7 @@ const PhieuBanHang = ({ item }) => {
                         open={dropdownVisible}
                         ref={inputRef}
                         onBlur={() => setDropdownVisible(false)}
+                        onClick={() => setDropdownVisible(true)}
 
                     >
                         {
