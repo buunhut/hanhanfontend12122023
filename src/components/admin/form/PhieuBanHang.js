@@ -9,6 +9,7 @@ import { updateSanPhamByShop } from '../../../redux/sanPhamSlice'
 import { updateListPhieuXuatMoiTao, updatePhieuXuatActi } from '../../../redux/nhapHangSlice'
 import moment from 'moment'
 import { chiTietApi } from '../../../api/chiTietApi'
+import { URL } from '../../../service/functions'
 const PhieuBanHang = ({ item }) => {
 
     // console.log(item)
@@ -330,7 +331,7 @@ const PhieuBanHang = ({ item }) => {
     }
 
 
-
+    // console.log(item)
 
 
 
@@ -454,9 +455,9 @@ const PhieuBanHang = ({ item }) => {
 
                                         </Popconfirm>
                                     </div>
-                                    {/* <div className='pic'>
-                                        <img src="https://acecookvietnam.vn/wp-content/uploads/2017/07/H%E1%BA%A3o-H%E1%BA%A3o-T%C3%B4m-chua-cay_down33_.png" alt="hình" />
-                                    </div> */}
+                                    <div className='pic'>
+                                        <img src={`${URL}/${item.hinhAnh}`} alt="" />
+                                    </div>
                                     {/* <div className='code'>
                                     MTD0000001FBHD
                                 </div> */}
