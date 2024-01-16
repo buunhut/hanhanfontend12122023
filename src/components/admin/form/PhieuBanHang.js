@@ -21,7 +21,7 @@ const PhieuBanHang = ({ item }) => {
     };
     // let { phieuXuatActi } = useSelector((state) => state.nhapHang)
 
-    const { bangChiTiet, doiTac } = item
+    let { bangChiTiet, doiTac } = item
     const tongTien = bangChiTiet.reduce((total, item) => total + item.thanhTien, 0)
     const tongSoLuong = bangChiTiet.reduce((total, item) => total + item.soLuong, 0)
     const [thanhToan, setThanhToan] = useState(0)
@@ -169,14 +169,27 @@ const PhieuBanHang = ({ item }) => {
     const [editSoLuong, setEditSoLuong] = useState({})
     const handleChangeSoLuong = (event, item) => {
         const { value } = event.target
-        const { dId, donGia } = item
-        setEditSoLuong({
-            [dId]: +value.replace(/[^0-9]/g, "")
-        })
-        const data = {
-            dId,
-            donGia,
-            soLuong: +value.replace(/[^0-9]/g, "")
+        const { dId, donGia, quyDoi, soLuong, tonKho, dvt } = item
+        let data = {}
+        if (+value * quyDoi > tonKho) {
+            setEditSoLuong({
+                [dId]: +tonKho
+            })
+            data = {
+                dId,
+                donGia,
+                soLuong: +tonKho
+            }
+            message.warning('Kho không đủ hàng, chỉ còn ' + tonKho + ' ' + dvt, 3)
+        } else {
+            setEditSoLuong({
+                [dId]: +value.replace(/[^0-9]/g, "")
+            })
+            data = {
+                dId,
+                donGia,
+                soLuong: +value.replace(/[^0-9]/g, "")
+            }
         }
         phieuApi.apiSuaChiTiet(headers, data).then((res) => {
             const { statusCode } = res.data
@@ -191,11 +204,15 @@ const PhieuBanHang = ({ item }) => {
         }).catch((err) => {
             console.log(err)
         })
+
     }
 
     const handleGiamSoLuong = (event, item) => {
         const { value } = event.target
-        const { dId, donGia } = item
+        const { dId, donGia, soLuong, quyDoi, tonKho } = item
+        if ((soLuong - 1) * quyDoi <= tonKho) {
+            message.destroy()
+        }
         setEditSoLuong({
             [dId]: item.soLuong - 1
         })
@@ -222,8 +239,12 @@ const PhieuBanHang = ({ item }) => {
     }
 
     const handleTangSoLuong = (event, item) => {
-        const { value } = event.target
-        const { dId, donGia } = item
+        const { dId, donGia, quyDoi, soLuong, tonKho, dvt } = item
+
+        if ((soLuong + 1) * quyDoi > tonKho) {
+            message.warning('Kho không đủ hàng, chỉ còn ' + tonKho + ' ' + dvt, 3)
+            return
+        }
         setEditSoLuong({
             [dId]: item.soLuong + 1
         })
@@ -302,6 +323,8 @@ const PhieuBanHang = ({ item }) => {
 
     //lưu phiếu
     const handleLuuPhieuXuat = (pId) => {
+        console.log(item)
+        return
         let data = {
             pId,
             soTien: +tongTien,
@@ -511,6 +534,8 @@ const PhieuBanHang = ({ item }) => {
                                         }
                                             onChange={(event) => handleChangeSoLuong(event, item)}
                                             onBlur={handleBlurInput}
+
+                                            style={{ borderBottom: item.soLuong * item.quyDoi > item.tonKho ? '2px solid red' : '' }}
 
                                         />
                                         <i className="fa-solid fa-plus add"

@@ -30,7 +30,7 @@ const InPhieuXuat = () => {
 
 
 
-    const [sizeIn, setSizeIn] = useState('530px')
+    const [sizeIn, setSizeIn] = useState('300px')
     return (
         <div id='inPhieuNhap' style={{ width: sizeIn }}>
             {/* <h3 className='no-print'>In Phiếu Nhập</h3> */}
@@ -239,8 +239,8 @@ const InPhieuXuat = () => {
             </div>
 
             <div className="sizeArea no-print">
-                <span onClick={() => setSizeIn('530px')} className={sizeIn === '530px' ? 'no-print active' : 'no-print'}>Khổ A5</span>
                 <span onClick={() => setSizeIn('300px')} className={sizeIn === '300px' ? 'no-print active' : 'no-print'}>Khổ nhỏ</span>
+                <span onClick={() => setSizeIn('530px')} className={sizeIn === '530px' ? 'no-print active' : 'no-print'}>Khổ A5</span>
             </div>
 
 

@@ -55,13 +55,14 @@ const BanHang = () => {
     //F3
     const handleF3KeyPress = (event) => {
         if (event.key === 'F3') {
+            setKeyword('')
+            recallSanPhamByShop()
             if (firstF3Press) {
                 setSearch(!search);
                 setFirstF3Press(!firstF3Press);
             } else {
                 setSearch(!search);
                 setFirstF3Press(!firstF3Press);
-
             }
             inputRef.current.focus();
         }
@@ -197,6 +198,7 @@ const BanHang = () => {
     };
 
     const handleXuatHang = (sanPham) => {
+        console.log(sanPham)
         const { spId, kId, quyDoi, tenSp, dvt } = sanPham
         let price = 0;
         let qty = 0;
@@ -362,7 +364,7 @@ const BanHang = () => {
                     placeholder="F3, Tìm mã, tên sản phẩm."
                     value={keyword}
                     onChange={handleSearchSanPham}
-                    autoFocus
+                    // autoFocus
                     ref={inputRef}
                 />
                 <i className="fa-solid fa-xmark clear" style={{ display: keyword ? 'block' : 'none' }}
