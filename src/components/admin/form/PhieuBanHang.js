@@ -669,7 +669,7 @@ const PhieuBanHang = ({ item }) => {
                     <button onClick={() => handleInPhieu(item.pId)}>In</button>
                 </div>
                 <div>
-                    <button onClick={() => handleLuuPhieuXuat(item.pId)}>Thanh Toán</button>
+                    <button onClick={() => handleLuuPhieuXuat(item.pId)}>Lưu Phiếu</button>
                 </div>
 
             </div>

@@ -378,10 +378,11 @@ const BanHang = () => {
                 onEdit={onEdit}
                 defaultActiveKey={phieuXuatActi}
                 activeKey={phieuXuatActi}
-                items={listPhieuXuatMoiTao?.map((item) => {
+                items={listPhieuXuatMoiTao?.map((item, index) => {
                     const { pId, soPhieu } = item
                     return {
-                        label: `${soPhieu.toUpperCase()}`,
+                        // label: `${soPhieu.toUpperCase()}`,
+                        label: `Hoá đơn ${listPhieuXuatMoiTao.length - index}`,
                         key: pId,
                         // closable: false,
                         children: <PhieuBanHang item={item} />,
