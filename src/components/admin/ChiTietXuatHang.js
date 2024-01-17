@@ -84,40 +84,6 @@ const ChiTietXuatHang = () => {
     }
 
 
-    // const [sort, setSort] = useState({})
-
-    // const handleChangeInput = async (event) => {
-    //     let data = {}
-
-    //     const { name, value } = event.target
-
-    //     if (name === 'from' || name === 'to') {
-    //         setSort((prevState) => ({
-    //             ...prevState,
-    //             [name]: moment.utc(value, 'YYYY-MM-DD').toDate(),
-    //         }))
-    //     } else {
-    //         setSort((prevState) => ({
-    //             ...prevState,
-    //             [name]: value
-    //         }))
-    //     }
-    //     if (name === 'from' || name === 'to') {
-
-    //         data = {
-    //             ...sort,
-    //             [name]: moment.utc(value, 'YYYY-MM-DD').toDate(),
-    //         }
-    //     } else {
-    //         data = {
-    //             ...sort,
-    //             [name]: value
-    //         }
-    //     }
-    //     const api = await callApi.apiSortChiTietTheoNgay(headers, data)
-    //     dispath(updateListChiTietXuat(api.data.content))
-    // }
-
     let tongTien = 0;
     let tongSoLuong = 0;
 

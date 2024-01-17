@@ -8,6 +8,9 @@ import { capitalizeFirstLetter } from '../../service/functions';
 import { useNavigate } from 'react-router-dom';
 import { updateListPhieuNhapMoiTao, updatePhieuNhapActi } from '../../redux/nhapHangSlice';
 import { chiTietApi } from '../../api/chiTietApi';
+import { phieuApi } from '../../api/phieuApi';
+import { updateListNpp } from '../../redux/doiTacSlice';
+import { doiTacApi } from '../../api/doiTacApi';
 
 
 
@@ -62,40 +65,68 @@ const ChiTietNhapHang = () => {
             console.log(err)
         })
     }
+    const callNpp = () => {
+        doiTacApi.apiGetNpp(headers)
+            .then((res) => {
+                dispath(updateListNpp(res.data.content));
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 
 
-    const [sort, setSort] = useState({})
+    const { listNpp } = useSelector((state) => state.doiTac);
+
+    useEffect(() => {
+        recallChiTietNhap()
+        callNpp()
+
+    }, [])
+
+
+
+    const [sortPhieu, setSortPhieu] = useState({
+        from: '',
+        to: '',
+        dtId: '',
+        locNo: ''
+    })
 
     const handleChangeInput = async (event) => {
-        let data = {}
-
+        console.log("first")
         const { name, value } = event.target
-
-        if (name === 'from' || name === 'to') {
-            setSort((prevState) => ({
+        let data = {}
+        if (name === 'dtId') {
+            setSortPhieu((prevState) => ({
                 ...prevState,
-                [name]: moment.utc(value, 'YYYY-MM-DD').toDate(),
+                [name]: Number(value)
             }))
+            data = {
+                ...sortPhieu,
+                [name]: Number(value)
+            }
+            if (value === '') {
+                setSortPhieu((prevState) => ({
+                    ...prevState,
+                    dtId: ''
+                }))
+            }
         } else {
-            setSort((prevState) => ({
+            setSortPhieu((prevState) => ({
                 ...prevState,
                 [name]: value
             }))
-        }
-        if (name === 'from' || name === 'to') {
-
             data = {
-                ...sort,
-                [name]: moment.utc(value, 'YYYY-MM-DD').toDate(),
-            }
-        } else {
-            data = {
-                ...sort,
+                ...sortPhieu,
                 [name]: value
             }
         }
-        const api = await callApi.apiSortChiTietTheoNgay(headers, data)
-        dispath(updateListChiTietNhap(api.data.content))
+        phieuApi.apiSortPhieuNhap(headers, data).then((res) => {
+            dispath(updateListChiTietNhap(res.data.content))
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
     let tongTien = 0;
@@ -120,7 +151,14 @@ const ChiTietNhapHang = () => {
                     <input type="date" name='to' onChange={handleChangeInput} />
                 </div>
                 <div className="inputItem">
-                    <input type="text" placeholder='Tên nhà phân phối' name='maDoiTac' onChange={handleChangeInput} />
+                    <select name="dtId" id="dtId" value={sortPhieu.dtId} onChange={handleChangeInput}>
+                        <option value="">Tất cả</option>
+                        {listNpp?.map((item, index) => (
+                            <option key={index} value={item.dtId}>
+                                {item.maDoiTac}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <div className="inputItem">
                     <input type="text" placeholder='Tên sản phẩm' name='tenSp' onChange={handleChangeInput} />

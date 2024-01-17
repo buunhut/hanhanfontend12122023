@@ -94,6 +94,14 @@ export const phieuApi = {
             data
         })
     },
+    apiSortPhieuNhap: (headers, data) => {
+        return axios({
+            method: 'post',
+            url: `${URL}/phieu/sort-phieu-nhap/`,
+            headers,
+            data
+        })
+    },
     apiInPhieuNhap: (headers, pId) => {
         return axios({
             method: 'get',
