@@ -15,7 +15,7 @@
       height: calc(100vh - 140px);
       border-radius: 8px;
       overflow-y: scroll;
-    //   background-color: rgba(245, 245, 245, 0.392);
+      //   background-color: rgba(245, 245, 245, 0.392);
       //   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       .detail {
         display: flex;
@@ -121,13 +121,11 @@
             text-align: right;
             border-bottom: 1px solid silver;
             font-size: 14px;
-
           }
         }
         .money {
           width: 120px;
           padding: 0 20px 0 0;
-
 
           p {
             width: 100%;
@@ -215,4 +213,18 @@
       }
     }
   }
+}
+/* Định rõ kích thước và vùng muốn in */
+@media print {
+  body {
+    margin: 0; /* Xóa margin để in trang không có margin */
+  }
+
+  .print-area {
+    width: 100%; /* Chỉ in phần này */
+    height: 100%; /* Chỉ in phần này */
+    margin: 0; /* Xóa margin để in trang không có margin */
+  }
+
+  /* Thêm các kiểu CSS khác cần thiết cho vùng in */
 }

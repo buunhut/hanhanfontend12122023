@@ -77,8 +77,9 @@ const BanHang = () => {
             dispath(updateListPhieuXuatMoiTao(res.data.content))
             if (res.data.content.length > 0) {
                 dispath(updatePhieuXuatActi(res.data.content[0].pId))
+            } else {
+                add()
             }
-
         })
         phieuApi.apiGetSanPham(headers).then((res) => {
             if (res.data.content.length > 0) {
@@ -91,29 +92,25 @@ const BanHang = () => {
                 dispath(updatePhieuXuatActi(res.data.content[0].pId))
             } else {
                 dispath(updatePhieuXuatActi(0))
-
             }
         }).catch((err) => {
             console.log(err)
         })
     }, [])
 
+
     useEffect(() => {
         // Bắt sự kiện keydown trên cả trang
         document.addEventListener('keydown', handleF3KeyPress);
-
         // Cleanup effect để tránh memory leaks
         return () => {
             document.removeEventListener('keydown', handleF3KeyPress);
         };
-
-
     }, [firstF3Press])
 
     useEffect(() => {
         recallPhieuXuatMoiTao()
         // console.log(phieuXuatActi)
-
     }, [phieuXuatActi])
 
 
@@ -144,15 +141,8 @@ const BanHang = () => {
     }
 
 
-    // console.log("actikey ", phieuXuatActi)
-    // console.log(listPhieuXuatMoiTao)
-
-
     let { sanPhamByShop } = useSelector((state) => state.sanPham)
     const sortSp = [...sanPhamByShop].sort((a, b) => b.spId - a.spId)
-
-
-
 
     const recallListPhieuXuatMoiTao = () => {
         phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
@@ -164,8 +154,6 @@ const BanHang = () => {
     const [ngayThang, setNgayThang] = useState(moment().utc());
     const [giaBan, setGiaBan] = useState({});
     const [soLuong, setSoLuong] = useState({});
-
-
 
     const handleChangeGiaBan = (event, spId) => {
         const { value } = event.target;
@@ -260,7 +248,7 @@ const BanHang = () => {
         const { value } = event.target;
         setKeyword(value)
         if (value) {
-            console.log(value)
+            // console.log(value)
             setSearch(true)
             await phieuApi.apiTimSanPham(headers, value).then((res) => {
                 if (res.data.content.length === 1 && phieuXuatActi) {
@@ -303,7 +291,6 @@ const BanHang = () => {
         const data = {
             ngay: ngayThang,
             loaiPhieu: 'px'
-
         }
         phieuApi.apiTaoPhieu(headers, data).then((res) => {
             if (res.data.statusCode === 200) {

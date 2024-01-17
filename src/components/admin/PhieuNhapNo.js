@@ -161,11 +161,6 @@ const PhieuNhapNo = () => {
         }))
 
 
-        // const data = {
-        //     pId,
-        //     thanhToan: +value.replace(/[^0-9]/g, "")
-        // }
-        // // console.log(data)
 
     }
 
@@ -244,7 +239,6 @@ const PhieuNhapNo = () => {
     return (
         <div id='phieuNhapNo'>
             <h2>Phiếu nhập</h2>
-
             <>
                 <div className="groupItem">
 
@@ -270,20 +264,6 @@ const PhieuNhapNo = () => {
                             ))}
                         </select>
                     </div>
-                    {/* <div className="inputItem">
-                        <select name="soPhieu" id="soPhieu">
-                            <option value="">Số phiếu</option>
-                            {
-                                listChiTietNhap?.map((item, index) => {
-                                    return (
-                                        <option key={index} value={item.soPhieu}>{item.soPhieu?.toUpperCase()}</option>
-                                    )
-
-                                })
-                            }
-                        </select>
-                    </div>
- */}
                     <div className="inputItem">
                         <select name="locNo" id="locNo"
                             // onChange={handleLocNo}
@@ -294,12 +274,6 @@ const PhieuNhapNo = () => {
                         </select>
                     </div>
 
-                    {/* <div className="inputItem">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder='Tìm kiếm...'
-                            onChange={handleTimKiem}
-                        />
-                    </div> */}
                 </div>
                 {
                     phieuNhapNo.length > 0 ? (
@@ -326,7 +300,7 @@ const PhieuNhapNo = () => {
                                                 <td className='stt right'>{index + 1}</td>
                                                 <td>{moment(ngay).format('DD/MM/YYYY')}</td>
                                                 <td>{soPhieu.toUpperCase()}</td>
-                                                <td>{maDoiTac.toUpperCase()}</td>
+                                                <td>{maDoiTac}</td>
                                                 <td className='right'>{soTien.toLocaleString()}</td>
                                                 <td className='right'>
                                                     <input type="text"
@@ -346,7 +320,7 @@ const PhieuNhapNo = () => {
                                                         conNo[pId].toLocaleString()
                                                         : item.conNo.toLocaleString()
                                                 }</td>
-                                                <td>{capitalizeFirstLetter(ghiChu)}</td>
+                                                <td>{ghiChu ? capitalizeFirstLetter(ghiChu) : ''}</td>
                                                 <td onClick={() => handleInPhieu(pId)}><i className="fa-solid fa-print"></i></td>
                                             </tr>
                                         )

@@ -15,6 +15,7 @@ const InPhieuXuat = () => {
     const { pId } = useParams('pId')
 
     const [phieu, setPhieu] = useState(null)
+    // console.log(phieu)
     let tongCong = 0
     let noCu = 0
 
@@ -24,9 +25,34 @@ const InPhieuXuat = () => {
         }).catch((err) => {
             console.log(err)
         })
+
+
+        const handleBeforePrint = () => {
+            // console.log('Nút In đã được nhấn.');
+          };
+      
+          const handleAfterPrint = () => {
+            // console.log('Quá trình in đã hoàn thành hoặc đã hủy bỏ.');
+            window.close()
+
+          };
+      
+          // Đăng ký sự kiện khi component được mount
+          window.addEventListener('beforeprint', handleBeforePrint);
+          window.addEventListener('afterprint', handleAfterPrint);
+
+
+
+
     }, [])
 
-    console.log(phieu)
+    useEffect(() => {
+        if (phieu !== null) {
+            window.print()
+        }
+    }, [phieu])
+
+    // console.log(phieu)
 
 
 

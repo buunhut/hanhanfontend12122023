@@ -58,7 +58,8 @@ const ListPhieuNhapHang = () => {
                 items={listPhieuNhapMoiTao.map((item) => {
                     const { pId, soPhieu } = item
                     return {
-                        label: `${soPhieu.toUpperCase()}`,
+                        // label: `${soPhieu.toUpperCase()}`,
+                        label: `pn`,
                         key: pId,
                         children: <ChiTietPhieuNhap item={item} />,
                     };

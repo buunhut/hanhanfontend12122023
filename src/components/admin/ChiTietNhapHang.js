@@ -164,7 +164,7 @@ const ChiTietNhapHang = () => {
                                                             ></i>
 
                                                         </td>
-                                                        <td rowSpan={count} className='maNpp'>{item.doiTac.maDoiTac.toUpperCase()}</td>
+                                                        <td rowSpan={count} className='maNpp'>{item.doiTac ? item.doiTac.maDoiTac.toUpperCase() : ''}</td>
                                                     </>
 
                                                 )

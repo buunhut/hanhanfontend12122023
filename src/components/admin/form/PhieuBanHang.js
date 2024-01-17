@@ -10,6 +10,7 @@ import { updateListPhieuXuatMoiTao, updatePhieuXuatActi } from '../../../redux/n
 import moment from 'moment'
 import { chiTietApi } from '../../../api/chiTietApi'
 import { URL } from '../../../service/functions'
+import InPhieuXuat from './InPhieuXuat'
 const PhieuBanHang = ({ item }) => {
 
     // console.log(item)
@@ -210,6 +211,10 @@ const PhieuBanHang = ({ item }) => {
     const handleGiamSoLuong = (event, item) => {
         const { value } = event.target
         const { dId, donGia, soLuong, quyDoi, tonKho } = item
+        if (soLuong === 1) {
+            message.warning('Giảm chi nữa ku? Không giảm được nhé :(', 2)
+            return
+        }
         if ((soLuong - 1) * quyDoi <= tonKho) {
             message.destroy()
         }
@@ -318,40 +323,48 @@ const PhieuBanHang = ({ item }) => {
 
     //in phieu
     const handleInPhieu = (pId) => {
-        window.open(`/in-phieu-xuat/${pId}`, '_blank');
+        // window.open(`/in-phieu-xuat/${pId}`, '_blank');
+        window.open(`/in-phieu-xuat/${pId}`);
+        // window.print()
     }
 
     //lưu phiếu
     const handleLuuPhieuXuat = (pId) => {
-        console.log(item)
-        return
-        let data = {
-            pId,
-            soTien: +tongTien,
-            thanhToan,
-            ghiChu
-        }
+        if (bangChiTiet.length === 0) {
 
-        if (thanhToan > tongTien) {
-            data = {
-                ...data,
-                thanhToan: tongTien
+            message.warning('Chưa có sản phẩm, lưu gì ku? :(', 3)
+        } else {
+            handleInPhieu(pId)
+            // console.log(item)
+            // return
+            let data = {
+                pId,
+                soTien: +tongTien,
+                thanhToan,
+                ghiChu
             }
 
-        }
-        // console.log(data)
-        phieuApi.apiLuuPhieuMoiTao(headers, data).then((res) => {
-            const { statusCode } = res.data;
-            if (statusCode === 200) {
-                phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
-                    dispath(updateListPhieuXuatMoiTao(res.data.content))
-                    dispath(updatePhieuXuatActi(res.data.content[0]?.pId))
-                })
+            if (thanhToan > tongTien) {
+                data = {
+                    ...data,
+                    thanhToan: tongTien
+                }
 
             }
-        }).catch((err) => {
-            console.log(err)
-        })
+            // console.log(data)
+            phieuApi.apiLuuPhieuMoiTao(headers, data).then((res) => {
+                const { statusCode } = res.data;
+                if (statusCode === 200) {
+                    phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
+                        dispath(updateListPhieuXuatMoiTao(res.data.content))
+                        dispath(updatePhieuXuatActi(res.data.content[0]?.pId))
+                    })
+
+                }
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
     }
 
 
@@ -490,7 +503,6 @@ const PhieuBanHang = ({ item }) => {
                     {
                         sortBangChiTiet?.map((item, index) => {
                             return (
-
                                 <div className="detail" key={index}>
                                     <div className='no'>
                                         {sortBangChiTiet.length - index}
@@ -665,9 +677,9 @@ const PhieuBanHang = ({ item }) => {
                 </div>
 
 
-                <div>
+                {/* <div>
                     <button onClick={() => handleInPhieu(item.pId)}>In</button>
-                </div>
+                </div> */}
                 <div>
                     <button onClick={() => handleLuuPhieuXuat(item.pId)}>Lưu Phiếu</button>
                 </div>

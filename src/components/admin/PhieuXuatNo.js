@@ -262,20 +262,6 @@ const PhieuXuatNo = () => {
                             ))}
                         </select>
                     </div>
-                    {/* <div className="inputItem">
-                        <select name="soPhieu" id="soPhieu">
-                            <option value="">Số phiếu</option>
-                            {
-                                listChiTietNhap?.map((item, index) => {
-                                    return (
-                                        <option key={index} value={item.soPhieu}>{item.soPhieu?.toUpperCase()}</option>
-                                    )
-
-                                })
-                            }
-                        </select>
-                    </div>
- */}
                     <div className="inputItem">
                         <select name="locNo" id="locNo"
                             // onChange={handleLocNo}

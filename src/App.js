@@ -16,7 +16,7 @@ import DangNhap from './components/user/DangNhap';
 import XuatHang from './components/admin/XuatHang';
 import KiemKho from './components/admin/KiemKho';
 import XuLyDonHang from './components/admin/XuLyDonHang';
-import NhapHang from './components/admin/NhapHang';
+import NhapHang from './components/admin/form/NhapHang';
 import DoiTac from './components/admin/DoiTac';
 import NhanVien from './components/admin/NhanVien';
 import ChiTietNhapHang from './components/admin/ChiTietNhapHang';
