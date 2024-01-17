@@ -53,7 +53,7 @@ const ChiTietNhapHang = () => {
     const navigate = useNavigate()
     const handleSuaPhieuNhap = (pId) => {
         chiTietApi.apiSuaChiTietDaLuu(headers, +pId).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             const { statusCode, content } = res.data
             if (statusCode === 200) {
                 navigate('/quan-ly/nhap-hang');

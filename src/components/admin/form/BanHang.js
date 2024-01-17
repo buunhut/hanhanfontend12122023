@@ -10,27 +10,27 @@ import { chiTietApi } from '../../../api/chiTietApi';
 import moment from 'moment';
 import confirm from 'antd/es/modal/confirm';
 import { URL } from '../../../service/functions';
-const initialItems = [
-    {
-        label: 'Phiếu bán hàng',
-        children: <PhieuBanHang soPhieu={1} />,
-        key: 1,
-        closable: false,
-    },
-    {
-        label: 'Phiếu bán hàng',
-        children: <PhieuBanHang soPhieu={2} />,
-        key: 2,
-        closable: false,
-    },
-    {
-        label: 'Phiếu bán hàng',
-        children: <PhieuBanHang soPhieu={3} />,
-        key: 3,
-        closable: false,
-    },
+// const initialItems = [
+//     {
+//         label: 'Phiếu bán hàng',
+//         children: <PhieuBanHang soPhieu={1} />,
+//         key: 1,
+//         closable: false,
+//     },
+//     {
+//         label: 'Phiếu bán hàng',
+//         children: <PhieuBanHang soPhieu={2} />,
+//         key: 2,
+//         closable: false,
+//     },
+//     {
+//         label: 'Phiếu bán hàng',
+//         children: <PhieuBanHang soPhieu={3} />,
+//         key: 3,
+//         closable: false,
+//     },
 
-];
+// ];
 
 const BanHang = () => {
     const dispath = useDispatch();
@@ -252,8 +252,12 @@ const BanHang = () => {
             setSearch(true)
             await phieuApi.apiTimSanPham(headers, value).then((res) => {
                 if (res.data.content.length === 1 && phieuXuatActi) {
+                    dispath(updateSanPhamByShop(res.data.content))
                     const sanPham = res.data.content[0]
-                    handleXuatHang(sanPham)
+                    console.log(sanPham)
+                    if (sanPham.soLuong / sanPham.quyDoi >= 1) {
+                        handleXuatHang(sanPham)
+                    }
                     // setSearch(false)
                     // setKeyword('')
                 }
@@ -280,7 +284,7 @@ const BanHang = () => {
     // }
 
     const [activeKey, setActiveKey] = useState(phieuXuatActi);
-    const [items, setItems] = useState(initialItems);
+    const [items, setItems] = useState([]);
     // const newTabIndex = useRef(0);
     const onChange = (key) => {
         // setPhieu(key)
@@ -384,64 +388,67 @@ const BanHang = () => {
                             <tbody>
                                 {
                                     sanPhamByShop?.map((sanPham, index) => {
-                                        let { maSp, tenSp, hinhAnh, dvt, spId } = sanPham;
+                                        let { maSp, tenSp, hinhAnh, dvt, spId, soLuong: tonKho, quyDoi } = sanPham;
                                         return (
-                                            <tr key={index}>
-                                                <td className='hinhAnh'>
-                                                    <img src={`${URL}/${hinhAnh}`} alt="" />
-                                                </td>
-                                                <td className='tenSp'>
-                                                    <p>{tenSp}</p>
-                                                    <div className="flex">
-                                                        <span>{maSp}</span>
-                                                        {/* <span>{dvt}</span> */}
-                                                    </div>
+                                            tonKho / quyDoi >= 1 ? (
+                                                <tr key={index}>
+                                                    <td className='hinhAnh'>
+                                                        <img src={`${URL}/${hinhAnh}`} alt="" />
+                                                    </td>
+                                                    <td className='tenSp'>
+                                                        <p>{tenSp}</p>
+                                                        <div className="flex">
+                                                            <span>{maSp}</span>
+                                                            {/* <span>{dvt}</span> */}
+                                                        </div>
+                                                    </td>
+                                                    <td className="dvt">{dvt}</td>
+                                                    <td className="donGia">
+                                                        <input
+                                                            type="text"
+                                                            name="giaNhap"
+                                                            placeholder='Đơn giá'
+                                                            value={
+                                                                giaBan[spId] !== undefined
+                                                                    ? giaBan[spId].toLocaleString()
+                                                                    : sanPham.giaBan?.toLocaleString() || ''
+                                                            }
+                                                            onChange={(event) =>
+                                                                handleChangeGiaBan(event, spId)
+                                                            }
 
-                                                </td>
-                                                <td className="dvt">{dvt}</td>
-                                                <td className="donGia">
-                                                    <input
-                                                        type="text"
-                                                        name="giaNhap"
-                                                        placeholder='Đơn giá'
-                                                        value={
-                                                            giaBan[spId] !== undefined
-                                                                ? giaBan[spId].toLocaleString()
-                                                                : sanPham.giaBan?.toLocaleString() || ''
+                                                        />
+                                                    </td>
+                                                    <td className="soLuong">
+                                                        <input type="text" name='soLuong'
+                                                            placeholder='SL'
+                                                            value={
+                                                                soLuong[spId] !== undefined
+                                                                    ? soLuong[spId] === 0 ? ''
+                                                                        : soLuong[spId]?.toLocaleString()
+                                                                    : 1
+                                                            }
+                                                            onChange={(event) => handleChangeSoLuong(event, spId)}
+
+                                                        />
+                                                    </td>
+                                                    <td className='center'>
+                                                        {
+                                                            phieuXuatActi !== 0 ? (
+                                                                <button type='button' onClick={() => handleXuatHang(sanPham)}>
+                                                                    <i className="fa-solid fa-plus"></i>
+                                                                </button>
+
+                                                            ) : (
+                                                                null
+                                                            )
                                                         }
-                                                        onChange={(event) =>
-                                                            handleChangeGiaBan(event, spId)
-                                                        }
 
-                                                    />
-                                                </td>
-                                                <td className="soLuong">
-                                                    <input type="text" name='soLuong'
-                                                        placeholder='SL'
-                                                        value={
-                                                            soLuong[spId] !== undefined
-                                                                ? soLuong[spId] === 0 ? ''
-                                                                    : soLuong[spId]?.toLocaleString()
-                                                                : 1
-                                                        }
-                                                        onChange={(event) => handleChangeSoLuong(event, spId)}
+                                                    </td>
+                                                </tr>
 
-                                                    />
-                                                </td>
-                                                <td className='center'>
-                                                    {
-                                                        phieuXuatActi !== 0 ? (
-                                                            <button type='button' onClick={() => handleXuatHang(sanPham)}>
-                                                                <i className="fa-solid fa-plus"></i>
-                                                            </button>
+                                            ) : (null)
 
-                                                        ) : (
-                                                            null
-                                                        )
-                                                    }
-
-                                                </td>
-                                            </tr>
                                         )
                                     })
                                 }

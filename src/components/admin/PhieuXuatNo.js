@@ -6,8 +6,8 @@ import { chiTietApi } from '../../api/chiTietApi';
 import moment from 'moment';
 import { capitalizeFirstLetter } from '../../service/functions';
 import { phieuApi } from '../../api/phieuApi';
-import { message } from 'antd';
-import { NavLink } from 'react-router-dom';
+import { Popconfirm, message } from 'antd';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { updateListKh, updateListNpp } from '../../redux/doiTacSlice';
 import { doiTacApi } from '../../api/doiTacApi';
 
@@ -232,6 +232,44 @@ const PhieuXuatNo = () => {
         window.open(`/in-phieu-xuat/${pId}`, '_blank');
     }
 
+    //sửa phiếu xuất
+    const navigate = useNavigate()
+    const handleSuaPhieuXuat = (pId) => {
+        chiTietApi.apiSuaChiTietDaLuu(headers, +pId).then((res) => {
+            // console.log(res.data)
+            const { statusCode, content } = res.data
+            if (statusCode === 200) {
+                navigate('/quan-ly/xuat-hang');
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    //xoá phiếu xuất đã lưu
+    const handleXoaPhieuXuat = (pId) => {
+        chiTietApi.apiSuaChiTietDaLuu(headers, +pId).then((res) => {
+            // console.log(res.data)
+            const { statusCode, content } = res.data
+            if (statusCode === 200) {
+                phieuApi.apiXoaPhieuMoiTao(headers, pId).then((res) => {
+                    // console.log(res.data)
+                    if (res.data.statusCode === 200) {
+                        // recallPhieuNhapMoiTao()
+                        // setActive()
+                        recallChiTietXuat()
+                        message.success('Đã xóa phiếu xuất', 3);
+                    }
+                }).catch((err) => {
+                    console.log(err)
+                })
+            }
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+
 
 
 
@@ -292,7 +330,7 @@ const PhieuXuatNo = () => {
                                     <td className='right'>Thanh toán</td>
                                     <td className='right'>Còn nợ</td>
                                     <td>Ghi chú</td>
-                                    <td>In</td>
+                                    <td>Thao tác</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -325,7 +363,23 @@ const PhieuXuatNo = () => {
                                                         : item.conNo.toLocaleString()
                                                 }</td>
                                                 <td>{ghiChu ? capitalizeFirstLetter(ghiChu) : ''}</td>
-                                                <td onClick={() => handleInPhieu(pId)}><i className="fa-solid fa-print"></i></td>
+                                                <td className='action' >
+                                                    <i className="fa-solid fa-print" onClick={() => handleInPhieu(pId)}></i>
+                                                    <i className="fa-regular fa-pen-to-square" onClick={() => handleSuaPhieuXuat(pId)}></i>
+
+                                                    <Popconfirm
+                                                        title="Xoá phiếu Xuất"
+                                                        description="Bạn có chắc muốn xoá phiếu này?"
+                                                        onConfirm={() => handleXoaPhieuXuat(pId)}
+                                                        // onCancel={cancel}
+                                                        placement="right"
+                                                        okText="Có"
+                                                        cancelText="Không"
+                                                    >
+                                                        <i className="fa-solid fa-trash-can"></i>
+
+                                                    </Popconfirm>
+                                                </td>
                                             </tr>
                                         )
                                     })
