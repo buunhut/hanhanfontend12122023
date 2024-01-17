@@ -25,7 +25,7 @@ const PhieuBanHang = ({ item }) => {
     let { bangChiTiet, doiTac } = item
     const tongTien = bangChiTiet.reduce((total, item) => total + item.thanhTien, 0)
     const tongSoLuong = bangChiTiet.reduce((total, item) => total + item.soLuong, 0)
-    const [thanhToan, setThanhToan] = useState(0)
+    const [thanhToan, setThanhToan] = useState(item.thanhToan)
     let sortBangChiTiet = [...bangChiTiet].sort((a, b) => b.dId - a.dId)
 
 
