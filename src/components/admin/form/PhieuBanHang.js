@@ -113,12 +113,6 @@ const PhieuBanHang = ({ item }) => {
         // }
     }
 
-
-
-
-
-
-    const [dtId, setDtId] = useState("");
     //cập nhật khách hàng
     const handleChangeKh = (value) => {
         if (value) {
@@ -328,10 +322,11 @@ const PhieuBanHang = ({ item }) => {
         // window.print()
     }
 
+
+
     //lưu phiếu
     const handleLuuPhieuXuat = (pId) => {
         if (bangChiTiet.length === 0) {
-
             message.warning('Chưa có sản phẩm, lưu gì ku? :(', 3)
         } else {
             handleInPhieu(pId)

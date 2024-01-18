@@ -60,6 +60,9 @@
           &:nth-child(even) {
             background-color: rgb(237, 237, 237, 0.3);
           }
+          &:hover {
+            border: 1px solid royalblue;
+          }
           td {
             padding: 5px;
             // border: 1px solid black;

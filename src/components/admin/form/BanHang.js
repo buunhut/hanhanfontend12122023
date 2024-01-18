@@ -78,7 +78,7 @@ const BanHang = () => {
             if (res.data.content.length > 0) {
                 dispath(updatePhieuXuatActi(res.data.content[0].pId))
             } else {
-                add()
+                // add()
             }
         })
         phieuApi.apiGetSanPham(headers).then((res) => {
@@ -96,6 +96,7 @@ const BanHang = () => {
         }).catch((err) => {
             console.log(err)
         })
+        // setNgayThang(moment().utc())
     }, [])
 
 
@@ -391,35 +392,36 @@ const BanHang = () => {
                                         let { maSp, tenSp, hinhAnh, dvt, spId, soLuong: tonKho, quyDoi } = sanPham;
                                         return (
                                             tonKho / quyDoi >= 1 ? (
-                                                <tr key={index}>
-                                                    <td className='hinhAnh'>
-                                                        <img src={`${URL}/${hinhAnh}`} alt="" />
-                                                    </td>
-                                                    <td className='tenSp'>
-                                                        <p>{tenSp}</p>
-                                                        <div className="flex">
-                                                            <span>{maSp}</span>
-                                                            {/* <span>{dvt}</span> */}
-                                                        </div>
-                                                    </td>
-                                                    <td className="dvt">{dvt}</td>
-                                                    <td className="donGia">
-                                                        <input
-                                                            type="text"
-                                                            name="giaNhap"
-                                                            placeholder='Đơn giá'
-                                                            value={
-                                                                giaBan[spId] !== undefined
-                                                                    ? giaBan[spId].toLocaleString()
-                                                                    : sanPham.giaBan?.toLocaleString() || ''
-                                                            }
-                                                            onChange={(event) =>
-                                                                handleChangeGiaBan(event, spId)
-                                                            }
+                                                phieuXuatActi !== 0 ? (
+                                                    <tr key={index} className='click'>
+                                                        <td className='hinhAnh' onClick={() => handleXuatHang(sanPham)}>
+                                                            <img src={`${URL}/${hinhAnh}`} alt="" />
+                                                        </td>
+                                                        <td className='tenSp' onClick={() => handleXuatHang(sanPham)}>
+                                                            <p>{tenSp}</p>
+                                                            <div className="flex">
+                                                                <span>{maSp}</span>
+                                                                {/* <span>{dvt}</span> */}
+                                                            </div>
+                                                        </td>
+                                                        <td className="dvt">{dvt}</td>
+                                                        <td className="donGia" onClick={() => handleXuatHang(sanPham)}>
+                                                            <input
+                                                                type="text"
+                                                                name="giaNhap"
+                                                                placeholder='Đơn giá'
+                                                                value={
+                                                                    giaBan[spId] !== undefined
+                                                                        ? giaBan[spId].toLocaleString()
+                                                                        : sanPham.giaBan?.toLocaleString() || ''
+                                                                }
+                                                                onChange={(event) =>
+                                                                    handleChangeGiaBan(event, spId)
+                                                                }
 
-                                                        />
-                                                    </td>
-                                                    <td className="soLuong">
+                                                            />
+                                                        </td>
+                                                        {/* <td className="soLuong">
                                                         <input type="text" name='soLuong'
                                                             placeholder='SL'
                                                             value={
@@ -431,8 +433,8 @@ const BanHang = () => {
                                                             onChange={(event) => handleChangeSoLuong(event, spId)}
 
                                                         />
-                                                    </td>
-                                                    <td className='center'>
+                                                    </td> */}
+                                                        {/* <td className='center'>
                                                         {
                                                             phieuXuatActi !== 0 ? (
                                                                 <button type='button' onClick={() => handleXuatHang(sanPham)}>
@@ -444,8 +446,66 @@ const BanHang = () => {
                                                             )
                                                         }
 
-                                                    </td>
-                                                </tr>
+                                                    </td> */}
+                                                    </tr>
+                                                ) : (
+                                                    <tr key={index}>
+                                                        <td className='hinhAnh'>
+                                                            <img src={`${URL}/${hinhAnh}`} alt="" />
+                                                        </td>
+                                                        <td className='tenSp'>
+                                                            <p>{tenSp}</p>
+                                                            <div className="flex">
+                                                                <span>{maSp}</span>
+                                                                {/* <span>{dvt}</span> */}
+                                                            </div>
+                                                        </td>
+                                                        <td className="dvt">{dvt}</td>
+                                                        <td className="donGia">
+                                                            <input
+                                                                type="text"
+                                                                name="giaNhap"
+                                                                placeholder='Đơn giá'
+                                                                value={
+                                                                    giaBan[spId] !== undefined
+                                                                        ? giaBan[spId].toLocaleString()
+                                                                        : sanPham.giaBan?.toLocaleString() || ''
+                                                                }
+                                                                onChange={(event) =>
+                                                                    handleChangeGiaBan(event, spId)
+                                                                }
+
+                                                            />
+                                                        </td>
+                                                        {/* <td className="soLuong">
+                                                        <input type="text" name='soLuong'
+                                                            placeholder='SL'
+                                                            value={
+                                                                soLuong[spId] !== undefined
+                                                                    ? soLuong[spId] === 0 ? ''
+                                                                        : soLuong[spId]?.toLocaleString()
+                                                                    : 1
+                                                            }
+                                                            onChange={(event) => handleChangeSoLuong(event, spId)}
+
+                                                        />
+                                                    </td> */}
+                                                        {/* <td className='center'>
+                                                        {
+                                                            phieuXuatActi !== 0 ? (
+                                                                <button type='button' onClick={() => handleXuatHang(sanPham)}>
+                                                                    <i className="fa-solid fa-plus"></i>
+                                                                </button>
+
+                                                            ) : (
+                                                                null
+                                                            )
+                                                        }
+
+                                                    </td> */}
+                                                    </tr>
+
+                                                )
 
                                             ) : (null)
 

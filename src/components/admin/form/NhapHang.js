@@ -78,7 +78,7 @@ const NhapHang = () => {
             if (res.data.content.length > 0) {
                 dispath(updatePhieuNhapActi(res.data.content[0].pId))
             } else {
-                add()
+                // add()
             }
         })
         phieuApi.apiGetSanPham(headers).then((res) => {
@@ -96,6 +96,7 @@ const NhapHang = () => {
         }).catch((err) => {
             console.log(err)
         })
+        // setNgayThang(moment().utc())
     }, [])
 
 
@@ -386,36 +387,36 @@ const NhapHang = () => {
                                     sanPhamByShop?.map((sanPham, index) => {
                                         let { maSp, tenSp, hinhAnh, dvt, spId } = sanPham;
                                         return (
-                                            <tr key={index}>
-                                                <td className='hinhAnh'>
-                                                    <img src={`${URL}/${hinhAnh}`} alt="" />
-                                                </td>
-                                                <td className='tenSp'>
-                                                    <p>{tenSp}</p>
-                                                    <div className="flex">
-                                                        <span>{maSp}</span>
-                                                        {/* <span>{dvt}</span> */}
-                                                    </div>
+                                            phieuNhapActi !== 0 ? (
+                                                <tr key={index} className='click'>
+                                                    <td className='hinhAnh' onClick={() => handleNhapHang(sanPham)}>
+                                                        <img src={`${URL}/${hinhAnh}`} alt="" />
+                                                    </td>
+                                                    <td className='tenSp' onClick={() => handleNhapHang(sanPham)}>
+                                                        <p>{tenSp}</p>
+                                                        <div className="flex">
+                                                            <span>{maSp}</span>
+                                                            {/* <span>{dvt}</span> */}
+                                                        </div>
+                                                    </td>
+                                                    <td className="dvt" onClick={() => handleNhapHang(sanPham)}>{dvt}</td>
+                                                    <td className="donGia">
+                                                        <input
+                                                            type="text"
+                                                            name="giaNhap"
+                                                            placeholder='Đơn giá'
+                                                            value={
+                                                                giaNhap[spId] !== undefined
+                                                                    ? giaNhap[spId].toLocaleString()
+                                                                    : sanPham.giaNhap?.toLocaleString() || ''
+                                                            }
+                                                            onChange={(event) =>
+                                                                handleChangeGiaNhap(event, spId)
+                                                            }
 
-                                                </td>
-                                                <td className="dvt">{dvt}</td>
-                                                <td className="donGia">
-                                                    <input
-                                                        type="text"
-                                                        name="giaNhap"
-                                                        placeholder='Đơn giá'
-                                                        value={
-                                                            giaNhap[spId] !== undefined
-                                                                ? giaNhap[spId].toLocaleString()
-                                                                : sanPham.giaNhap?.toLocaleString() || ''
-                                                        }
-                                                        onChange={(event) =>
-                                                            handleChangeGiaNhap(event, spId)
-                                                        }
-
-                                                    />
-                                                </td>
-                                                <td className="soLuong">
+                                                        />
+                                                    </td>
+                                                    {/* <td className="soLuong">
                                                     <input type="text" name='soLuong'
                                                         placeholder='SL'
                                                         value={
@@ -428,10 +429,10 @@ const NhapHang = () => {
 
                                                     />
                                                 </td>
-                                                <td className='center'>
+                                                <td className='center' onClick={() => handleNhapHang(sanPham)}>
                                                     {
                                                         phieuNhapActi !== 0 ? (
-                                                            <button type='button' onClick={() => handleNhapHang(sanPham)}>
+                                                            <button type='button'>
                                                                 <i className="fa-solid fa-plus"></i>
                                                             </button>
 
@@ -440,8 +441,67 @@ const NhapHang = () => {
                                                         )
                                                     }
 
+                                                </td> */}
+                                                </tr>
+                                            ) : (
+                                                <tr key={index}>
+                                                    <td className='hinhAnh'>
+                                                        <img src={`${URL}/${hinhAnh}`} alt="" />
+                                                    </td>
+                                                    <td className='tenSp'>
+                                                        <p>{tenSp}</p>
+                                                        <div className="flex">
+                                                            <span>{maSp}</span>
+                                                            {/* <span>{dvt}</span> */}
+                                                        </div>
+                                                    </td>
+                                                    <td className="dvt">{dvt}</td>
+                                                    <td className="donGia">
+                                                        <input
+                                                            type="text"
+                                                            name="giaNhap"
+                                                            placeholder='Đơn giá'
+                                                            value={
+                                                                giaNhap[spId] !== undefined
+                                                                    ? giaNhap[spId].toLocaleString()
+                                                                    : sanPham.giaNhap?.toLocaleString() || ''
+                                                            }
+                                                            onChange={(event) =>
+                                                                handleChangeGiaNhap(event, spId)
+                                                            }
+
+                                                        />
+                                                    </td>
+                                                    {/* <td className="soLuong">
+                                                    <input type="text" name='soLuong'
+                                                        placeholder='SL'
+                                                        value={
+                                                            soLuong[spId] !== undefined
+                                                                ? soLuong[spId] === 0 ? ''
+                                                                    : soLuong[spId]?.toLocaleString()
+                                                                : 1
+                                                        }
+                                                        onChange={(event) => handleChangeSoLuong(event, spId)}
+
+                                                    />
                                                 </td>
-                                            </tr>
+                                                <td className='center' onClick={() => handleNhapHang(sanPham)}>
+                                                    {
+                                                        phieuNhapActi !== 0 ? (
+                                                            <button type='button'>
+                                                                <i className="fa-solid fa-plus"></i>
+                                                            </button>
+
+                                                        ) : (
+                                                            null
+                                                        )
+                                                    }
+
+                                                </td> */}
+                                                </tr>
+
+                                            )
+
                                         )
                                     })
                                 }
