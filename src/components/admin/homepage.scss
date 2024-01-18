@@ -131,7 +131,11 @@
   }
 }
 
-
 .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
   color: white;
+}
+.custom-tooltip {
+  .ant-tooltip-arrow {
+    border-color: red;
+  }
 }
