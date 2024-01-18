@@ -152,18 +152,18 @@ const NhapHang = () => {
     };
 
     const [ngayThang, setNgayThang] = useState(moment().utc());
-    const [giaBan, setGiaBan] = useState({});
+    const [giaNhap, setGiaNhap] = useState({});
     const [soLuong, setSoLuong] = useState({});
 
-    const handleChangeGiaBan = (event, spId) => {
+    const handleChangeGiaNhap = (event, spId) => {
         const { value } = event.target;
         if (value) {
-            setGiaBan((prevState) => ({
+            setGiaNhap((prevState) => ({
                 ...prevState,
                 [spId]: +value.replace(/[^0-9]/g, ""),
             }));
         } else {
-            setGiaBan((prevState) => ({
+            setGiaNhap((prevState) => ({
                 ...prevState,
                 [spId]: "",
             }));
@@ -186,7 +186,7 @@ const NhapHang = () => {
     };
 
     const handleNhapHang = (sanPham) => {
-        console.log(sanPham)
+        // console.log(sanPham)
         const { spId, kId, quyDoi, tenSp, dvt } = sanPham
         let price = 0;
         let qty = 0;
@@ -197,10 +197,10 @@ const NhapHang = () => {
             qty = 1;
         }
 
-        if (giaBan[spId] !== undefined) {
-            price = giaBan[spId];
+        if (giaNhap[spId] !== undefined) {
+            price = giaNhap[spId];
         } else {
-            price = sanPham.giaBan;
+            price = sanPham.giaNhap;
         }
         let data = {
             pId: +phieuNhapActi,
@@ -405,12 +405,12 @@ const NhapHang = () => {
                                                         name="giaNhap"
                                                         placeholder='Đơn giá'
                                                         value={
-                                                            giaBan[spId] !== undefined
-                                                                ? giaBan[spId].toLocaleString()
-                                                                : sanPham.giaBan?.toLocaleString() || ''
+                                                            giaNhap[spId] !== undefined
+                                                                ? giaNhap[spId].toLocaleString()
+                                                                : sanPham.giaNhap?.toLocaleString() || ''
                                                         }
                                                         onChange={(event) =>
-                                                            handleChangeGiaBan(event, spId)
+                                                            handleChangeGiaNhap(event, spId)
                                                         }
 
                                                     />

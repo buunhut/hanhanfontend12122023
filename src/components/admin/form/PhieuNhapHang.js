@@ -159,11 +159,12 @@ const PhieuNhapHang = ({ item }) => {
             const { statusCode } = res.data;
             console.log(statusCode)
             if (statusCode === 200) {
-                phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
-                    if (res.data.content.length > 0) {
-                        dispath(updateListPhieuXuatMoiTao(res.data.content))
-                    }
-                })
+                // phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
+                //     if (res.data.content.length > 0) {
+                //         dispath(updateListPhieuXuatMoiTao(res.data.content))
+                //     }
+                // })
+                recallListPhieuNhapMoiTao()
                 message.success('Đã xoá sản phẩm', 2)
             }
         }).catch((err) => {

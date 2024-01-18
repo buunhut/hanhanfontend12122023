@@ -152,7 +152,7 @@ const PhieuBanHang = ({ item }) => {
         const { dId } = item
         chiTietApi.apiXoaChiTiet(headers, dId).then((res) => {
             const { statusCode } = res.data;
-            console.log(statusCode)
+            // console.log(statusCode)
             if (statusCode === 200) {
                 phieuApi.apiGetPhieuXuatMoiTao(headers).then((res) => {
                     if (res.data.content.length > 0) {
