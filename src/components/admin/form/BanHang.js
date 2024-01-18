@@ -410,8 +410,8 @@ const BanHang = () => {
                                                                 {/* <span>{dvt}</span> */}
                                                             </div>
                                                         </td>
-                                                        <td className="dvt">{dvt}</td>
-                                                        <td className="donGia" onClick={() => handleXuatHang(sanPham)}>
+                                                        <td className="dvt" onClick={() => handleXuatHang(sanPham)}>{dvt}</td>
+                                                        <td className="donGia" >
                                                             <input
                                                                 type="text"
                                                                 name="giaNhap"
@@ -425,6 +425,7 @@ const BanHang = () => {
                                                                 onChange={(event) =>
                                                                     handleChangeGiaBan(event, spId)
                                                                 }
+                                                                style={{ borderBottom: giaBan[spId] < sanPham.giaNhap ? '1px solid red' : '' }}
 
                                                             />
                                                         </td>

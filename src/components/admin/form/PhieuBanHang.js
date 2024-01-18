@@ -497,6 +497,7 @@ const PhieuBanHang = ({ item }) => {
                 <div className="content">
                     {
                         sortBangChiTiet?.map((item, index) => {
+                            console.log(item)
                             return (
                                 <div className="detail" key={index}>
                                     <div className='no'>
@@ -560,6 +561,7 @@ const PhieuBanHang = ({ item }) => {
 
                                             onChange={(event) => handleChangeDonGia(event, item)}
                                             onBlur={handleBlurInput}
+                                            style={{ borderBottom: item.donGia < item.giaNhap ? '1px solid red' : '' }}
                                         />
                                     </div>
                                     <div className='money'>
