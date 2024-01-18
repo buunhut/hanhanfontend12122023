@@ -65,8 +65,12 @@ const HomePage = () => {
                         onClick={() => setSmallSizeMenu(!smallSizeMenu)}
                     ></i>)
                 }
-
-                <p >Xin chào: {user.tenShop} <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleDangXuat}></i> </p>
+                <div className="effect">
+                    <p>Xin chào: {user.tenShop}</p>
+                    <div className="logOut">
+                        <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleDangXuat}></i>
+                    </div>
+                </div>
             </div>
             <div id='quanLy'>
                 <div className={smallSizeMenu ? 'menu small' : 'menu'}>

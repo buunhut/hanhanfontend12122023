@@ -2,15 +2,34 @@
   text-align: right;
   padding: 5px 15px 5px 10px;
   height: 30px;
-  background-color: white;
+  // background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  i {
-    color: red;
+  .effect {
+    display: flex;
+    gap: 10px;
+    p {
+      margin-right: 20px;
+      animation: slideFromRight 5s ease-in-out infinite;
+    }
+    .logOut {
+      background-color: white;
+      position: absolute;
+      right: 0px;
+      width: 30px;
+      // height: 20px;
+      z-index: 1000;
+      text-align: center;
+
+      i {
+        color: red;
+      }
+    }
   }
+
   i.menuSize {
     width: 30px;
     height: 25px;
@@ -25,16 +44,24 @@
     }
   }
 }
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 
 #quanLy {
   margin-top: 3px;
   display: flex;
   gap: 3px;
   .menu {
-    background-color: white;
+    // background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 10px;
-    width: 180px;
+    width: 150px;
     transition: all 0.3s;
     a {
       color: royalblue;
@@ -44,7 +71,7 @@
       height: 40px;
       line-height: 40px;
       overflow: hidden;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
       &:last-child {
         border-bottom: none;
@@ -57,14 +84,15 @@
       }
       i {
         margin-right: 5px;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
         text-align: center;
         background-color: royalblue;
         color: white;
         border-radius: 50%;
         transition: all 0.3s;
+        font-size: 14px;
       }
       &.active {
         color: red;

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { phieuApi } from '../../../api/phieuApi';
 import moment from 'moment';
 import { capitalizeFirstLetter, numberToWords } from '../../../service/functions';
+import { QRCode, Space } from 'antd';
 
 const InPhieuXuat = () => {
     const { user } = useSelector((state) => state.dangNhap);
@@ -29,17 +30,17 @@ const InPhieuXuat = () => {
 
         const handleBeforePrint = () => {
             // console.log('Nút In đã được nhấn.');
-          };
-      
-          const handleAfterPrint = () => {
+        };
+
+        const handleAfterPrint = () => {
             // console.log('Quá trình in đã hoàn thành hoặc đã hủy bỏ.');
             window.close()
 
-          };
-      
-          // Đăng ký sự kiện khi component được mount
-          window.addEventListener('beforeprint', handleBeforePrint);
-          window.addEventListener('afterprint', handleAfterPrint);
+        };
+
+        // Đăng ký sự kiện khi component được mount
+        window.addEventListener('beforeprint', handleBeforePrint);
+        window.addEventListener('afterprint', handleAfterPrint);
 
 
 
@@ -260,8 +261,12 @@ const InPhieuXuat = () => {
             }
 
             <div className='extra'>
+                <Space direction="vertical" align="center">
+                    <QRCode value={'http://bachhoahanhan.com'} />
+                </Space>
                 <p>Cảm ơn Quý Khách</p>
                 <p>http://bachhoahanhan.com</p>
+
             </div>
 
             <div className="sizeArea no-print">
