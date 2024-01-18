@@ -531,6 +531,8 @@ const BanHang = () => {
                     ) : (<h4>Không có dữ liệu</h4>)
                 }
             </form>
+            <div className="overWhite" style={{ display: search ? 'block' : 'none' }} onClick={() => handleClearSearch()} >
+            </div>
         </div>
     )
 }
