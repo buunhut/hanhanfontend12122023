@@ -497,7 +497,7 @@ const PhieuBanHang = ({ item }) => {
                 <div className="content">
                     {
                         sortBangChiTiet?.map((item, index) => {
-                            console.log(item)
+                            // console.log(item)
                             return (
                                 <div className="detail" key={index}>
                                     <div className='no'>
