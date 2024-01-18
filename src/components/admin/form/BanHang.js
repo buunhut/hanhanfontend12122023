@@ -65,6 +65,9 @@ const BanHang = () => {
                 setFirstF3Press(!firstF3Press);
             }
             inputRef.current.focus();
+        } else if (event.key === 'ArrowRight') {
+            setKeyword((preState) => preState + ' ')
+            setSearch(true)
         }
     };
 
