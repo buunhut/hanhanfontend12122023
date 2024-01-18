@@ -112,9 +112,9 @@
     // position: relative;
     background-color: white;
     width: 100%;
-    padding: 2px 5px 10px;
+    padding: 2px 5px 0px;
     // border-radius: 10px;
-    height: calc(100vh - 33px);
+    height: calc(100vh - 40px);
     overflow: scroll;
     .bottomTitle {
       // position: fixed;
@@ -125,8 +125,8 @@
       color: rgb(195, 195, 195);
       text-align: center;
       font-size: 12px;
-      height: 30px;
-      line-height: 30px;
+      height: 20px;
+      line-height: 20px;
     }
   }
 }
