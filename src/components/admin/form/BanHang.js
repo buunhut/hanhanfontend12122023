@@ -201,7 +201,13 @@ const BanHang = () => {
         if (giaBan[spId] !== undefined) {
             price = giaBan[spId];
         } else {
-            price = sanPham.giaBan;
+            if (sanPham.giaGiam > 0 && sanPham.giaGiam < sanPham.giaBan) {
+                price = sanPham.giaGiam
+            } else {
+                price = sanPham.giaBan;
+
+
+            }
         }
         let data = {
             pId: +phieuXuatActi,
@@ -260,7 +266,7 @@ const BanHang = () => {
                         handleXuatHang(sanPham)
                     }
                     // setSearch(false)
-                    // setKeyword('')
+                    setKeyword('')
                 }
                 dispath(updateSanPhamByShop(res.data.content));
                 // setSanPhamByShop(res.data.content)
@@ -413,7 +419,8 @@ const BanHang = () => {
                                                                 value={
                                                                     giaBan[spId] !== undefined
                                                                         ? giaBan[spId].toLocaleString()
-                                                                        : sanPham.giaBan?.toLocaleString() || ''
+                                                                        : sanPham.giaGiam > 0 && sanPham.giaGiam < sanPham.giaBan ? sanPham.giaGiam.toLocaleString() :
+                                                                            sanPham.giaBan?.toLocaleString() || ''
                                                                 }
                                                                 onChange={(event) =>
                                                                     handleChangeGiaBan(event, spId)
