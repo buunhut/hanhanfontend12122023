@@ -115,7 +115,7 @@
     padding: 2px 5px 0px;
     // border-radius: 10px;
     height: calc(100vh - 40px);
-    overflow: scroll;
+    // overflow: scroll;
     .bottomTitle {
       // position: fixed;
       // bottom: 0;
@@ -129,4 +129,9 @@
       line-height: 20px;
     }
   }
+}
+
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  color: white;
 }

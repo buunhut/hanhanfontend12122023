@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogout } from '../../redux/dangNhapSlice'
-import { message } from 'antd'
+import { Popconfirm, message } from 'antd'
 import './homepage.scss'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { capitalizeFirstLetter } from '../../service/functions'
@@ -68,7 +68,17 @@ const HomePage = () => {
                 <div className="effect">
                     <p>Xin chào: {user.tenShop}</p>
                     <div className="logOut">
-                        <i className="fa-solid fa-arrow-right-from-bracket" onClick={handleDangXuat}></i>
+                        <Popconfirm
+                            placement="left"
+                            title={'Đăng xuất'}
+                            description={'Bạn có chắc muốn đăng xuất?'}
+                            okText="Có"
+                            cancelText="Không"
+                            onConfirm={handleDangXuat}
+                        >
+                            <i className="fa-solid fa-arrow-right-from-bracket"></i>
+
+                        </Popconfirm>
                     </div>
                 </div>
             </div>
