@@ -68,6 +68,9 @@ const NhapHang = () => {
         } else if (event.key === 'ArrowRight') {
             setKeyword((preState) => preState + ' ')
             setSearch(true)
+        } else if (event.key === 'Escape') {
+            setKeyword('')
+            setSearch(false)
         }
     };
 
