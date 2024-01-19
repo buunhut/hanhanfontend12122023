@@ -9,16 +9,24 @@ import SanPhamByDanhMuc from './SanPhamByDanhMuc';
 import { updateKeyword } from '../../redux/sanPhamSlice';
 
 const DanhMuc = () => {
-
-    const { listSanPhamByDanhMuc } = useSelector((state) => state.danhMuc)
+    const { sId } = useSelector((state) => state.sanPham)
+    let { listSanPhamByDanhMuc } = useSelector((state) => state.danhMuc)
     // console.log(listSanPhamByDanhMuc)
+    const [danhMuc, setDanhMuc] = useState([])
+
     const dispath = useDispatch()
     useEffect(() => {
         usersApi.apiGetSanPhamByDanhMuc().then((res) => {
             dispath(updateListSanPhamByDanhMuc(res.data.content))
         })
         dispath(updateKeyword(''))
+        const data = listSanPhamByDanhMuc.filter(item => item.sId === sId)
+        setDanhMuc(data)
     }, [])
+    useEffect(() => {
+        const data = listSanPhamByDanhMuc.filter(item => item.sId === sId)
+        setDanhMuc(data)
+    }, [sId, listSanPhamByDanhMuc])
 
 
 
@@ -29,7 +37,7 @@ const DanhMuc = () => {
                 <Tabs
                     tabPosition='top'
                     items={
-                        listSanPhamByDanhMuc?.map((item, index) => {
+                        danhMuc?.map((item, index) => {
                             const { tenDanhMuc, hinhAnh, sanPham } = item
                             return {
                                 label: (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { usersApi } from '../../api/usersApi'
 import { updateListSanPhamByThuongHieu } from '../../redux/danhMucSlice'
@@ -9,8 +9,14 @@ import './thuonghieu.scss'
 import { updateKeyword } from '../../redux/sanPhamSlice'
 
 const ThuongHieu = () => {
-    const { listSanPhamByThuongHieu } = useSelector((state) => state.danhMuc)
+    const { sId } = useSelector((state) => state.sanPham)
+
+    let { listSanPhamByThuongHieu } = useSelector((state) => state.danhMuc)
     // console.log(listSanPhamByThuongHieu)
+    const [thuongHieu, setThuongHieu] = useState([])
+
+    console.log(thuongHieu)
+
     const dispath = useDispatch()
     useEffect(() => {
         usersApi.apiGetSanPhamByThuongHieu().then((res) => {
@@ -19,13 +25,18 @@ const ThuongHieu = () => {
         dispath(updateKeyword(''))
 
     }, [])
+    useEffect(() => {
+        const data = listSanPhamByThuongHieu.filter(item => item.sId === sId)
+        setThuongHieu(data)
+
+    }, [sId, listSanPhamByThuongHieu])
 
     // console.log(listSanPhamByThuongHieu)
     // Tạo một đối tượng để lưu trữ thông tin theo tên thương hiệu
     const groupedData = {};
 
     // Duyệt qua mảng và gộp thông tin theo tên thương hiệu
-    listSanPhamByThuongHieu.forEach(item => {
+    thuongHieu.forEach(item => {
         const { tenThuongHieu, hinhAnh, sanPham } = item;
 
         if (!groupedData[tenThuongHieu]) {
@@ -45,7 +56,7 @@ const ThuongHieu = () => {
     const finalResult = Object.values(groupedData);
 
     // Hiển thị kết quả
-    // console.log(finalResult);
+    console.log(finalResult);
 
 
     return (
