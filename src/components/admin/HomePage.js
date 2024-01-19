@@ -24,7 +24,7 @@ const HomePage = () => {
         navigate('/quan-ly')
 
     }
-    const [smallSizeMenu, setSmallSizeMenu] = useState(false)
+    const [smallSizeMenu, setSmallSizeMenu] = useState(true)
 
     // const [soLuongDonHang, setSoLuongDonHang] = useState(0)
 
