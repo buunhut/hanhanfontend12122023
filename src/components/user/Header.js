@@ -6,7 +6,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { giamSoLuong, resetGioHang, tangSoLuong, xoaDatHang } from "../../redux/gioHangSlice";
 import { URL, capitalizeFirstLetter } from "../../service/functions";
 import { callApi } from "../../api/callApi";
-import { updateKeyword, updateSanPham } from "../../redux/sanPhamSlice";
+import { updateKeyword, updateSId, updateSanPham } from "../../redux/sanPhamSlice";
 import { usersApi } from "../../api/usersApi";
 import * as moment from 'moment';
 import { updateDiemTichLuy, updateListCauHinhByShop, updateListOrderByShop } from "../../redux/orderSlice";
@@ -394,6 +394,11 @@ const Header = () => {
         })
     }
 
+    const handleChangeShop = (event) => {
+        const { value } = event.target
+        dispath(updateSId(+value))
+    }
+
 
 
     return (
@@ -403,8 +408,11 @@ const Header = () => {
                     <div className="contentMenu">
                         <div className="topItem">
                             <i className="fa-solid fa-location-dot"></i>
-                            <p>Bách hoá HÂN HÂN</p>
-                            <i className="fa-solid fa-caret-down"></i>
+                            <select onChange={handleChangeShop}>
+                                <option value="1">Bách hoá Hân Hân</option>
+                                <option value="2">Bách hoá Thuận Phát</option>
+                            </select>
+                            {/* <i className="fa-solid fa-caret-down"></i> */}
                         </div>
                         <div className="topItem">
                             <div className="inputItem">

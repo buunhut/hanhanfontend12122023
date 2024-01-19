@@ -21,7 +21,7 @@ export const sanPhamSlice = createSlice({
         timKiem: (state) => {
             console.log("thêm giỏ hàng")
         },
-        updataSId: (state, action) => {
+        updateSId: (state, action) => {
             return {
                 ...state,
                 sId: action.payload
@@ -67,5 +67,5 @@ export const sanPhamSlice = createSlice({
 
     }
 })
-export const { timKiem, updateSanPham, updateSanPhamTimKiem, updateSanPhamByShop, updateDmId, updateThId, updateKeyword } = sanPhamSlice.actions;
+export const { timKiem, updateSanPham, updateSanPhamTimKiem, updateSanPhamByShop, updateDmId, updateThId, updateKeyword, updateSId } = sanPhamSlice.actions;
 export default sanPhamSlice.reducer

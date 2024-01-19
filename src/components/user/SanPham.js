@@ -19,8 +19,22 @@ const SanPham = () => {
     const [shuffledList, setShuffledList] = useState([]);
 
     useEffect(() => {
+        const data = listSanPham.filter((item) => item.sId === sId)
+        const shuffledArray = [...data].sort(() => Math.random() - 0.5);
+        setShuffledList(shuffledArray);
+
+        
+
+
+    }, [sId])
+
+
+
+    useEffect(() => {
+        let data = listSanPham.filter((item) => item.sId === sId)
         // Thực hiện xáo trộn mảng khi component được render lần đầu tiên
-        const shuffledArray = [...listSanPham].sort(() => Math.random() - 0.5);
+
+        const shuffledArray = [...data].sort(() => Math.random() - 0.5);
         setShuffledList(shuffledArray);
     }, [listSanPham]); // Chỉ chạy khi listSanPham thay đổi
 

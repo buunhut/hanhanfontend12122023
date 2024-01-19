@@ -14,6 +14,13 @@ header {
         a {
           margin-top: 0;
         }
+        select {
+          width: auto;
+          height: 20px;
+          background-color: red;
+          color: white;
+          font-weight: 500;
+        }
 
         .inputItem {
           width: 100%;
@@ -634,3 +641,12 @@ header {
     //   }
   }
 }
+
+// /* Custom CSS */
+// .custom-select.ant-select-focused .ant-select-selector {
+//   box-shadow: none;
+// }
+
+// .custom-select.ant-select-focused .ant-select-selector:hover {
+//   border-color: red;
+// }
