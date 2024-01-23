@@ -678,7 +678,7 @@ const Header = () => {
                                 }
                             </>
                         ) : (
-                            <NavLink to={'/'} onClick={onClose}>
+                            <NavLink to={'/'} onClick={onClose} style={{ width: '100%' }}>
                                 <button type="button">Tiếp tục mua sắm</button>
                             </NavLink>
                         )}
