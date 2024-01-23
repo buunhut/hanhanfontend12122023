@@ -19,9 +19,9 @@ const TrangChu = () => {
         } else {
             setShow(true);
         }
-        if (currentScrollY === 0) {
-            setShow(true);
-        }
+        // if (currentScrollY === 0) {
+        //     setShow(true);
+        // }
         setPrevScrollY(currentScrollY);
     };
 
