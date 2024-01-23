@@ -15,7 +15,7 @@ const ThuongHieu = () => {
     // console.log(listSanPhamByThuongHieu)
     const [thuongHieu, setThuongHieu] = useState([])
 
-    console.log(thuongHieu)
+    // console.log(thuongHieu)
 
     const dispath = useDispatch()
     useEffect(() => {
@@ -56,7 +56,7 @@ const ThuongHieu = () => {
     const finalResult = Object.values(groupedData);
 
     // Hiển thị kết quả
-    console.log(finalResult);
+    // console.log(finalResult);
 
 
     return (
