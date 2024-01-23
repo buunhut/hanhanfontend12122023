@@ -61,7 +61,7 @@ header {
           width: 60px;
           // text-align: center;
           position: relative;
-          z-index: 602;
+          z-index: 1600;
           cursor: pointer;
           i {
             color: white;
@@ -77,6 +77,9 @@ header {
             font-size: 12px;
             font-weight: 400;
             border-radius: 5px;
+            &:hover {
+              color: royalblue;
+            }
           }
         }
         i {
@@ -90,9 +93,9 @@ header {
 #gioHang {
   height: 100vh;
   overflow: hidden;
-  position: relative;
-  width: 500px;
-  z-index: 600;
+  // position: relative;
+  // width: 500px;
+  // z-index: 600;
 
 
   // .overlay {

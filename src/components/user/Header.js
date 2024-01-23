@@ -175,6 +175,7 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     const showDrawer = () => {
+        console.log('first')
         if (user) {
             // console.log("first")
             usersApi.apiGetVi(headers).then((res) => {
