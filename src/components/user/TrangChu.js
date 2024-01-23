@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
+import BackToTop from "./BackToTop";
 
 const TrangChu = () => {
     const [show, setShow] = useState(true);
@@ -53,6 +54,7 @@ const TrangChu = () => {
 
                 ) : (null)
             }
+            <BackToTop />
             <div id="overlay" className="none">
 
             </div>
