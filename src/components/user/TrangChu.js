@@ -11,18 +11,14 @@ const TrangChu = () => {
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY || window.pageYOffset;
-
-        // console.log(currentScrollY)
-
-        if (currentScrollY >= prevScrollY) {
+        setPrevScrollY(currentScrollY);
+        if (currentScrollY === 0) {
+            setShow(true);
+        } else if (currentScrollY >= prevScrollY) {
             setShow(false);
         } else {
             setShow(true);
         }
-        // if (currentScrollY === 0) {
-        //     setShow(true);
-        // }
-        setPrevScrollY(currentScrollY);
     };
 
     useEffect(() => {
