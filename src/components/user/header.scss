@@ -384,12 +384,14 @@ header {
           .inputItem {
             border: none;
             p {
-              width: 115px;
+              width: 100%;
               color: red;
-              font-size: 15px;
+              font-size: 16px;
               font-weight: 500;
               &:last-child {
                 text-align: right;
+                font-size: 16px;
+                font-weight: 500;
               }
             }
           }
@@ -397,7 +399,7 @@ header {
         a {
           color: white;
           margin: 0;
-          width: 100%;
+          width: 180px;
           button {
             margin: 0;
             width: 100%;
