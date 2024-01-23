@@ -61,6 +61,7 @@ header {
           width: 60px;
           // text-align: center;
           position: relative;
+          z-index: 1602;
           cursor: pointer;
           i {
             color: white;
@@ -87,21 +88,24 @@ header {
 }
 
 #gioHang {
-  max-height: 100vh;
+  height: 100vh;
   overflow: scroll;
   // position: relative;
   // width: 500px;
-  z-index: 600;
+  // z-index: 600;
 
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 601;
-  }
+
+  // .overlay {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   width: 100%;
+  //   background-color: rgba(0, 0, 0, 0.8);
+  //   z-index: 601;
+  //   height: 100vh;
+  // }
   #gioHangContent {
     width: 0;
     display: none;

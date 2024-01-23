@@ -53,6 +53,9 @@ const TrangChu = () => {
 
                 ) : (null)
             }
+            <div id="overlay" className="none">
+
+            </div>
 
         </div>
     );

@@ -183,11 +183,18 @@ const Header = () => {
             })
         }
         setOpen(true);
+        document.body.style.overflow = 'hidden';
+        document.getElementById('overlay').classList.remove('none')
 
+        //khoá window scroll
     };
 
     const onClose = () => {
         setOpen(false);
+        document.body.style.overflow = 'auto';
+        document.getElementById('overlay').classList.add('none')
+
+
     };
 
     const dispath = useDispatch()
@@ -447,12 +454,12 @@ const Header = () => {
                 </div>
             </header>
             <div id="gioHang" >
-                {
+                {/* {
                     open ? (
                         <div className="overlay" onClick={onClose}></div>
                     )
                         : (null)
-                }
+                } */}
                 <div id="gioHangContent" className={open ? 'show' : ''}>
                     <div className="title">
                         <i className="fa-solid fa-xmark" onClick={onClose}></i>
